@@ -4,61 +4,51 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private enum movePositions { right, left, up, down };
-    private enum Speed { still, starting, moving };
-    private movePositions direction;
-    private Speed animationSpeed;
+    public Vector3 rawVelocity;
 
-    public Vector3 rawSpeed;
+    public float maxSpeed = 0.3f;
 
-    public float maxSpeed = 0.5f;
+    public float minSpeed = 0.07f;
+    public float friction = 4f;
 
-    public float minSpeed = 0.03f;
-    public float friction = 1.5f;
-
-    public float acceleration = 0.8f;
+    public float acceleration = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        rawSpeed = Vector3.zero;
+        rawVelocity = Vector3.zero;
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float rawUp = acceleration * Input.GetAxisRaw("Vertical");
-        float rawRight = acceleration * Input.GetAxisRaw("Horizontal");
+        Vector3 rawMovement = acceleration * Time.fixedDeltaTime * new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+        rawVelocity += rawMovement;
+        if (rawMovement.x == 0)
+        {
+            if (Mathf.Abs(rawVelocity.x) < minSpeed)
+            {
+                rawVelocity.x = 0;
+            }
+            else
+            {
+                rawVelocity.x -= Mathf.Sign(rawVelocity.x) * friction * Time.fixedDeltaTime;
+            }
+        }
+        if (rawMovement.y == 0)
+        {
+            if (Mathf.Abs(rawVelocity.y) < minSpeed)
+            {
+                rawVelocity.y = 0;
+            }
+            else
+            {
+                rawVelocity.y -= Mathf.Sign(rawVelocity.y) * friction * Time.fixedDeltaTime;
+            }
+        }
+        rawVelocity = Vector3.ClampMagnitude(rawVelocity, maxSpeed);
 
-        if (rawUp != 0f && !(rawSpeed.y*rawUp<0))
-        {
-            rawSpeed.y += rawUp * Time.fixedDeltaTime;
-        }
-        else if (Mathf.Abs(rawSpeed.y) > minSpeed)
-        {
-            rawSpeed.y -= Mathf.Sign(rawSpeed.y) * friction * Time.fixedDeltaTime;
-        }
-        else
-        {
-            rawSpeed.y = 0;
-        }
-
-
-        if (rawRight != 0f && !(rawSpeed.x*rawRight<0))
-        {
-            rawSpeed.x += rawRight * Time.fixedDeltaTime;
-        }
-        else if (Mathf.Abs(rawSpeed.x) > minSpeed)
-        {
-            rawSpeed.x -= Mathf.Sign(rawSpeed.x) * friction * Time.fixedDeltaTime;
-        }
-        else
-        {
-            rawSpeed.x = 0;
-        }
-
-        rawSpeed = new Vector3(Mathf.Clamp(rawSpeed.x, -maxSpeed, maxSpeed), Mathf.Clamp(rawSpeed.y, -maxSpeed, maxSpeed),0);
-        transform.position += rawSpeed;
+        transform.position += rawVelocity;
     }
 }
