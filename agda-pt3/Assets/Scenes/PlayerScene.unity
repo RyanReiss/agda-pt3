@@ -216,10 +216,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f808be4f8eff438e858a616302590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0.1
+  mode: 3
+  minSpeed: 0.3
   minDisplacement: 0.1
-  elasticSpeed: 0.4
+  elasticSpeed: 0.3
   elasticRamp: 1.4
+  stickyPosition: {x: 0, y: 0, z: 0}
+  stickyRadius: 7
+  stickySpeed: 5
 --- !u!1 &1878416105
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,8 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7dab25185be454fb0ca0f9b034b3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawVelocity: {x: 0, y: 0, z: 0}
-  maxSpeed: 0.3
-  minSpeed: 0.07
-  friction: 4
-  acceleration: 5
+  velocity: {x: 0, y: 0, z: 0}
+  maxSpeed: 12
+  minSpeed: 1
+  friction: 100
+  acceleration: 150

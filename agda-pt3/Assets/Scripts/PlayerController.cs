@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Vector3 rawVelocity;
+    public Vector3 velocity;
 
     public float maxSpeed = 0.3f;
 
@@ -16,39 +16,39 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rawVelocity = Vector3.zero;
-
+        velocity = Vector3.zero;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 rawMovement = acceleration * Time.fixedDeltaTime * new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-        rawVelocity += rawMovement;
-        if (rawMovement.x == 0)
+        Vector3 currentMovement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+        currentMovement *= acceleration * Time.fixedDeltaTime;
+        velocity += currentMovement;
+        if (currentMovement.x == 0) // If we are coasting in x direction
         {
-            if (Mathf.Abs(rawVelocity.x) < minSpeed)
+            if (Mathf.Abs(velocity.x) < minSpeed) // if we are almost stopped
             {
-                rawVelocity.x = 0;
+                velocity.x = 0; // stop completely
             }
             else
             {
-                rawVelocity.x -= Mathf.Sign(rawVelocity.x) * friction * Time.fixedDeltaTime;
+                velocity.x -= Mathf.Sign(velocity.x) * friction * Time.fixedDeltaTime; // Slow down by constant friction
             }
         }
-        if (rawMovement.y == 0)
+        if (currentMovement.y == 0) // If we are coasting in y direction
         {
-            if (Mathf.Abs(rawVelocity.y) < minSpeed)
+            if (Mathf.Abs(velocity.y) < minSpeed) // if we are almost stopped
             {
-                rawVelocity.y = 0;
+                velocity.y = 0; // stop completely
             }
             else
             {
-                rawVelocity.y -= Mathf.Sign(rawVelocity.y) * friction * Time.fixedDeltaTime;
+                velocity.y -= Mathf.Sign(velocity.y) * friction * Time.fixedDeltaTime; // Slow down by constant friction
             }
         }
-        rawVelocity = Vector3.ClampMagnitude(rawVelocity, maxSpeed);
+        velocity = Vector3.ClampMagnitude(velocity, maxSpeed); // Don't go faster than max speed
 
-        transform.position += rawVelocity;
+        transform.position += velocity*Time.fixedDeltaTime; // Move by velocity
     }
 }
