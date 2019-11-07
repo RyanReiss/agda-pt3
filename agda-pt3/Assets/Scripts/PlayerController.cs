@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Vector3 velocity;
+    public Vector3 velocity = Vector3.zero;
 
     public float maxSpeed = 0.3f;
 
@@ -12,14 +12,11 @@ public class PlayerController : MonoBehaviour
     public float friction = 4f;
 
     public float acceleration = 5f;
-
-    // Start is called before the first frame update
     void Start()
     {
-        velocity = Vector3.zero;
     }
 
-    // Update is called once per frame
+    // FixedUpdate is called at fixed intervals, usually every other frame
     void FixedUpdate()
     {
         Vector3 currentMovement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);

@@ -216,14 +216,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f808be4f8eff438e858a616302590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 3
+  mode: 0
   minSpeed: 0.3
   minDisplacement: 0.1
   elasticSpeed: 0.3
   elasticRamp: 1.4
   stickyPosition: {x: 0, y: 0, z: 0}
   stickyRadius: 7
-  stickySpeed: 5
+  stickySpeed: 16
 --- !u!1 &1878416105
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +235,8 @@ GameObject:
   - component: {fileID: 1878416107}
   - component: {fileID: 1878416106}
   - component: {fileID: 1878416108}
+  - component: {fileID: 1878416110}
+  - component: {fileID: 1878416109}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -280,12 +282,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ef7c2fc2ec216734fbcdfd5f863f9ea6, type: 3}
+  m_Sprite: {fileID: -7433209697699349077, guid: a10bea13a55deff4b97adc4bc70952ef,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.04, y: 0.04}
+  m_Size: {x: 0.74, y: 1.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -322,3 +325,43 @@ MonoBehaviour:
   minSpeed: 1
   friction: 100
   acceleration: 150
+--- !u!95 &1878416109
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878416105}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a19c3a75a513f304e8a45716307cfacd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &1878416110
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878416105}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
