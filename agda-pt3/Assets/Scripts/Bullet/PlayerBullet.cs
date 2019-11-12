@@ -21,6 +21,5 @@ public class PlayerBullet : MonoBehaviour
     {
         transform.position += transform.up.normalized * Time.deltaTime * bulletSpeed;
         Destroy(this.gameObject, 5.0f);
-        
     }
 }

@@ -12,14 +12,12 @@ public class PlayerController : MonoBehaviour
     public float friction = 4f;
 
     public float acceleration = 5f;
-
-    public Transform muzzle;   //player's bullet
-    GameObject bulletPrefab;
-    float intervalBullet;   //the interval time of shooting a bullet
+    
+    public PlayerGun gun; // The current gun being used by the player
 
     void Start()
     {
-        bulletPrefab = Resources.Load("Prefabs/Bullet/PlayerBullet") as GameObject;
+        
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame
@@ -27,7 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         PlayerRotate();
-        PlayerShoot();
+        gun.FireGun();
     }
 
     void Movement()
@@ -70,26 +68,5 @@ public class PlayerController : MonoBehaviour
         direction.z = 0f;    //set z axis is zero
         direction = direction.normalized;   //set the unit for direction
         transform.up = direction;
-    }
-
-    void PlayerShoot()
-    {
-        intervalBullet -= Time.deltaTime;
-        if (intervalBullet <= 0 && Input.GetMouseButton(0)) //if player click left mouse
-        {
-            intervalBullet = 1.0f; //the player have a second reloading time
-            Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
-        }
-
-        //if (intervalBullet <= 0 && Input.GetMouseButton(1)) //if player click right mouse
-        //{
-        //    intervalBullet = 2.0f; //the player have a second reloading time
-        //    for (int i = 0; i <= 5; i++)
-        //    {
-        //        Instantiate(bulletPrefab, muzzle.position, Quaternion.Euler(0, 130 + (20 * i), 0));
-        //    }
-            
-        //}
-
     }
 }
