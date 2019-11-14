@@ -13,11 +13,11 @@ public class PlayerController : MonoBehaviour
 
     public float acceleration = 5f;
     
-    public PlayerGun gun; // The current gun being used by the player
+    private PlayerGun gun; // The current gun being used by the player
 
     void Start()
     {
-        
+        gun = gameObject.GetComponentInChildren<PlayerGun>();
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame
