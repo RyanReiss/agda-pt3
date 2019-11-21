@@ -11,7 +11,6 @@ public class KatanaBlade : Bullet
     {
         // bulletSpeed = 20f;
         damageToGive = 5.0f;
-        
     }
 
     void FixedUpdate()

@@ -24,8 +24,8 @@ public class Katana : Melee
         timeUnitlDisabled = 0;
     }
 
-    void FixedUpdate()
-    {
+
+    public override void UpdateWeapon(){
         timeCount += Time.deltaTime;
         // Disable the blade if its enabled in the heirarchy and the timeUntilDisabled is less than the current time 
         if(blade.gameObject.activeSelf){
@@ -35,6 +35,7 @@ public class Katana : Melee
             }
         }
         // aBlade.transform.RotateAround(spawnPos.position, new Vector3(0, 0, 1), Time.deltaTime * 20);
+        Attack();
     }
 
     // Fires the player's gun if Left Mouse-Button is pressed

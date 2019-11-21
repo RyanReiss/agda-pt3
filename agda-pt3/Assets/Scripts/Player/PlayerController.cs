@@ -10,14 +10,16 @@ public class PlayerController : MonoBehaviour
     public float friction = 4f;
     public float acceleration = 5f;
     public Weapon gun; // The current gun being used by the player
+    private GameObject weaponSystem;
     // public Melee melee;
 
     void Start()
     {
-        gun = gameObject.GetComponentInChildren<Pistol>(true);
-        gameObject.GetComponentInChildren<AutoRifle>().gameObject.SetActive(false);
-        gameObject.GetComponentInChildren<ShotGun>().gameObject.SetActive(false);
-        gameObject.GetComponentInChildren<Katana>().gameObject.SetActive(false);
+        weaponSystem = gameObject.transform.Find("WeaponSystem").gameObject;
+        gun = weaponSystem.GetComponentInChildren<Pistol>(true);
+        weaponSystem.GetComponentInChildren<AutoRifle>().gameObject.SetActive(false);
+        weaponSystem.GetComponentInChildren<ShotGun>().gameObject.SetActive(false);
+        weaponSystem.GetComponentInChildren<Katana>().gameObject.SetActive(false);
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour
         SelectGun();
         Movement();
         PlayerRotate();
-        gun.Attack();
+        gun.UpdateWeapon();
     }
 
     void Movement()
@@ -68,33 +70,33 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = mouse - obj;  //get the direction between the mouse position and the player's position
         direction.z = 0f;    //set z axis is zero
         direction = direction.normalized;   //set the unit for direction
-        transform.up = direction;
+        weaponSystem.transform.up = direction;
     }
 
     void SelectGun()
     {
         if (Input.GetKey("1")){
             gun.gameObject.SetActive(false);
-            gun = gameObject.GetComponentInChildren<Pistol>(true);
+            gun = weaponSystem.GetComponentInChildren<Pistol>(true);
             gun.gameObject.SetActive(true);
             //Debug.Log("Swapped Gun");
         }
         else if (Input.GetKey("2")){
             gun.gameObject.SetActive(false);
-            gun = gameObject.GetComponentInChildren<AutoRifle>(true);
+            gun = weaponSystem.GetComponentInChildren<AutoRifle>(true);
             gun.gameObject.SetActive(true);
             //Debug.Log("Swapped Gun");
         }
         else if (Input.GetKey("3")){
             gun.gameObject.SetActive(false);
-            gun = gameObject.GetComponentInChildren<ShotGun>(true);
+            gun = weaponSystem.GetComponentInChildren<ShotGun>(true);
             gun.gameObject.SetActive(true);
             //Debug.Log("Swapped Gun");
         }
         else if (Input.GetKey("4"))
         {
             gun.gameObject.SetActive(false);
-            gun = gameObject.GetComponentInChildren<Katana>(true);
+            gun = weaponSystem.GetComponentInChildren<Katana>(true);
             gun.gameObject.SetActive(true);
             //Debug.Log("Swapped Gun");
         }

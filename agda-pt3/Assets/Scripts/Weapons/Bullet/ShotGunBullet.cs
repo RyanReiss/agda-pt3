@@ -24,6 +24,7 @@ public class ShotGunBullet : Bullet
 
     public override void OnTriggerEnter2D(Collider2D col)
     {
+        Start(); // Added in case OnTriggerEnter2D is called before start is called
         if (col.gameObject.GetComponent<Health>() != null)
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);

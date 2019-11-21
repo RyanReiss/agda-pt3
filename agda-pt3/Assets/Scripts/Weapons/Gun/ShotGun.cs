@@ -2,25 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotGun : Gun
+public class ShotGun : ReloadableGun
 {
     // Start is called before the first frame update
     float timeCount = 0f;
     void Start()
     {
-        fireRate = 1f;
-    }
+        fireRate = 0.75f;
 
-    void FixedUpdate()
-    {
-        timeCount += Time.deltaTime;
+        //Ammo System init
+        maxClipSize = 4;
+        currentClip = maxClipSize;
+        maxAmmo = 80;
+        currentAmmoStored = 40;
+        msReloadTime = 3000f; //1 second reload time
+    }
+    public override void UpdateWeapon() {
+        if(Input.GetKeyDown(KeyCode.R)){
+            ReloadGun();
+        }
+        Attack();
     }
 
     // Fires the player's gun if Left Mouse-Button is pressed
     public override void Attack() 
     {
-        if (timeCount >= fireRate && Input.GetMouseButton(0))
+        timeCount += Time.deltaTime;
+        if (timeCount >= fireRate && Input.GetMouseButton(0) && !isReloading && currentClip > 0)
         {//if player clicks left mouse or there is a bullet queued
+            //Deal with Ammo System
+            currentClip--;
+            if(currentClip <= 0){
+                ReloadGun();
+            }
             for (int i = 0; i < 6; i++)
             {
                 GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;

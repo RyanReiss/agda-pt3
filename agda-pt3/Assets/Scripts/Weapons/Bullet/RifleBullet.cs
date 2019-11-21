@@ -25,6 +25,7 @@ public class RifleBullet : Bullet
 
     public override void OnTriggerEnter2D(Collider2D col)
     {
+        Start();
         if (col.gameObject.GetComponent<Health>() != null)
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);

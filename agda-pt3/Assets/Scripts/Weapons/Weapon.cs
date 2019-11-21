@@ -8,4 +8,5 @@ public abstract class Weapon : MonoBehaviour
     public Transform spawnPos;
 
     public abstract void Attack();
+    public abstract void UpdateWeapon();
 }

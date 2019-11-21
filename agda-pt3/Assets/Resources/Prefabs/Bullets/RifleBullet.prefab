@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4922808249713600868}
   - component: {fileID: 6981890148536840617}
   - component: {fileID: 3415060686262803101}
-  - component: {fileID: -6354841971824305810}
+  - component: {fileID: 9066059256475703337}
   m_Layer: 0
   m_Name: RifleBullet
   m_TagString: Untagged
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86053db9012b19743a952cacd0c376f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &-6354841971824305810
-BoxCollider2D:
+--- !u!58 &9066059256475703337
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,15 +108,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.50000006

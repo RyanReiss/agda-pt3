@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class Gun : Weapon 
 {
-    // Start is called before the first frame update
+    //Prefab for the bullet that is shot out of the gun
     public GameObject bulletPrefab;
 }
