@@ -80,15 +80,15 @@ public class Laser : ReloadableGun
         if (raycastHit)
         {
             line.SetPosition(1, raycastHit.point);
-            LLHitEffectLeft.transform.position = raycastHit.point;
-            LLHitEffectRight.transform.position = raycastHit.point;
+            hitEffectLeft.transform.position = raycastHit.point;
+            hitEffectRight.transform.position = raycastHit.point;
         }
 
         else
         {
             line.SetPosition(1, lineEndPoint.position);
-            LLHitEffectLeft.transform.position = lineEndPoint.position;
-            LLHitEffectRight.transform.position = lineEndPoint.position;
+            hitEffectLeft.transform.position = lineEndPoint.position;
+            hitEffectRight.transform.position = lineEndPoint.position;
         }
 
     }
