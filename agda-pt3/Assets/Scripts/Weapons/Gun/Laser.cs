@@ -11,8 +11,8 @@ public class Laser : ReloadableGun
     float weaponRange = 10;
     public LineRenderer line;
     public Transform lineEndPoint;
-    public ParticleSystem hitEffectLeft;
-    public ParticleSystem hitEffectRight;
+    public ParticleSystem hitEffect;
+    
 
     void Start()
     {
@@ -80,15 +80,15 @@ public class Laser : ReloadableGun
         if (raycastHit)
         {
             line.SetPosition(1, raycastHit.point);
-            hitEffectLeft.transform.position = raycastHit.point;
-            hitEffectRight.transform.position = raycastHit.point;
+            hitEffect.transform.position = raycastHit.point;
+            
         }
 
         else
         {
             line.SetPosition(1, lineEndPoint.position);
-            hitEffectLeft.transform.position = lineEndPoint.position;
-            hitEffectRight.transform.position = lineEndPoint.position;
+            hitEffect.transform.position = lineEndPoint.position;
+         
         }
 
     }
