@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //In progess
-public  class WeaponStat : Gun
+public class WeaponStat : Gun
 {
     //A class that manage statistics of weapons
     float weaponRange;
@@ -11,5 +11,14 @@ public  class WeaponStat : Gun
     float fireRate;
     float reloadTime;
     float velocicy;
-  
+
+    public override void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void UpdateWeapon()
+    {
+        throw new System.NotImplementedException();
+    }
 }

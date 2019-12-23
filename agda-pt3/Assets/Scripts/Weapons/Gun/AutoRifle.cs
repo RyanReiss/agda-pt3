@@ -11,7 +11,7 @@ public class AutoRifle : ReloadableGun
     {
         //Loads bullet prefab
         fireRate = 0.15f;
-        bulletPrefab = Resources.Load("Prefabs/Bullets/RifleBullet") as GameObject;
+        // bulletPrefab = Resources.Load("Prefabs/Bullets/RifleBullet") as GameObject;
 
         // Ammo init
         maxClipSize = 20;

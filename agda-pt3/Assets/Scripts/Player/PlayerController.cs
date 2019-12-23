@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey("4"))
         {
             gun.gameObject.SetActive(false);
-            gun = weaponSystem.GetComponentInChildren<Katana>(true);
+            gun = weaponSystem.GetComponentInChildren<FlameThrower>(true);
             gun.gameObject.SetActive(true);
             //Debug.Log("Swapped Gun");
         }
