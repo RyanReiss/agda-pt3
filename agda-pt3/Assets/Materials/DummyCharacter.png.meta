@@ -1,58 +1,55 @@
 fileFormatVersion: 2
-guid: a10bea13a55deff4b97adc4bc70952ef
+guid: 4782ae9701c7ba643ab74f5603b254d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7433209697699349077
-    second: WalkingDummy_0
+      213: 7883002178781298132
+    second: DummyCharacter_0
   - first:
-      213: -6189100096144665329
-    second: WalkingDummy_1
+      213: 1618986162244966155
+    second: DummyCharacter_1
   - first:
-      213: 2206107777749379436
-    second: WalkingDummy_2
+      213: -461290744369372853
+    second: DummyCharacter_2
   - first:
-      213: 8272136560591728474
-    second: WalkingDummy_3
+      213: -605705752525890151
+    second: DummyCharacter_3
   - first:
-      213: 4182720431063338275
-    second: WalkingDummy_4
+      213: 6242379717651296385
+    second: DummyCharacter_4
   - first:
-      213: -6474829141679963245
-    second: WalkingDummy_5
+      213: 6385903571087227833
+    second: DummyCharacter_5
   - first:
-      213: -4812504799017698833
-    second: WalkingDummy_6
+      213: -2683969779364965943
+    second: DummyCharacter_6
   - first:
-      213: 6372185935662907229
-    second: WalkingDummy_7
+      213: 7068135880285938237
+    second: DummyCharacter_7
   - first:
-      213: -5435193908291722006
-    second: WalkingDummy_8
+      213: -2719826238806206161
+    second: DummyCharacter_8
   - first:
-      213: -6458014796023674817
-    second: WalkingDummy_9
+      213: 3100424988618088873
+    second: DummyCharacter_9
   - first:
-      213: 6858709867592258576
-    second: WalkingDummy_10
+      213: -3995424005253647090
+    second: DummyCharacter_10
   - first:
-      213: -8146861925049481598
-    second: WalkingDummy_11
+      213: 7824749388864553582
+    second: DummyCharacter_11
   - first:
-      213: 274564040085818747
-    second: WalkingDummy_12
+      213: 8785330319512131776
+    second: DummyCharacter_12
   - first:
-      213: -7995231911210916404
-    second: WalkingDummy_13
+      213: -8814003748130842954
+    second: DummyCharacter_13
   - first:
-      213: -6925496336223487903
-    second: WalkingDummy_14
+      213: -5268478520326953590
+    second: DummyCharacter_14
   - first:
-      213: 8801313314002023973
-    second: WalkingDummy_15
-  - first:
-      213: 6803939742388186867
-    second: WalkingDummy_16
+      213: -2556492326198814767
+    second: DummyCharacter_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -82,7 +79,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -96,8 +93,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 13, y: 148, z: 756, w: 0}
+  spritePixelsToUnits: 12
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -133,41 +130,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WalkingDummy_0
+      name: DummyCharacter_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 160
-        width: 74
-        height: 106
+        x: 0
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a62c1d079847124cb7c0ab089941c8c
-      internalID: -7433209697699349077
+      spriteID: f8c09150ed720da4cabf3bf9415f1256
+      internalID: 7883002178781298132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_1
+      name: DummyCharacter_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 146
-        width: 86
-        height: 120
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1d5e27998cc8b64cbdfef34eecbf57f
-      internalID: -6189100096144665329
+      spriteID: 91ede2743aa6dad449853e9cb23005b8
+      internalID: 1618986162244966155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_2
+      name: DummyCharacter_2
       rect:
         serializedVersion: 2
-        x: 218
-        y: 166
-        width: 106
-        height: 100
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 959dad87755c7534586c22c87c682a29
-      internalID: 2206107777749379436
+      spriteID: 5ab9493fe2476b54e8f01a651bb0b40b
+      internalID: -461290744369372853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_3
+      name: DummyCharacter_3
       rect:
         serializedVersion: 2
-        x: 338
-        y: 164
-        width: 92
-        height: 102
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ba8e4080bc4bdd4da7434e57b60cda6
-      internalID: 8272136560591728474
+      spriteID: 616f84926d9ffa54f8746d25e212ac44
+      internalID: -605705752525890151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_4
+      name: DummyCharacter_4
       rect:
         serializedVersion: 2
-        x: 452
-        y: 162
-        width: 78
-        height: 104
+        x: 0
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,20 +232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0a83a0d53085c64e8086e7e14d94245
-      internalID: 4182720431063338275
+      spriteID: 49e7e7902bc280e48a2519c3b50393ee
+      internalID: 6242379717651296385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_5
+      name: DummyCharacter_5
       rect:
         serializedVersion: 2
-        x: 554
-        y: 148
-        width: 82
-        height: 118
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +253,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53868b9987c667640962cd602c20e2cd
-      internalID: -6474829141679963245
+      spriteID: 57f4052e6b3464a4289085762bec730d
+      internalID: 6385903571087227833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_6
+      name: DummyCharacter_6
       rect:
         serializedVersion: 2
-        x: 652
-        y: 164
-        width: 100
-        height: 102
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d5c202c65173404692ef2076ab7e085
-      internalID: -4812504799017698833
+      spriteID: 737d92c47c35d1f4698a92e36a93339f
+      internalID: -2683969779364965943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_7
+      name: DummyCharacter_7
       rect:
         serializedVersion: 2
-        x: 770
-        y: 162
-        width: 92
-        height: 104
+        x: 48
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,20 +295,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1776e62f2dd365942a8dda9f94c03f78
-      internalID: 6372185935662907229
+      spriteID: 76dcd3a90edb6c14595477f6e990ec52
+      internalID: 7068135880285938237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_8
+      name: DummyCharacter_8
       rect:
         serializedVersion: 2
-        x: 2
-        y: 22
-        width: 92
-        height: 104
+        x: 0
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,20 +316,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d27345dd6873f9469374188ce6bf74d
-      internalID: -5435193908291722006
+      spriteID: f880908610aba2247bdc156aef931114
+      internalID: -2719826238806206161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_9
+      name: DummyCharacter_9
       rect:
         serializedVersion: 2
-        x: 112
-        y: 24
-        width: 100
-        height: 102
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,20 +337,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c538cf6155e6384bac95a9071122750
-      internalID: -6458014796023674817
+      spriteID: 1d14c59a0192281409c2920882185e94
+      internalID: 3100424988618088873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_10
+      name: DummyCharacter_10
       rect:
         serializedVersion: 2
-        x: 228
-        y: 8
-        width: 82
-        height: 118
+        x: 32
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,20 +358,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ed9a5f67aef1ba4ca86ce03be9db474
-      internalID: 6858709867592258576
+      spriteID: 5ea23a03aacf65d4d9e437b1fb2f06cc
+      internalID: -3995424005253647090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_11
+      name: DummyCharacter_11
       rect:
         serializedVersion: 2
-        x: 334
-        y: 22
-        width: 78
-        height: 104
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,20 +379,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70d5791eb547b4e4aa1e445b3e1c013f
-      internalID: -8146861925049481598
+      spriteID: 5f9004d7d872aaf439891ed1077de420
+      internalID: 7824749388864553582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_12
+      name: DummyCharacter_12
       rect:
         serializedVersion: 2
-        x: 434
-        y: 24
-        width: 92
-        height: 102
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,20 +400,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e16bdf28a9e0224488ddff8209eaa237
-      internalID: 274564040085818747
+      spriteID: a86adf8e80f472e4ab349f487376ee26
+      internalID: 8785330319512131776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_13
+      name: DummyCharacter_13
       rect:
         serializedVersion: 2
-        x: 540
-        y: 26
-        width: 106
-        height: 100
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,20 +421,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9b7f9528455935498b98c76937d2716
-      internalID: -7995231911210916404
+      spriteID: c0eef6567ad35ba4fa9d7de0f46d8398
+      internalID: -8814003748130842954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_14
+      name: DummyCharacter_14
       rect:
         serializedVersion: 2
-        x: 650
-        y: 6
-        width: 86
-        height: 120
+        x: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -469,20 +442,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80dfb4fd22c2b994cae6d2b25893241f
-      internalID: -6925496336223487903
+      spriteID: 67e133a9611dba647b6bf9b9e8025e7e
+      internalID: -5268478520326953590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingDummy_15
+      name: DummyCharacter_15
       rect:
         serializedVersion: 2
-        x: 762
-        y: 20
-        width: 74
-        height: 106
+        x: 48
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,29 +463,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16df4b19ef8eef04e95bef8c5dda1c74
-      internalID: 8801313314002023973
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkingDummy_16
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 11
-        width: 105
-        height: 124
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b83a1103c3088994bbcb3080ba6b811b
-      internalID: 6803939742388186867
+      spriteID: 3c9407055e00a8e49a5afcf4a1be4833
+      internalID: -2556492326198814767
       vertices: []
       indices: 
       edges: []

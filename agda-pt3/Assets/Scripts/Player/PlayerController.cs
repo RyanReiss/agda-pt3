@@ -11,10 +11,15 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 5f;
     public Weapon gun; // The current gun being used by the player
     private GameObject weaponSystem;
-    // public Melee melee;
+
+    //Animator variables
+    private Animator anim;
+    private Vector2 lastPlayerMovement;
+    private bool isPlayerMoving;
 
     void Start()
     {
+        anim = gameObject.GetComponent<Animator>();
         weaponSystem = gameObject.transform.Find("WeaponSystem").gameObject;
         gun = weaponSystem.GetComponentInChildren<Pistol>(true);
         weaponSystem.GetComponentInChildren<AutoRifle>().gameObject.SetActive(false);
@@ -33,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
+        isPlayerMoving = false;
         Vector3 currentMovement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
         currentMovement *= acceleration * Time.fixedDeltaTime;
         velocity += currentMovement;
@@ -60,6 +66,19 @@ public class PlayerController : MonoBehaviour
         }
         velocity = Vector3.ClampMagnitude(velocity, maxSpeed); // Don't go faster than max speed
 
+        // If the player is moving, set isPlayerMoving = true and set the lastPlayerMovement to currentMovement
+        if(currentMovement.x != 0 || currentMovement.y != 0){
+            isPlayerMoving = true;
+            Debug.Log("Reached playerMoving: " + isPlayerMoving);
+            lastPlayerMovement = new Vector2(currentMovement.x,currentMovement.y);
+        }
+
+        // Set Animation Values
+        // anim.SetFloat("MoveX",currentMovement.x);
+        // anim.SetFloat("MoveY",currentMovement.y);
+        anim.SetBool("PlayerMoving",isPlayerMoving);
+
+
         transform.position += velocity * Time.fixedDeltaTime; // Move by velocity
     }
 
@@ -70,7 +89,16 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = mouse - obj;  //get the direction between the mouse position and the player's position
         direction.z = 0f;    //set z axis is zero
         direction = direction.normalized;   //set the unit for direction
+        // Make the player face the gun in the animator
+        lastPlayerMovement = new Vector2(direction.x,direction.y);
+        direction.Normalize();
         weaponSystem.transform.up = direction;
+        Vector2Int ordinalDirection = new Vector2Int(Mathf.RoundToInt(direction.x),Mathf.RoundToInt(direction.y));
+        anim.SetFloat("MoveX",ordinalDirection.x);
+        anim.SetFloat("MoveY",ordinalDirection.y);
+        anim.SetFloat("LastMoveX",lastPlayerMovement.x);
+        anim.SetFloat("LastMoveY",lastPlayerMovement.y);
+
     }
 
     void SelectGun()

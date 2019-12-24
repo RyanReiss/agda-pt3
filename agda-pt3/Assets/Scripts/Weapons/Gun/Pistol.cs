@@ -15,8 +15,7 @@ public class Pistol : ReloadableGun
 
     float timeCount = 0f;
 
-    void Start()
-    {
+    void Start() {
         //Loads bullet prefab
         fireRate = 0.35f;
         // bulletPrefab = Resources.Load("Prefabs/Bullet/PistolBullet") as GameObject;

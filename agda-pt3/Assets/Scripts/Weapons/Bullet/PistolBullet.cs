@@ -30,6 +30,7 @@ public class PistolBullet : Bullet
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
         }
+        
         //Destroy the bullet if it collides with something
         if(col.transform.name != "Player"){
             Destroy(gameObject);
