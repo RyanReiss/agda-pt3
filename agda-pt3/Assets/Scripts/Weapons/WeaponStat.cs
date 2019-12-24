@@ -11,7 +11,6 @@ public class WeaponStat : Gun
     float fireRate;
     float reloadTime;
     float velocicy;
-<<<<<<< Updated upstream
 
     public override void Attack()
     {
@@ -22,13 +21,4 @@ public class WeaponStat : Gun
     {
         throw new System.NotImplementedException();
     }
-=======
-    public override void Attack(){
-
-    }
-    public override void UpdateWeapon(){
-
-    }
-  
->>>>>>> Stashed changes
 }
