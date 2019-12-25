@@ -54,7 +54,7 @@ public class FlameThrower : ReloadableGun
                 // timeCount = 0f;
                 ReloadGun();
             }
-            GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;
+            GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position + (spawnPos.up * 2), spawnPos.rotation) as GameObject;
             currentClip--;
             timeCount = 0f;
         }

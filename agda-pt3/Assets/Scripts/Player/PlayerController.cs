@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         // If the player is moving, set isPlayerMoving = true and set the lastPlayerMovement to currentMovement
         if(currentMovement.x != 0 || currentMovement.y != 0){
             isPlayerMoving = true;
-            Debug.Log("Reached playerMoving: " + isPlayerMoving);
+            //Debug.Log("Reached playerMoving: " + isPlayerMoving);
             lastPlayerMovement = new Vector2(currentMovement.x,currentMovement.y);
         }
 
@@ -92,12 +92,16 @@ public class PlayerController : MonoBehaviour
         // Make the player face the gun in the animator
         lastPlayerMovement = new Vector2(direction.x,direction.y);
         direction.Normalize();
-        weaponSystem.transform.up = direction;
+        //weaponSystem.transform.up = direction;
+        gun.transform.GetChild(0).transform.up = direction;
         Vector2Int ordinalDirection = new Vector2Int(Mathf.RoundToInt(direction.x),Mathf.RoundToInt(direction.y));
+        
         anim.SetFloat("MoveX",ordinalDirection.x);
         anim.SetFloat("MoveY",ordinalDirection.y);
-        anim.SetFloat("LastMoveX",lastPlayerMovement.x);
-        anim.SetFloat("LastMoveY",lastPlayerMovement.y);
+        anim.SetFloat("LastMoveX",ordinalDirection.x);
+        anim.SetFloat("LastMoveY",ordinalDirection.y);
+        //anim.SetFloat("LastMoveX",lastPlayerMovement.x);
+        //anim.SetFloat("LastMoveY",lastPlayerMovement.y);
 
     }
 
@@ -125,6 +129,13 @@ public class PlayerController : MonoBehaviour
         {
             gun.gameObject.SetActive(false);
             gun = weaponSystem.GetComponentInChildren<FlameThrower>(true);
+            gun.gameObject.SetActive(true);
+            //Debug.Log("Swapped Gun");
+        }
+        else if (Input.GetKey("5"))
+        {
+            gun.gameObject.SetActive(false);
+            gun = weaponSystem.GetComponentInChildren<Katana>(true);
             gun.gameObject.SetActive(true);
             //Debug.Log("Swapped Gun");
         }

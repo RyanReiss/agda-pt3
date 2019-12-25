@@ -20,7 +20,7 @@ public class Flame : Bullet
     public override void BulletPath(float coefficient)
     {
         // transform.position += transform.up.normalized * Time.deltaTime * bulletSpeed * coefficient;
-        Destroy(this.gameObject, 0.1f);
+        Destroy(this.gameObject, 0.3f);
     }
 
     public override void OnTriggerEnter2D(Collider2D col)
