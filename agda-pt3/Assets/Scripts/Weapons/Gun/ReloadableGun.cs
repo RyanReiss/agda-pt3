@@ -70,5 +70,13 @@ public abstract class ReloadableGun : Gun {
         failSafe = false;
         isReloading = false;
     }
+
+    public int GetCurrentAmmoStored(){
+        return currentAmmoStored;
+    }
+
+    public int GetCurrentClipSize(){
+        return currentClip;
+    }
     
 }

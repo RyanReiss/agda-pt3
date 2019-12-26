@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float minSpeed = 0.07f;
     public float friction = 4f;
     public float acceleration = 5f;
+    public float sprintingMultiplier = 1.3f;
     public Weapon gun; // The current gun being used by the player
     private GameObject weaponSystem;
 
@@ -64,7 +65,16 @@ public class PlayerController : MonoBehaviour
                 velocity.y -= Mathf.Sign(velocity.y) * friction * Time.fixedDeltaTime; // Slow down by constant friction
             }
         }
-        velocity = Vector3.ClampMagnitude(velocity, maxSpeed); // Don't go faster than max speed
+        if(Input.GetKey(KeyCode.LeftShift)){
+            // If the playetr is sprinting
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed * sprintingMultiplier); // Don't go faster than max speed * sprintingMultiplier
+            anim.speed = sprintingMultiplier;
+        } else {
+            // If the player Isnt sprinting
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed); // Don't go faster than max speed
+            anim.speed = 1;
+        }
+        
 
         // If the player is moving, set isPlayerMoving = true and set the lastPlayerMovement to currentMovement
         if(currentMovement.x != 0 || currentMovement.y != 0){

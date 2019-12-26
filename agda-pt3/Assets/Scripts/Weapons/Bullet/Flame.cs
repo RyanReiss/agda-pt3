@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flame : Bullet
 {
 
+    public ArrayList objectsHit = new ArrayList();
 
     void Start()
     {
@@ -26,14 +27,17 @@ public class Flame : Bullet
     public override void OnTriggerEnter2D(Collider2D col)
     {
         Start();
-        if (col.gameObject.GetComponent<Health>() != null)
+        if (col.gameObject.GetComponent<Health>() != null && !objectsHit.Contains(col.gameObject))
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
+            objectsHit.Add(col.gameObject);
         }
-        //Destroy the bullet if it collides with something
-        if (col.transform.name != "Player")
+        // DONT Destroy the bullet if it collides with something,
+        // Instead add it to the list of things that cant be damaged anymore by this bullet if it has a Health component
+        /* if (col.transform.name != "Player")
         {
-            Destroy(gameObject);
-        }
+            //Destroy(gameObject);
+        } */
+
     }
 }

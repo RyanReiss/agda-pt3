@@ -31,13 +31,17 @@ public class ZombieEnemyController : MonoBehaviour
 
         RaycastHit2D[] lineOfSight = Physics2D.RaycastAll(start, direction, distance);
 
-        for (int i = 0; (i < lineOfSight.Length) && (i < 2); i++)
+        int tempBuffer = 0;
+        for (int i = 0; (i < lineOfSight.Length) && (i < 2 + tempBuffer); i++)
         {
             if(lineOfSight[i].transform.name == "Player"){
                 //Debug.Log("Looking at Player!");
                 if(Vector2.Distance(transform.position, playerToFollow.position) > stoppingDistance){
                     transform.position = Vector2.MoveTowards(transform.position, playerToFollow.position, moveSpeed * Time.deltaTime);
                 }
+            } else if (lineOfSight[i].transform.tag == "Bullet" || (lineOfSight[i].transform.tag == "Enemy" && lineOfSight[i].transform != this.transform)){
+                //Debug.Log("Enemy/Bullet in Sight!: "+ lineOfSight[i].transform.tag);
+                tempBuffer++;
             }
         }
         
