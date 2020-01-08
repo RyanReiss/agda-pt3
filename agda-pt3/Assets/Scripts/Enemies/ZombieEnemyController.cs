@@ -7,7 +7,7 @@ public class ZombieEnemyController : MonoBehaviour
 
     public Transform playerToFollow;
     public float moveSpeed;
-    private float stoppingDistance;
+    private float stoppingDistance; //Distance the enemy will stop moving towards the player
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -22,6 +22,9 @@ public class ZombieEnemyController : MonoBehaviour
         MoveTowardsPlayer();
     }
 
+    // MoveTowardsPlayer() is called once every update frame, and handles all movement that
+    // the ZombieEnemyController does when moving towards the player. It will only start
+    // to move towards the player when it has a line of sight to the player
     void MoveTowardsPlayer() {
         Vector3 start = transform.position;
         Vector3 direction = playerToFollow.position - transform.position;
@@ -32,14 +35,17 @@ public class ZombieEnemyController : MonoBehaviour
         RaycastHit2D[] lineOfSight = Physics2D.RaycastAll(start, direction, distance);
 
         int tempBuffer = 0;
-        for (int i = 0; (i < lineOfSight.Length) && (i < 2 + tempBuffer); i++)
-        {
-            if(lineOfSight[i].transform.name == "Player"){
+        // for() loop handles line of sight, and making sure the player can be seen before moving
+        // tempBuffer acts as a buffer for any colliders that might be in the way
+        // but are not objects that want to block line of sight (eg. triggers)
+        for (int i = 0; (i < lineOfSight.Length) && (i < 2 + tempBuffer); i++) {
+            if(lineOfSight[i].transform.name == playerToFollow.name){
                 //Debug.Log("Looking at Player!");
                 if(Vector2.Distance(transform.position, playerToFollow.position) > stoppingDistance){
                     transform.position = Vector2.MoveTowards(transform.position, playerToFollow.position, moveSpeed * Time.deltaTime);
                 }
-            } else if (lineOfSight[i].transform.tag == "Bullet" || (lineOfSight[i].transform.tag == "Enemy" && lineOfSight[i].transform != this.transform)){
+            } else if (lineOfSight[i].transform.tag == "Bullet" || (lineOfSight[i].transform.tag == "Enemy" && lineOfSight[i].transform != this.transform)
+                        || lineOfSight[i].transform.name == "InteractionArea"){
                 //Debug.Log("Enemy/Bullet in Sight!: "+ lineOfSight[i].transform.tag);
                 tempBuffer++;
             }
@@ -48,6 +54,7 @@ public class ZombieEnemyController : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
+        // Ignore all collisions with other enemies (Change when more enemies are added!)
       if (collision.gameObject.GetComponent<ZombieEnemyController>())
       {
           Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());

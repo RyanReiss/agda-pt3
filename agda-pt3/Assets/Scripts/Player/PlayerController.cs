@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,13 +14,27 @@ public class PlayerController : MonoBehaviour
     public Weapon gun; // The current gun being used by the player
     private GameObject weaponSystem;
 
-    //Animator variables
+    // Sprinting Variables
+    private float energy;
+    private float maxEnergy = 100f;
+    private bool sprintingLock; // A lock used to stop the player from sprinting. True == able to sprint, false == not able to sprint
+
+    // Animator variables
     private Animator anim;
     private Vector2 lastPlayerMovement;
     private bool isPlayerMoving;
 
+    public UnityEvent m_currentInteractions;
+
+    // Gun knockback variables
+    private float currentVelocityIncrease;
+    public float velocityIncreaseDecayRate;
+    private bool isExceedingMaxVelocity;
+
+
     void Start()
     {
+        energy = maxEnergy;
         anim = gameObject.GetComponent<Animator>();
         weaponSystem = gameObject.transform.Find("WeaponSystem").gameObject;
         gun = weaponSystem.GetComponentInChildren<Pistol>(true);
@@ -34,7 +49,11 @@ public class PlayerController : MonoBehaviour
         SelectGun();
         Movement();
         PlayerRotate();
+    }
+
+    void Update(){
         gun.UpdateWeapon();
+        InteractWithObjects();
     }
 
     void Movement()
@@ -65,15 +84,30 @@ public class PlayerController : MonoBehaviour
                 velocity.y -= Mathf.Sign(velocity.y) * friction * Time.fixedDeltaTime; // Slow down by constant friction
             }
         }
-        if(Input.GetKey(KeyCode.LeftShift)){
+        if(Input.GetKey(KeyCode.LeftShift) && energy > 0 && currentMovement != Vector3.zero && sprintingLock){
             // If the playetr is sprinting
-            velocity = Vector3.ClampMagnitude(velocity, maxSpeed * sprintingMultiplier); // Don't go faster than max speed * sprintingMultiplier
+            velocity = Vector3.ClampMagnitude(velocity, (maxSpeed * sprintingMultiplier) + currentVelocityIncrease); // Don't go faster than max speed * sprintingMultiplier
             anim.speed = sprintingMultiplier;
+            energy -= 1f;
+            if(energy <= 1f && sprintingLock){
+                sprintingLock = false;
+            }
         } else {
             // If the player Isnt sprinting
-            velocity = Vector3.ClampMagnitude(velocity, maxSpeed); // Don't go faster than max speed
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed + currentVelocityIncrease); // Don't go faster than max speed
             anim.speed = 1;
+            if(energy < 100f){
+                energy += 0.5f;
+            } else {
+                energy = 100f;
+            }
+
+            if(!sprintingLock && energy >= 50f){
+                sprintingLock = true;
+            }
         }
+
+        DecreaseTempVelocity();
         
 
         // If the player is moving, set isPlayerMoving = true and set the lastPlayerMovement to currentMovement
@@ -83,9 +117,7 @@ public class PlayerController : MonoBehaviour
             lastPlayerMovement = new Vector2(currentMovement.x,currentMovement.y);
         }
 
-        // Set Animation Values
-        // anim.SetFloat("MoveX",currentMovement.x);
-        // anim.SetFloat("MoveY",currentMovement.y);
+        // Set Animation Value
         anim.SetBool("PlayerMoving",isPlayerMoving);
 
 
@@ -101,11 +133,13 @@ public class PlayerController : MonoBehaviour
         direction = direction.normalized;   //set the unit for direction
         // Make the player face the gun in the animator
         lastPlayerMovement = new Vector2(direction.x,direction.y);
+        //Normalize, then round the direction into ordinalDirection for the animator
         direction.Normalize();
         //weaponSystem.transform.up = direction;
         gun.transform.GetChild(0).transform.up = direction;
         Vector2Int ordinalDirection = new Vector2Int(Mathf.RoundToInt(direction.x),Mathf.RoundToInt(direction.y));
         
+        // Sets values for animator
         anim.SetFloat("MoveX",ordinalDirection.x);
         anim.SetFloat("MoveY",ordinalDirection.y);
         anim.SetFloat("LastMoveX",ordinalDirection.x);
@@ -115,6 +149,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Called every update frame. Changes a gun depending on what button is pressed
+    // Will eventually be replaced by inventory / loadout system
     void SelectGun()
     {
         if (Input.GetKey("1")){
@@ -149,5 +185,39 @@ public class PlayerController : MonoBehaviour
             gun.gameObject.SetActive(true);
             //Debug.Log("Swapped Gun");
         }
+    }
+
+    // When called, interacts with any events currently subscribed to currentInteractions
+    // Used to open doors, pickup items, flip switches, etc
+    private void InteractWithObjects(){
+        if(Input.GetKeyDown(KeyCode.E)){
+            m_currentInteractions.Invoke();
+        }
+    }
+
+    // Returns the current energy/sprint stamina
+    public float GetEnergy(){
+        return energy;
+    }
+
+    // Applies a force that pushes the player backwards when they fire a gun
+    public void ApplyGunKnockback(float knockbackMultiplier){
+        Vector3 knockbackDirection = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized * -1f;
+        //Debug.Log("Applied force");
+        velocity += knockbackDirection * knockbackMultiplier;
+        TempIncreaseVelocity(knockbackMultiplier);
+    }
+
+    private void TempIncreaseVelocity(float amount){
+        currentVelocityIncrease = amount;
+    }
+
+    private void DecreaseTempVelocity(){
+        if(currentVelocityIncrease > 0){
+            currentVelocityIncrease -= velocityIncreaseDecayRate;
+        } else {
+            currentVelocityIncrease = 0;
+        }
+        
     }
 }

@@ -32,7 +32,7 @@ public class PistolBullet : Bullet
         }
         
         //Destroy the bullet if it collides with something
-        if(col.transform.name != "Player"){
+        if(col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore"){
             Destroy(gameObject);
         }
     }

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class ScreenStaticController : MonoBehaviour
 {
     
+    // A WIP progress script for creating screen effects. Specifically, the script is for
+    // creating a static effect on the screen when the player gets hit
+
     public Sprite[] statics = new Sprite[4];
     int i = 0;
     int j = 0;

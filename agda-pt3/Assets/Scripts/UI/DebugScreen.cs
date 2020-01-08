@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class DebugScreen : MonoBehaviour
 {
+
+    // A script for creating a screen that overlays the game that gives useful
+    // information on stuff occurring in the game. For example, somethings to put
+    // on the debug screen are Player health, player energy, player ammo, enemies left, etc.
+
     Text debugText;
     string sText;
     ArrayList sLines = new ArrayList();
@@ -30,6 +35,8 @@ public class DebugScreen : MonoBehaviour
         } else {
             AddDebugLine("Current Weapon Ammo: ");
         }
+
+        AddDebugLine("Current Energy: " + player.GetEnergy()); // the player's current sprinting energy
         
         ArrayList temp = (ArrayList)sLines.Clone();
         sText = "";

@@ -29,7 +29,7 @@ public class ShotGunBullet : Bullet
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
         }
-        if (col.transform.name != "Player" && col.transform.name != "ShotGunBullet(Clone)")
+        if (col.transform.name != "Player" && col.transform.name != "ShotGunBullet(Clone)" && col.transform.tag != "TriggersToIgnore")
         {
             Destroy(gameObject);
         }

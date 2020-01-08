@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+
+    // A general "health" class that can be put on any entity that needs to have
+    // some sort of health system including: enemies, the player, scene objects, etc.
+
     public float maxHealth;
     private float currentHealth;
 

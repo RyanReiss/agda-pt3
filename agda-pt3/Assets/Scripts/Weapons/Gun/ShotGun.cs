@@ -6,6 +6,7 @@ public class ShotGun : ReloadableGun
 {
     // Start is called before the first frame update
     float timeCount = 0f;
+    public float shotgunKnockback;
     void Start()
     {
         fireRate = 0.75f;
@@ -29,7 +30,7 @@ public class ShotGun : ReloadableGun
     {
         timeCount += Time.deltaTime;
         if (timeCount >= fireRate && Input.GetMouseButton(0) && !isReloading && currentClip > 0)
-        {//if player clicks left mouse or there is a bullet queued
+        {
             //Deal with Ammo System
             currentClip--;
             if(currentClip <= 0){
@@ -40,6 +41,7 @@ public class ShotGun : ReloadableGun
                 GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;
                 aBullet.transform.Rotate(Random.Range(-40, 40), Random.Range(-40, 40), 0);
             }
+            transform.parent.parent.GetComponent<PlayerController>().ApplyGunKnockback(shotgunKnockback);
             timeCount = 0f;
         }
     }

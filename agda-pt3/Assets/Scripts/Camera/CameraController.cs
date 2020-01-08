@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     // Camera that tracks an object in 2d 
 
     private Transform tracked;
-    public enum Modes { Elastic, Fixed, Tracking, Sticky };
+    public enum Modes { Elastic, Fixed, Tracking, Sticky }; // The different modes that the camera can be in
     public Modes mode;
     public float minSpeed = 0.4f;
     public float minDisplacement = 0.1f;
