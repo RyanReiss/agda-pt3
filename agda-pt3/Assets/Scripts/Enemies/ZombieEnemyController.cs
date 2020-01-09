@@ -9,6 +9,8 @@ public class ZombieEnemyController : MonoBehaviour
     public float moveSpeed;
     private float stoppingDistance; //Distance the enemy will stop moving towards the player
     private Rigidbody2D rb;
+    private Vector3 lastPositionTargetSeen = Vector3.zero;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +32,11 @@ public class ZombieEnemyController : MonoBehaviour
         Vector3 direction = playerToFollow.position - transform.position;
 
         float distance = 100f;
-        Debug.DrawRay(start,direction*distance,Color.blue,2f,false);
+        //Debug.DrawRay(start,direction*distance,Color.blue,2f,false);
 
         RaycastHit2D[] lineOfSight = Physics2D.RaycastAll(start, direction, distance);
 
+        bool playerIsInVision = false; // true when the player is in line of sight
         int tempBuffer = 0;
         // for() loop handles line of sight, and making sure the player can be seen before moving
         // tempBuffer acts as a buffer for any colliders that might be in the way
@@ -41,13 +44,22 @@ public class ZombieEnemyController : MonoBehaviour
         for (int i = 0; (i < lineOfSight.Length) && (i < 2 + tempBuffer); i++) {
             if(lineOfSight[i].transform.name == playerToFollow.name){
                 //Debug.Log("Looking at Player!");
-                if(Vector2.Distance(transform.position, playerToFollow.position) > stoppingDistance){
-                    transform.position = Vector2.MoveTowards(transform.position, playerToFollow.position, moveSpeed * Time.deltaTime);
-                }
+                playerIsInVision = true;
             } else if (lineOfSight[i].transform.tag == "Bullet" || (lineOfSight[i].transform.tag == "Enemy" && lineOfSight[i].transform != this.transform)
                         || lineOfSight[i].transform.name == "InteractionArea"){
                 //Debug.Log("Enemy/Bullet in Sight!: "+ lineOfSight[i].transform.tag);
                 tempBuffer++;
+            }
+        }
+
+        if(playerIsInVision){
+            if(Vector2.Distance(transform.position, playerToFollow.position) > stoppingDistance){
+                    transform.position = Vector2.MoveTowards(transform.position, playerToFollow.position, moveSpeed * Time.deltaTime);
+            }
+            lastPositionTargetSeen = playerToFollow.position;
+        } else if(lastPositionTargetSeen != Vector3.zero){
+            if(Vector2.Distance(transform.position, playerToFollow.position) > stoppingDistance){
+                    transform.position = Vector2.MoveTowards(transform.position, lastPositionTargetSeen, moveSpeed * Time.deltaTime);
             }
         }
         

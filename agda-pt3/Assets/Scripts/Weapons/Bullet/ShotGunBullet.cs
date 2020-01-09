@@ -5,9 +5,10 @@ using UnityEngine;
 public class ShotGunBullet : Bullet
 {
     // Start is called before the first frame update
+    
     void Start()
     {
-        bulletSpeed = 70f;
+        bulletSpeed = 150f;
         damageToGive = 1.5f;
     }
 
