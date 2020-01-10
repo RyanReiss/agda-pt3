@@ -8,7 +8,7 @@ public class ShotGunBullet : Bullet
     
     void Start()
     {
-        bulletSpeed = 150f;
+        bulletSpeed = 70f;
         damageToGive = 1.5f;
     }
 
