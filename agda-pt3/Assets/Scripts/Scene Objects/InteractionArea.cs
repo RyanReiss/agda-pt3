@@ -18,7 +18,7 @@ public class InteractionArea : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D col){
         if(col.GetComponent<PlayerController>() != null){
-            col.GetComponent<PlayerController>().m_currentInteractions.AddListener(transform.parent.GetComponent<InteractableObject>().Interact);
+            col.GetComponent<PlayerController>().m_currentInteractions.RemoveListener(transform.parent.GetComponent<InteractableObject>().Interact);
         }
     }
 }

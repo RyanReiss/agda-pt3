@@ -54,12 +54,13 @@ public class ZombieEnemyController : MonoBehaviour
 
         if(playerIsInVision){
             if(Vector2.Distance(transform.position, playerToFollow.position) > stoppingDistance){
-                    transform.position = Vector2.MoveTowards(transform.position, playerToFollow.position, moveSpeed * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, playerToFollow.position, moveSpeed * Time.deltaTime); // move towards the player
+                    
             }
             lastPositionTargetSeen = playerToFollow.position;
         } else if(lastPositionTargetSeen != Vector3.zero){
             if(Vector2.Distance(transform.position, playerToFollow.position) > stoppingDistance){
-                    transform.position = Vector2.MoveTowards(transform.position, lastPositionTargetSeen, moveSpeed * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, lastPositionTargetSeen, moveSpeed * Time.deltaTime); //
             }
         }
         

@@ -53,3 +53,6 @@ TagManager:
   - name: Player
     uniqueID: 809260879
     locked: 0
+  - name: Room Covers
+    uniqueID: 285981019
+    locked: 0
