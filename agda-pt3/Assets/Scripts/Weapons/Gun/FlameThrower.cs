@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameThrower : ReloadableGun
-{
+public class FlameThrower : ReloadableGun {
     float timeCount = 0f;
 
-    void Start()
-    {
+    void Start () {
         //Loads bullet prefab
         fireRate = 0.1f;
         // bulletPrefab = Resources.Load("Prefabs/Bullet/PistolBullet") as GameObject;
@@ -20,18 +18,15 @@ public class FlameThrower : ReloadableGun
         msReloadTime = 1000f; //1 second reload time
     }
 
-    public override void UpdateWeapon()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ReloadGun();
+    public override void UpdateWeapon () {
+        if (Input.GetKeyDown (KeyCode.R)) {
+            ReloadGun ();
         }
-        Attack();
+        Attack ();
     }
 
     // Fires the player's gun if Left Mouse-Button is pressed
-    public override void Attack()
-    {
+    public override void Attack () {
         /* 
         if (timeCount >= fireRate && Input.GetMouseButton(0) && !isReloading && currentClip > 0)
         {
@@ -46,15 +41,13 @@ public class FlameThrower : ReloadableGun
         } */
         timeCount += Time.deltaTime;
 
-        if (timeCount >= fireRate && Input.GetMouseButton(0) && !isReloading && currentClip > 0)
-        {
-            if (currentClip <= timeCount || currentClip <= 0)
-            {
+        if (timeCount >= fireRate && Input.GetMouseButton (0) && !isReloading && currentClip > 0) {
+            if (currentClip <= timeCount || currentClip <= 0) {
                 // currentClip = 0;
                 // timeCount = 0f;
-                ReloadGun();
+                ReloadGun ();
             }
-            GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position + (spawnPos.up * 2), spawnPos.rotation) as GameObject;
+            GameObject aBullet = Instantiate (bulletPrefab, spawnPos.position + (spawnPos.up * 2), spawnPos.rotation) as GameObject;
             currentClip--;
             timeCount = 0f;
         }

@@ -2037,10 +2037,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8965827065102845182, guid: 07fa0b7ee07be3340862ad256d439e55,
+    - target: {fileID: 4861509999187418975, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 0
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8965827065026000360, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
@@ -2052,10 +2052,15 @@ PrefabInstance:
       propertyPath: velocityIncreaseDecayRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4861509999187418975, guid: 07fa0b7ee07be3340862ad256d439e55,
+    - target: {fileID: 8965827065026000365, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 4
+      propertyPath: m_Offset.y
+      value: -0.29373357
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965827065026000365, guid: 07fa0b7ee07be3340862ad256d439e55,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.74586624
       objectReference: {fileID: 0}
     - target: {fileID: 8965827065026000361, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
@@ -2067,27 +2072,22 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1823914792446440846, guid: 07fa0b7ee07be3340862ad256d439e55,
-        type: 3}
-      propertyPath: shotgunKnockback
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965827065026000365, guid: 07fa0b7ee07be3340862ad256d439e55,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.29373357
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965827065026000365, guid: 07fa0b7ee07be3340862ad256d439e55,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.74586624
-      objectReference: {fileID: 0}
     - target: {fileID: 3605621267771474492, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 4818835750755421087, guid: b57790970f0c8dc469d95d60b8679bf0,
         type: 3}
+    - target: {fileID: 1823914792446440846, guid: 07fa0b7ee07be3340862ad256d439e55,
+        type: 3}
+      propertyPath: shotgunKnockback
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965827065102845182, guid: 07fa0b7ee07be3340862ad256d439e55,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fa0b7ee07be3340862ad256d439e55, type: 3}
 --- !u!4 &1176030869 stripped
@@ -6819,7 +6819,7 @@ GameObject:
   - component: {fileID: 1807675047}
   m_Layer: 0
   m_Name: Enemys
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

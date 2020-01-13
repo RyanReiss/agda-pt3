@@ -2,38 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolBullet : Bullet
-{
+public class PistolBullet : Bullet {
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start () {
         bulletSpeed = 40f;
         damageToGive = 1f;
+        effect = this.gameObject.AddComponent<Penetration> ();
+        timeToDie = 1.0f;
+        penned = false;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        BulletPath(1f);
+    void Update () {
+        BulletPath (1f);
     }
 
-    public override void BulletPath(float coefficient)
-    {
+    public override void BulletPath (float coefficient) {
         transform.position += transform.up.normalized * Time.deltaTime * bulletSpeed * coefficient;
-        Destroy(this.gameObject, 1.0f);
+        Destroy (this.gameObject, timeToDie);
     }
 
-    public override void OnTriggerEnter2D(Collider2D col)
-    {
-        Start();
-        if (col.gameObject.GetComponent<Health>() != null)
-        {
-            col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
+    public override void OnTriggerEnter2D (Collider2D col) {
+        if (col.gameObject.GetComponent<Health> () != null) {
+            col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
-        
-        //Destroy the bullet if it collides with something
-        if(col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore"){
-            Destroy(gameObject);
-        }
+
+        effect.triggerEffect (this.gameObject, col, timeToDie);
     }
 }
