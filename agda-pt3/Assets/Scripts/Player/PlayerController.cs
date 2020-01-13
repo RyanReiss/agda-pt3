@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         weaponSystem.GetComponentInChildren<AutoRifle>().gameObject.SetActive(false);
         weaponSystem.GetComponentInChildren<ShotGun>().gameObject.SetActive(false);
         weaponSystem.GetComponentInChildren<Katana>().gameObject.SetActive(false);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame
