@@ -8,8 +8,7 @@ public class HiddenRoomController : MonoBehaviour
 
     public List<Room> rooms;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         foreach(Room r in rooms){
             foreach(GameObject g in r.roomCovers){
                     g.SetActive(true);

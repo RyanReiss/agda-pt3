@@ -32,7 +32,7 @@ public class ZombieEnemyController : MonoBehaviour
         Vector3 direction = playerToFollow.position - transform.position;
 
         float distance = 100f;
-        //Debug.DrawRay(start,direction*distance,Color.blue,2f,false);
+        Debug.DrawRay(start,direction*distance,Color.blue,2f,false);
 
         RaycastHit2D[] lineOfSight = Physics2D.RaycastAll(start, direction, distance);
 
