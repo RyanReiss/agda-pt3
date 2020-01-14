@@ -9,7 +9,6 @@ public class PistolBullet : Bullet {
         damageToGive = 1f;
         effect = this.gameObject.AddComponent<Penetration> ();
         timeToDie = 1.0f;
-        penned = false;
     }
 
     // Update is called once per frame

@@ -7,7 +7,7 @@ public abstract class Bullet : MonoBehaviour {
     protected float damageToGive;
     protected Effect effect;
     protected float timeToDie;
-    protected bool penned;
+    protected GameObject effectPrefab;
 
     public abstract void OnTriggerEnter2D (Collider2D col);
     public abstract void BulletPath (float coefficient);
