@@ -9,10 +9,23 @@ public class InteractionArea : MonoBehaviour
     // enter the area.
 
     public void OnTriggerEnter2D(Collider2D col){
-        Debug.Log("Test");
         if(col.GetComponent<PlayerController>() != null){
             Debug.Log("Player Entered Interaction Zone!");
             col.GetComponent<PlayerController>().m_currentInteractions.AddListener(transform.parent.GetComponent<InteractableObject>().Interact);
+        }
+
+        if(col.GetComponent<ZombieEnemyController>() && col.GetComponent<ZombieEnemyController>().lastPositionTargetSeen != Vector3.zero){
+            if(!transform.parent.GetComponent<Door>().GetState()){
+                transform.parent.GetComponent<InteractableObject>().Interact();
+            }
+        }
+    }
+
+    public void OnTriggerStay2D(Collider2D col) {
+        if(col.GetComponent<ZombieEnemyController>() && col.GetComponent<ZombieEnemyController>().lastPositionTargetSeen != Vector3.zero){
+            if(!transform.parent.GetComponent<Door>().GetState()){
+                transform.parent.GetComponent<InteractableObject>().Interact();
+            }
         }
     }
 

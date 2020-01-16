@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float friction = 4f;
     public float acceleration = 5f;
     public float sprintingMultiplier = 1.3f;
+    // Gun Variables
     public Weapon gun; // The current gun being used by the player
     private GameObject weaponSystem;
 
@@ -31,6 +32,23 @@ public class PlayerController : MonoBehaviour
     public float velocityIncreaseDecayRate;
     private bool isExceedingMaxVelocity;
 
+    // Singleton setup
+    private static PlayerController _instance;
+
+    public static PlayerController Instance { get { return _instance; } }
+
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
 
     void Start()
     {
@@ -41,7 +59,6 @@ public class PlayerController : MonoBehaviour
         weaponSystem.GetComponentInChildren<AutoRifle>().gameObject.SetActive(false);
         weaponSystem.GetComponentInChildren<ShotGun>().gameObject.SetActive(false);
         weaponSystem.GetComponentInChildren<Katana>().gameObject.SetActive(false);
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame

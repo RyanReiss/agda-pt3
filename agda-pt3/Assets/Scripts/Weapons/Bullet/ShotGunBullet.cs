@@ -11,7 +11,7 @@ public class ShotGunBullet : Bullet
         bulletSpeed = 70f;
         damageToGive = 1.5f;
     }
-
+    
     void Update()
     {
         BulletPath(1f);

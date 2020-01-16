@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PistolBullet : Bullet {
+
+    public int bulletPenetrations;
+
     // Start is called before the first frame update
     void Start () {
         bulletSpeed = 40f;
         damageToGive = 1f;
         effect = this.gameObject.AddComponent<Penetration> ();
+        effect.GetComponent<Penetration>().maxPenetrationHits = bulletPenetrations; // Default
         timeToDie = 1.0f;
     }
 

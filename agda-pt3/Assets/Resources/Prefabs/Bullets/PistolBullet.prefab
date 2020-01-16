@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6059646a3f3af8e4197d9cffce7424dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPenetrations: 2
 --- !u!50 &3718742113797045628
 Rigidbody2D:
   serializedVersion: 4
@@ -129,11 +130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b8f4b9dfaa91a4f95ffa316a9d976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendTriggerMessage: 0
-  layerMask:
+  hitLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  skinWidth: 0.1
+  MessageName: OnTriggerEnter2D
+  triggerTarget: 3
+  momentumTransferFraction: 1
 --- !u!60 &-2411270087972940064
 PolygonCollider2D:
   m_ObjectHideFlags: 0

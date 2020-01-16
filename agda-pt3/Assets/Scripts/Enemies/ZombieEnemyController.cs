@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ZombieEnemyController : MonoBehaviour
 {
@@ -9,13 +10,15 @@ public class ZombieEnemyController : MonoBehaviour
     public float moveSpeed;
     private float stoppingDistance; //Distance the enemy will stop moving towards the player
     private Rigidbody2D rb;
-    private Vector3 lastPositionTargetSeen = Vector3.zero;
+    public Vector3 lastPositionTargetSeen = Vector3.zero;
+    public UnityEvent m_currentInteractions;
     
 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        playerToFollow = PlayerController.Instance.gameObject.transform;
     }
 
     // Update is called once per frame
@@ -55,7 +58,6 @@ public class ZombieEnemyController : MonoBehaviour
         if(playerIsInVision){
             if(Vector2.Distance(transform.position, playerToFollow.position) > stoppingDistance){
                     transform.position = Vector2.MoveTowards(transform.position, playerToFollow.position, moveSpeed * Time.deltaTime); // move towards the player
-                    
             }
             lastPositionTargetSeen = playerToFollow.position;
         } else if(lastPositionTargetSeen != Vector3.zero){
@@ -63,7 +65,6 @@ public class ZombieEnemyController : MonoBehaviour
                     transform.position = Vector2.MoveTowards(transform.position, lastPositionTargetSeen, moveSpeed * Time.deltaTime); //
             }
         }
-        
     }
 
     void OnCollisionEnter2D(Collision2D collision){

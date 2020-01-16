@@ -43,4 +43,8 @@ public class Door : InteractableObject
             }
         }
     }
+
+    public bool GetState(){
+        return state;
+    }
 }
