@@ -11,7 +11,6 @@ public class Explosions : Bullet
         bulletSpeed = 0f;
         damageToGive = 3.0f;
         timeToDie = 0.4f;
-        transform.localScale = new Vector3(size,size,0);
     }
 
     // Update is called once per frame
@@ -31,10 +30,6 @@ public class Explosions : Bullet
         //Destroy the bullet if it collides with something
         
         // Destroy(gameObject, timeToDie);
-        
-    }
-
-    public void SetSize(float size){
         
     }
 }

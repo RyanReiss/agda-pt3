@@ -37,7 +37,8 @@ public class LoadoutWeaponSlot : MonoBehaviour, IDragHandler, IEndDragHandler
                         //transform.parent.parent.GetComponent<LoadoutController>().SwapWeaponsInBackPack(raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay, true);
                         transform.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
                     } else {
-                        transform.parent.parent.GetComponent<LoadoutController>().SwapWeaponsInBackPack(raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay, false);
+                        //transform.parent.parent.GetComponent<LoadoutController>().SwapWeaponsInBackPack(raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay, false);
+                        transform.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
                     }
                 } else {
                     // Swap primary and secondary

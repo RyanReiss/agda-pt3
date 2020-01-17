@@ -9,8 +9,7 @@ public class RifleBullet : Bullet
     {
         bulletSpeed = 60f;
         damageToGive = 1.5f;
-        effect = this.gameObject.AddComponent<Explosion> ();
-        //effect.GetComponent<Explosion>().SetSize();
+        effect = this.gameObject.AddComponent<Explosion>();
         timeToDie = 1.0f;
     }
 
