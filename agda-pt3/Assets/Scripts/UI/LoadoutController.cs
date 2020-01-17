@@ -13,6 +13,22 @@ public class LoadoutController : MonoBehaviour
     //Moving backpack controls
     private int lengthOfBackpack;
     private int currentBackpackIndex;
+    // Singleton setup
+    private static LoadoutController _instance;
+
+    public static LoadoutController Instance { get { return _instance; } }
+
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+        DontDestroyOnLoad(this.transform.parent.gameObject);
+    }
 
 
     void Start() {
@@ -63,10 +79,25 @@ public class LoadoutController : MonoBehaviour
     }
 
     public void MoveBackPackLeft(){
-
+        if(lengthOfBackpack != backpackSlot.transform.childCount-1){
+            lengthOfBackpack = backpackSlot.transform.childCount-1;
+        }
+        currentBackpackIndex--;
+        if(currentBackpackIndex < 0){
+            currentBackpackIndex = backpackSlot.transform.childCount-1;
+        }
+        SetBackPackDisplay(currentBackpackIndex);
     }
 
     private void SetBackPackDisplay(int index){
-
+        Debug.Log("Setting Backpack Display: " + index);
+        for(int i = 0; i <= lengthOfBackpack; i++){
+            if(i == index){
+                backpackSlot.transform.GetChild(i).gameObject.SetActive(true);
+            } else {
+                backpackSlot.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+        
     }
 }

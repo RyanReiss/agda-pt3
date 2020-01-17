@@ -5,11 +5,13 @@ using UnityEngine;
 public class Explosions : Bullet
 {
     // Start is called before the first frame update
+    public float size;
     void Start()
     {
         bulletSpeed = 0f;
         damageToGive = 3.0f;
         timeToDie = 0.4f;
+        transform.localScale = new Vector3(size,size,0);
     }
 
     // Update is called once per frame
@@ -29,6 +31,10 @@ public class Explosions : Bullet
         //Destroy the bullet if it collides with something
         
         // Destroy(gameObject, timeToDie);
+        
+    }
+
+    public void SetSize(float size){
         
     }
 }
