@@ -9,7 +9,7 @@ public class ShotGunBullet : Bullet
     void Start()
     {
         bulletSpeed = 70f;
-        damageToGive = 1.5f;
+        damageToGive = 1.667f;
     }
     
     void Update()
@@ -26,6 +26,10 @@ public class ShotGunBullet : Bullet
     public override void OnTriggerEnter2D(Collider2D col)
     {
         Start(); // Added in case OnTriggerEnter2D is called before start is called
+        if (col.gameObject.GetComponent<ZombieEnemyController>())
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
         if (col.gameObject.GetComponent<Health>() != null)
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);

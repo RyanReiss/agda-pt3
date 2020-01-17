@@ -20,6 +20,7 @@ public class SceneChanger : MonoBehaviour
             Debug.Log("Player Entered new scene!");
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             player.transform.position = location;
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetCameraPosition(location);
             if(GlobalGameSettings.Instance.allRoomsInGame.ContainsKey(startingRoom)){
                 GlobalGameSettings.Instance.allRoomsInGame.Remove(startingRoom);
                 GlobalGameSettings.Instance.allRoomsInGame.Add(startingRoom,false);

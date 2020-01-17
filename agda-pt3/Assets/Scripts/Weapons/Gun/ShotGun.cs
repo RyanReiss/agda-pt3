@@ -39,9 +39,9 @@ public class ShotGun : ReloadableGun
             for (int i = 0; i < 6; i++)
             {
                 GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;
-                aBullet.transform.Rotate(Random.Range(-40, 40), Random.Range(-40, 40), 0);
+                aBullet.transform.Rotate(0,0, Random.Range(-20, 20));
             }
-            transform.parent.parent.GetComponent<PlayerController>().ApplyGunKnockback(shotgunKnockback);
+            transform.parent.parent.parent.GetComponent<PlayerController>().ApplyGunKnockback(shotgunKnockback);
             timeCount = 0f;
         }
     }

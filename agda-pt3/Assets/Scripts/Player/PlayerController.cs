@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 5f;
     public float sprintingMultiplier = 1.3f;
     // Gun Variables
-    public Weapon gun; // The current gun being used by the player
-    private GameObject weaponSystem;
+    public GameObject primaryWeaponHolder;
+    public GameObject secondaryWeaponHolder;
+    public GameObject weaponBackpack;
+    private bool primaryOrSecondary; // primary = true, secondary = false;
 
     // Sprinting Variables
     private float energy;
@@ -31,6 +33,10 @@ public class PlayerController : MonoBehaviour
     private float currentVelocityIncrease;
     public float velocityIncreaseDecayRate;
     private bool isExceedingMaxVelocity;
+    
+    //Inventory control variables
+    public GameObject loadoutController;
+    private bool isLoadoutScreenOpen; // true = yes, false = no
 
     // Singleton setup
     private static PlayerController _instance;
@@ -52,26 +58,30 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        loadoutController = GameObject.FindGameObjectWithTag("LoadoutScreen");
+        isLoadoutScreenOpen = false;
+        loadoutController.SetActive(false);
+        primaryOrSecondary = true; // start on primary gun
         energy = maxEnergy;
         anim = gameObject.GetComponent<Animator>();
-        weaponSystem = gameObject.transform.Find("WeaponSystem").gameObject;
-        gun = weaponSystem.GetComponentInChildren<Pistol>(true);
-        weaponSystem.GetComponentInChildren<AutoRifle>().gameObject.SetActive(false);
-        weaponSystem.GetComponentInChildren<ShotGun>().gameObject.SetActive(false);
-        weaponSystem.GetComponentInChildren<Katana>().gameObject.SetActive(false);
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame
     void FixedUpdate()
     {
-        SelectGun();
-        Movement();
-        PlayerRotate();
+        if(!isLoadoutScreenOpen){
+            SwapCurrentGun();
+            Movement();
+            PlayerRotate();
+        }
     }
 
     void Update(){
-        gun.UpdateWeapon();
-        InteractWithObjects();
+        if(!isLoadoutScreenOpen){
+            GetCurrentWeapon().GetComponent<Weapon>().UpdateWeapon();
+            InteractWithObjects();
+        }
+        OpenInventory();
     }
 
     void Movement()
@@ -154,7 +164,7 @@ public class PlayerController : MonoBehaviour
         //Normalize, then round the direction into ordinalDirection for the animator
         direction.Normalize();
         //weaponSystem.transform.up = direction;
-        gun.transform.GetChild(0).transform.up = direction;
+        GetCurrentWeapon().transform.GetChild(0).transform.up = direction;
         Vector2Int ordinalDirection = new Vector2Int(Mathf.RoundToInt(direction.x),Mathf.RoundToInt(direction.y));
         
         // Sets values for animator
@@ -169,9 +179,24 @@ public class PlayerController : MonoBehaviour
 
     // Called every update frame. Changes a gun depending on what button is pressed
     // Will eventually be replaced by inventory / loadout system
-    void SelectGun()
+    void SwapCurrentGun()
     {
-        if (Input.GetKey("1")){
+        if(Input.GetKey("1")){
+            if(!primaryOrSecondary){
+                // Swap gun from secondary to primary
+                secondaryWeaponHolder.SetActive(false);
+                primaryWeaponHolder.SetActive(true);
+                primaryOrSecondary = true;
+            }
+        } else if(Input.GetKey("2")){
+            if(primaryOrSecondary){
+                // Swap gun from primary to secondary
+                primaryWeaponHolder.SetActive(false);
+                secondaryWeaponHolder.SetActive(true);
+                primaryOrSecondary = false;
+            }
+        }
+        /*if (Input.GetKey("1")){
             gun.gameObject.SetActive(false);
             gun = weaponSystem.GetComponentInChildren<Pistol>(true);
             gun.gameObject.SetActive(true);
@@ -202,6 +227,14 @@ public class PlayerController : MonoBehaviour
             gun = weaponSystem.GetComponentInChildren<Katana>(true);
             gun.gameObject.SetActive(true);
             //Debug.Log("Swapped Gun");
+        }*/
+    }
+
+    public GameObject GetCurrentWeapon(){
+        if(primaryOrSecondary){
+            return primaryWeaponHolder.transform.GetChild(0).gameObject;
+        } else {
+            return secondaryWeaponHolder.transform.GetChild(0).gameObject;
         }
     }
 
@@ -210,6 +243,13 @@ public class PlayerController : MonoBehaviour
     private void InteractWithObjects(){
         if(Input.GetKeyDown(KeyCode.E)){
             m_currentInteractions.Invoke();
+        }
+    }
+
+    private void OpenInventory(){
+        if(Input.GetKeyDown(KeyCode.I)){
+            loadoutController.SetActive(!loadoutController.activeSelf);
+            isLoadoutScreenOpen = loadoutController.activeSelf;
         }
     }
 

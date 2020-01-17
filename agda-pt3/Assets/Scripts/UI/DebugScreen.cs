@@ -28,10 +28,10 @@ public class DebugScreen : MonoBehaviour
 
     private void UpdateDebugText(){
         PlayerController player = ((PlayerController)FindObjectOfType(typeof(PlayerController))); // Player Object
-        if(player.gun is ReloadableGun){
+        if(player.GetCurrentWeapon().GetComponent<Weapon>() is ReloadableGun){
             // Adds a current ammo display if there is a gun
-            AddDebugLine("Current Weapon Ammo: " + ((ReloadableGun)player.gun).GetCurrentClipSize() +
-             " / " + ((ReloadableGun)player.gun).GetCurrentAmmoStored());
+            AddDebugLine("Current Weapon Ammo: " + ((ReloadableGun)player.GetCurrentWeapon().GetComponent<Weapon>()).GetCurrentClipSize() +
+             " / " + ((ReloadableGun)player.GetCurrentWeapon().GetComponent<Weapon>()).GetCurrentAmmoStored());
         } else {
             AddDebugLine("Current Weapon Ammo: ");
         }

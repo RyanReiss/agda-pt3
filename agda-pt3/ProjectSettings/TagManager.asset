@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bullet
   - TriggersToIgnore
+  - LoadoutScreen
   layers:
   - Default
   - TransparentFX
@@ -52,6 +53,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 809260879
+    locked: 0
+  - name: TopOfWalls
+    uniqueID: 2704098337
     locked: 0
   - name: Room Covers
     uniqueID: 285981019
