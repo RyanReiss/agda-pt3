@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2411270087972940064}
   m_Layer: 0
   m_Name: PistolBullet
-  m_TagString: Bullet
+  m_TagString: TriggersToIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

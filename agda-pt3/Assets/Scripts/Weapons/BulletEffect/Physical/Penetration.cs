@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Penetration : Effect {
     private int currentPenetrationHits = 0;
-    public int maxPenetrationHits;
-    public override void triggerEffect (GameObject bullet, Collider2D obj, float timeToDie) {
-        if(obj.transform.name != "Player" && obj.transform.tag != "TriggersToIgnore" && obj.transform.tag == "Enemy") {
+    
+    public override void triggerEffect (GameObject bullet, Collider2D obj, float timeToDie, float k) {
+        effectPrefab = null;
+        if (obj.transform.name != "Player" && obj.transform.tag != "TriggersToIgnore" && obj.transform.tag == "Enemy") {
             currentPenetrationHits++;
-            Debug.Log("currentPenetrationHits: " + currentPenetrationHits + ", objHit = " + obj.name);
+            Debug.Log ("currentPenetrationHits: " + currentPenetrationHits + ", objHit = " + obj.name);
         }
-        if(currentPenetrationHits >= maxPenetrationHits){
+        if (currentPenetrationHits >= k) {
             timeToDie = 0f;
         }
         if (obj.transform.name != "Player" && obj.transform.tag != "TriggersToIgnore" && obj.transform.tag != "Enemy") {

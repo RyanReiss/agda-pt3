@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4528670752517783387}
   m_Layer: 0
   m_Name: Flame
-  m_TagString: Bullet
+  m_TagString: TriggersToIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

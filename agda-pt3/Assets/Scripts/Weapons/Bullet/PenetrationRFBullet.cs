@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RifleBullet : Bullet {
+public class PenetrationRFBullet : Bullet {
     // Start is called before the first frame update
     void Start () {
         bulletSpeed = 60f;
         damageToGive = 1.5f;
-        effect = this.gameObject.AddComponent<NoEffect> ();
+        effect = this.gameObject.AddComponent<Penetration> ();
         timeToDie = 1.0f;
     }
 
@@ -27,7 +27,7 @@ public class RifleBullet : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
         //Destroy the bullet if it collides with something
-        effect.triggerEffect (this.gameObject, col, timeToDie, 0f);
+        effect.triggerEffect (this.gameObject, col, timeToDie, 2f);
 
     }
 }

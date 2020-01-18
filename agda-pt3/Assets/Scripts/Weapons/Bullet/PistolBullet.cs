@@ -10,8 +10,8 @@ public class PistolBullet : Bullet {
     void Start () {
         bulletSpeed = 40f;
         damageToGive = 1f;
-        effect = this.gameObject.AddComponent<Penetration> ();
-        effect.GetComponent<Penetration>().maxPenetrationHits = bulletPenetrations; // Default
+        effect = this.gameObject.AddComponent<NoEffect> ();
+        // effect.GetComponent<Penetration>().maxPenetrationHits = bulletPenetrations; // Default
         timeToDie = 1.0f;
     }
 
@@ -30,6 +30,6 @@ public class PistolBullet : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
 
-        effect.triggerEffect (this.gameObject, col, timeToDie);
+        effect.triggerEffect (this.gameObject, col, timeToDie, 0f);
     }
 }

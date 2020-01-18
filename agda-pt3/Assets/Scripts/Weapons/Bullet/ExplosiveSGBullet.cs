@@ -2,32 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RifleBullet : Bullet {
+public class ExplosiveSGBullet : Bullet {
     // Start is called before the first frame update
+
     void Start () {
-        bulletSpeed = 60f;
-        damageToGive = 1.5f;
-        effect = this.gameObject.AddComponent<NoEffect> ();
+        bulletSpeed = 70f;
+        damageToGive = 1.667f;
+        effect = this.gameObject.AddComponent<Explosion>();
         timeToDie = 1.0f;
     }
 
-    // Update is called once per frame
     void Update () {
         BulletPath (1f);
     }
 
     public override void BulletPath (float coefficient) {
         transform.position += transform.up.normalized * Time.deltaTime * bulletSpeed * coefficient;
-        Destroy (this.gameObject, 2.0f);
+        Destroy (this.gameObject, 0.8f);
     }
 
     public override void OnTriggerEnter2D (Collider2D col) {
-        Start ();
+        Start (); // Added in case OnTriggerEnter2D is called before start is called
+        if (col.gameObject.GetComponent<ZombieEnemyController> ()) {
+            Physics2D.IgnoreCollision (col.gameObject.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
+        }
         if (col.gameObject.GetComponent<Health> () != null) {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
-        //Destroy the bullet if it collides with something
-        effect.triggerEffect (this.gameObject, col, timeToDie, 0f);
-
+        effect.triggerEffect(this.gameObject, col, timeToDie, 3f);
     }
 }

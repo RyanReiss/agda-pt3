@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1367759981820195637}
   m_Layer: 0
   m_Name: ShotGunBullet
-  m_TagString: Bullet
+  m_TagString: TriggersToIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,11 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b8f4b9dfaa91a4f95ffa316a9d976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendTriggerMessage: 0
-  layerMask:
+  hitLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  skinWidth: 0.1
+  MessageName: OnTriggerEnter2D
+  triggerTarget: 3
+  momentumTransferFraction: 1
 --- !u!60 &-1367759981820195637
 PolygonCollider2D:
   m_ObjectHideFlags: 0

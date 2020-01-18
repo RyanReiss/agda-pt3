@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flame : Bullet {
+public class ExplosiveFlame : Bullet {
 
     public ArrayList objectsHit = new ArrayList ();
 
     void Start () {
         bulletSpeed = 0f;
         damageToGive = 1.5f;
-        effect = this.gameObject.AddComponent<NoEffect> ();
+        effect = this.gameObject.AddComponent<Explosion> ();
         timeToDie = 0.3f;
     }
 
@@ -28,6 +28,6 @@ public class Flame : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
             objectsHit.Add (col.gameObject);
         }
-        effect.triggerEffect (this.gameObject, col, timeToDie, 0f);
+        effect.triggerEffect (this.gameObject, col, timeToDie, 3f);
     }
 }

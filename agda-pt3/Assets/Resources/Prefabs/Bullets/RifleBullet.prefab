@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4922808249713600868}
   - component: {fileID: 6981890148536840617}
-  - component: {fileID: 3415060686262803101}
   - component: {fileID: 5410491963935979290}
   - component: {fileID: 8304010137055042153}
   - component: {fileID: 6152255336157434096}
+  - component: {fileID: -2873801435247298963}
   m_Layer: 0
   m_Name: RifleBullet
-  m_TagString: Bullet
+  m_TagString: TriggersToIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3415060686262803101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4818835750755421087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86053db9012b19743a952cacd0c376f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &5410491963935979290
 Rigidbody2D:
   serializedVersion: 4
@@ -129,11 +117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b8f4b9dfaa91a4f95ffa316a9d976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendTriggerMessage: 0
-  layerMask:
+  hitLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  skinWidth: 0.1
+  MessageName: OnTriggerEnter2D
+  triggerTarget: 3
+  momentumTransferFraction: 1
 --- !u!60 &6152255336157434096
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -170,3 +159,15 @@ PolygonCollider2D:
       - {x: 0.16, y: -0.32999998}
       - {x: 0.13812391, y: 0.2408814}
       - {x: 0.09541593, y: 0.43080524}
+--- !u!114 &-2873801435247298963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818835750755421087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86053db9012b19743a952cacd0c376f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
