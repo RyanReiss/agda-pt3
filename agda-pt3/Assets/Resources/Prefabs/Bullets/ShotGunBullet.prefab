@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2691988296537802074}
   - component: {fileID: 8264641474688913401}
-  - component: {fileID: -4380682147108057483}
   - component: {fileID: 7774827483963030506}
   - component: {fileID: -482781128419252279}
   - component: {fileID: -1367759981820195637}
+  - component: {fileID: 3873445863663734206}
   m_Layer: 0
   m_Name: ShotGunBullet
   m_TagString: TriggersToIgnore
@@ -84,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-4380682147108057483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2653622917489826045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d831c7208668efd40a667f94db0f1a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &7774827483963030506
 Rigidbody2D:
   serializedVersion: 4
@@ -171,3 +159,15 @@ PolygonCollider2D:
       - {x: 0.16, y: -0.32999998}
       - {x: 0.13812391, y: 0.2408814}
       - {x: 0.09541593, y: 0.43080524}
+--- !u!114 &3873445863663734206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653622917489826045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50237968d94638c4788d2fa90f09dea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

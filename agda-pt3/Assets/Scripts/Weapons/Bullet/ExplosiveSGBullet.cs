@@ -26,7 +26,7 @@ public class ExplosiveSGBullet : Bullet {
         if (col.gameObject.GetComponent<ZombieEnemyController> ()) {
             Physics2D.IgnoreCollision (col.gameObject.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
         }
-        if (col.gameObject.GetComponent<Health> () != null) {
+        if (col.gameObject.tag == "Enemy") {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
         effect.triggerEffect(this.gameObject, col, timeToDie, 3f);

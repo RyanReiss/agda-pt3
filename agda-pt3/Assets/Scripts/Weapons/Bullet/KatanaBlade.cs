@@ -24,8 +24,7 @@ public class KatanaBlade : Bullet
 
     public override void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.GetComponent<Health>() != null)
-        {
+        if (col.gameObject.tag == "Enemy") {
             if(!enemyCollisions.Contains(col.gameObject)){
                 enemyCollisions.Add(col.gameObject);
                 col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);

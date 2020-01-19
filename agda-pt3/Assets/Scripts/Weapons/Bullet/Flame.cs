@@ -24,7 +24,7 @@ public class Flame : Bullet {
 
     public override void OnTriggerEnter2D (Collider2D col) {
         Start ();
-        if (col.gameObject.GetComponent<Health> () != null && !objectsHit.Contains (col.gameObject)) {
+        if (col.gameObject.tag == "Enemy" && !objectsHit.Contains (col.gameObject)) {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
             objectsHit.Add (col.gameObject);
         }

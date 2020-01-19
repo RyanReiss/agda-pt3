@@ -11,7 +11,7 @@ public abstract class ReloadableGun : Gun {
     protected int currentClip; // The current ammo inside the player's clip
     protected bool isReloading = false; // True if the player is currently reloading their gun
     public float msReloadTime; // The time it takes for the player to reload the gun in milliseconds
-    private bool failSafe; // A bool used to fix a weird error. (see below)
+    protected bool failSafe; // A bool used to fix a weird error. (see below)
     
     /*
     //Sample Start Method initialization of all reload variables
@@ -25,6 +25,8 @@ public abstract class ReloadableGun : Gun {
     }
     */
 
+    public abstract void Start();
+
     protected void ReloadGun(){
         // Check to make sure the gun isnt currently reloading...
         Debug.Log("Current ammo left: "+ currentAmmoStored);
@@ -34,7 +36,7 @@ public abstract class ReloadableGun : Gun {
                 Debug.Log("Reloading...");
                 StartCoroutine(WaitToReload(msReloadTime));
             }
-        } else if(failSafe){
+        } else if(failSafe) {
             failSafe = false;
             isReloading = false;
             if(currentClip != maxClipSize){
@@ -47,6 +49,8 @@ public abstract class ReloadableGun : Gun {
     protected IEnumerator WaitToReload(float msWaitTime){
         isReloading = true;
         // Check to make sure the clip is emptied before reloading
+        failSafe = true;
+        yield return new WaitForSeconds(msWaitTime/1000f); // Wait to reload the gun
         if(currentClip != 0){
             if(currentAmmoStored + currentClip > maxAmmo){
                 currentAmmoStored = maxAmmo;
@@ -65,8 +69,6 @@ public abstract class ReloadableGun : Gun {
             currentClip = currentAmmoStored;
             currentAmmoStored = 0;
         }
-        failSafe = true;
-        yield return new WaitForSeconds(msWaitTime/1000f); // Wait to reload the gun
         failSafe = false;
         isReloading = false;
     }

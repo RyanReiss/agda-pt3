@@ -1,0 +1,703 @@
+fileFormatVersion: 2
+guid: 103734cee8e41ed42983b642d65f0124
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1033145063763050053
+    second: WeaponIconTempSpritesheet_0
+  - first:
+      213: -3183582132813518505
+    second: WeaponIconTempSpritesheet_1
+  - first:
+      213: -3188781454343158161
+    second: WeaponIconTempSpritesheet_pisol
+  - first:
+      213: 9023633217217098460
+    second: WeaponIconTempSpritesheet_3
+  - first:
+      213: -6260305538456775975
+    second: WeaponIconTempSpritesheet_4
+  - first:
+      213: 1817859093514240998
+    second: WeaponIconTempSpritesheet_5
+  - first:
+      213: 3845083086368612264
+    second: WeaponIconTempSpritesheet_6
+  - first:
+      213: -6355330336535126092
+    second: WeaponIconTempSpritesheet_7
+  - first:
+      213: 7463101778281518755
+    second: WeaponIconTempSpritesheet_8
+  - first:
+      213: -7688444663877385974
+    second: WeaponIconTempSpritesheet_9
+  - first:
+      213: -1814619968161714290
+    second: WeaponIconTempSpritesheet_10
+  - first:
+      213: -6504222467559495158
+    second: WeaponIconTempSpritesheet_11
+  - first:
+      213: -371897964887158878
+    second: WeaponIconTempSpritesheet_12
+  - first:
+      213: 8736781516623204813
+    second: WeaponIconTempSpritesheet_13
+  - first:
+      213: 8019060162590481191
+    second: WeaponIconTempSpritesheet_14
+  - first:
+      213: 2534496797719966012
+    second: WeaponIconTempSpritesheet_15
+  - first:
+      213: -8368583457714121352
+    second: WeaponIconTempSpritesheet_16
+  - first:
+      213: 3372010357032917192
+    second: WeaponIconTempSpritesheet_17
+  - first:
+      213: 4651160285742559911
+    second: WeaponIconTempSpritesheet_18
+  - first:
+      213: -4612470541074731488
+    second: WeaponIconTempSpritesheet_shotgun
+  - first:
+      213: -2929338960297420309
+    second: WeaponIconTempSpritesheet_20
+  - first:
+      213: 6781837108574162293
+    second: WeaponIconTempSpritesheet_rifle
+  - first:
+      213: 6688092829595367948
+    second: WeaponIconTempSpritesheet_flamethrower
+  - first:
+      213: 4290500637629102060
+    second: WeaponIconTempSpritesheet_23
+  - first:
+      213: -2511601354226330539
+    second: WeaponIconTempSpritesheet_24
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 908
+        width: 119
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb23576f4871d6348b4ecb5b80c4d30d
+      internalID: -1033145063763050053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 909
+        width: 104
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6619339e87d88ce4eb0ec3dc6be3c240
+      internalID: -3183582132813518505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_pisol
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 909
+        width: 125
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08092a19cd17c0498701342fbe64769
+      internalID: -3188781454343158161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 909
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e8d9a7b004c76408c74b8ae8a110e0
+      internalID: 9023633217217098460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 909
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5226636b3efa2744987e0c27480f31b
+      internalID: -6260305538456775975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 909
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff28795c9e564949ad979d47344d247
+      internalID: 1817859093514240998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 909
+        width: 20
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73272b02f09f45540b28669b2eccad35
+      internalID: 3845083086368612264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 909
+        width: 14
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614ea706d78cf764f93f484e3442327f
+      internalID: -6355330336535126092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 909
+        width: 14
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03220f7b9627bb142a6d7f2a2734b510
+      internalID: 7463101778281518755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 909
+        width: 16
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b80d07fa4f115459c7e6a327c81f57
+      internalID: -7688444663877385974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 865
+        width: 181
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbca645b3c46a641a1924b5a0bfb9c4
+      internalID: -1814619968161714290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 764
+        width: 134
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fef87b69cf7a884192d688036b4607e
+      internalID: -6504222467559495158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 765
+        width: 206
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f605c7b3abfb5428cdcdbfa150802a
+      internalID: -371897964887158878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 776
+        width: 67
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e97b03f99cc08a4397e7e62d808e9fb
+      internalID: 8736781516623204813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 780
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7140e36538b9714e97e7ff63e0e65e1
+      internalID: 8019060162590481191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 764
+        width: 35
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb71dcf18121b949b5441086111d461
+      internalID: 2534496797719966012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 754
+        width: 48
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb78ba8b9e06ab42b69681414983418
+      internalID: -8368583457714121352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 566
+        width: 403
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e936a79a4ea58914988dbf8f335f1f1c
+      internalID: 3372010357032917192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 566
+        width: 396
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f49fdafbbfa12b4abff70f5d38637d9
+      internalID: 4651160285742559911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_shotgun
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 389
+        width: 334
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c797f4e6e0d1f4aaf6b18f3300c382
+      internalID: -4612470541074731488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 389
+        width: 444
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5828162d7f258674d8eab2dd5ce5fb4c
+      internalID: -2929338960297420309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_rifle
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 201
+        width: 332
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59999324b79a9f541a708c9e7edb2ce6
+      internalID: 6781837108574162293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_flamethrower
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 200
+        width: 345
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a27ff10a0b30c59438d2e01cab9cfe2f
+      internalID: 6688092829595367948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 12
+        width: 355
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd91379197494724b9ed80ad6ddf5fd9
+      internalID: 4290500637629102060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIconTempSpritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 12
+        width: 363
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa2feca3b1ffc84885ed5f7f159b70c
+      internalID: -2511601354226330539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

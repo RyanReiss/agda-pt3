@@ -12,6 +12,7 @@ public class ZombieEnemyController : MonoBehaviour
     private Rigidbody2D rb;
     public Vector3 lastPositionTargetSeen = Vector3.zero;
     public UnityEvent m_currentInteractions;
+    public float damageToGive;
     
 
     // Start is called before the first frame update
@@ -72,6 +73,9 @@ public class ZombieEnemyController : MonoBehaviour
       if (collision.gameObject.GetComponent<ZombieEnemyController>())
       {
           Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+      }
+      if (collision.gameObject.name == "Player"){
+          collision.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
       }
   }
 }

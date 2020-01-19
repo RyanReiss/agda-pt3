@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - TriggersToIgnore
   - LoadoutScreen
+  - DebugScreen
   layers:
   - Default
   - TransparentFX

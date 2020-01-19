@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlameThrower : ReloadableGun {
     float timeCount = 0f;
 
-    void Start () {
+    public override void Start () {
         //Loads bullet prefab
         fireRate = 0.1f;
         // bulletPrefab = Resources.Load("Prefabs/Bullet/PistolBullet") as GameObject;
@@ -41,7 +41,7 @@ public class FlameThrower : ReloadableGun {
         } */
         timeCount += Time.deltaTime;
 
-        if (timeCount >= fireRate && Input.GetMouseButton (0) && !isReloading && currentClip > 0) {
+        if (timeCount >= fireRate && Input.GetMouseButton (0) && (!isReloading || failSafe) && currentClip > 0) {
             if (currentClip <= timeCount || currentClip <= 0) {
                 // currentClip = 0;
                 // timeCount = 0f;

@@ -14,7 +14,7 @@ public class Laser : ReloadableGun
     public ParticleSystem hitEffect;
     
 
-    void Start()
+    public override void Start()
     {
         //Ammo System init
         maxClipSize = 10;

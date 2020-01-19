@@ -36,6 +36,8 @@ public class DebugScreen : MonoBehaviour
             AddDebugLine("Current Weapon Ammo: ");
         }
 
+        AddDebugLine("Current Health: " + player.GetComponent<Health>().GetCurrentHealth() + " / " + player.GetComponent<Health>().maxHealth); // The player current health
+
         AddDebugLine("Current Energy: " + player.GetEnergy()); // the player's current sprinting energy
         
         ArrayList temp = (ArrayList)sLines.Clone();

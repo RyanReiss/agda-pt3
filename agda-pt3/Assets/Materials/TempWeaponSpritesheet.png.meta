@@ -1,0 +1,703 @@
+fileFormatVersion: 2
+guid: ba7c412140514144f8bf0ec156a06737
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -297306158887053563
+    second: TempWeaponSpritesheet_0
+  - first:
+      213: -4804498729964659398
+    second: TempWeaponSpritesheet_1
+  - first:
+      213: -4586278232009551343
+    second: TempWeaponSpritesheet_2
+  - first:
+      213: 8182292159568671894
+    second: TempWeaponSpritesheet_3
+  - first:
+      213: -9222220763794606424
+    second: TempWeaponSpritesheet_4
+  - first:
+      213: 8698171417465387819
+    second: TempWeaponSpritesheet_5
+  - first:
+      213: 3997663529026351271
+    second: TempWeaponSpritesheet_6
+  - first:
+      213: 1319586023601813956
+    second: TempWeaponSpritesheet_7
+  - first:
+      213: 8750055150092195383
+    second: TempWeaponSpritesheet_8
+  - first:
+      213: -6242680418114928748
+    second: TempWeaponSpritesheet_9
+  - first:
+      213: 8123334830314649135
+    second: TempWeaponSpritesheet_10
+  - first:
+      213: 219767037333515846
+    second: TempWeaponSpritesheet_11
+  - first:
+      213: -8005359120408456493
+    second: TempWeaponSpritesheet_12
+  - first:
+      213: -5631302439744898319
+    second: TempWeaponSpritesheet_13
+  - first:
+      213: -6228419433991984568
+    second: TempWeaponSpritesheet_14
+  - first:
+      213: 884627948637715144
+    second: TempWeaponSpritesheet_15
+  - first:
+      213: 2323460345786102828
+    second: TempWeaponSpritesheet_16
+  - first:
+      213: -7185818788259314698
+    second: TempWeaponSpritesheet_17
+  - first:
+      213: 1141597584261328674
+    second: TempWeaponSpritesheet_18
+  - first:
+      213: 8302626714280671186
+    second: TempWeaponSpritesheet_19
+  - first:
+      213: 7882079255503406319
+    second: TempWeaponSpritesheet_20
+  - first:
+      213: -1961496203285053283
+    second: TempWeaponSpritesheet_21
+  - first:
+      213: 5429828980087896738
+    second: TempWeaponSpritesheet_22
+  - first:
+      213: 7910837512176950369
+    second: TempWeaponSpritesheet_23
+  - first:
+      213: -5181381405201130823
+    second: TempWeaponSpritesheet_24
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 710
+        width: 125
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd52c8100c8fbd9489b554aa4a716641
+      internalID: -297306158887053563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 692
+        width: 77
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f53de781196fc45b525321c1e5b429
+      internalID: -4804498729964659398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 463
+        width: 151
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a5833ab7f41664aae5905b6a70cc86
+      internalID: -4586278232009551343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 463
+        width: 128
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9b1aea8a6f1ab4ea2713757b91fe3e
+      internalID: 8182292159568671894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 463
+        width: 121
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe862ec17549084fba5b48b1f740a05
+      internalID: -9222220763794606424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 462
+        width: 145
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e1a1f14ef729340a41611781f59c98
+      internalID: 8698171417465387819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 668
+        width: 76
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95705a14d7141a8469fed2985ed3c209
+      internalID: 3997663529026351271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 648
+        width: 67
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81e94ab9dec464b4d9dc07f0a5539a3b
+      internalID: 1319586023601813956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 644
+        width: 74
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca6a473323a235b4b820b01dc56f67b4
+      internalID: 8750055150092195383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 620
+        width: 66
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502cbf5796fc10b49bb9e32f1a6b6084
+      internalID: -6242680418114928748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 600
+        width: 51
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657a521fb51b28847ba02a640fcee9b2
+      internalID: 8123334830314649135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 590
+        width: 58
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777f50fda517dc649aae660ad3691bd7
+      internalID: 219767037333515846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 564
+        width: 40
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1bd79d52e24200478d96eb5acb8cd53
+      internalID: -8005359120408456493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 499
+        width: 75
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 643630d46ab28cd409e9aac73937a43e
+      internalID: -5631302439744898319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 538
+        width: 40
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1048e883f81be344e940cc2ce073ec3b
+      internalID: -6228419433991984568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 512
+        width: 40
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3297b25e98ad94fb9dec8a6917ebef
+      internalID: 884627948637715144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 324
+        width: 83
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760754eb7ef076749b72688e6a9021ef
+      internalID: 2323460345786102828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 193
+        width: 83
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9848f001195cc9445a992d9bbad9d5df
+      internalID: -7185818788259314698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 10
+        width: 116
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2702508c1823f944abc9f15d7fb00f1
+      internalID: 1141597584261328674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 10
+        width: 122
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75bdb7a86e664b048b0544ffcefc5101
+      internalID: 8302626714280671186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 9
+        width: 120
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b92c9df9d23614d9d88265f831109a
+      internalID: 7882079255503406319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 10
+        width: 123
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695862d3c6f8142429f6466f3502fcc5
+      internalID: -1961496203285053283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 177
+        width: 83
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8db3ec7b0170cc4fa340767987454d7
+      internalID: 5429828980087896738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 10
+        width: 82
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777bf7afa4c266944816bfd61fd44aa5
+      internalID: 7910837512176950369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempWeaponSpritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 9
+        width: 84
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b99d4f049b593b4ab654146c95acabc
+      internalID: -5181381405201130823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

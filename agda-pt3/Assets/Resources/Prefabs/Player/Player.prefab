@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 8965827065026000361}
   - component: {fileID: 5275549586210563761}
   - component: {fileID: -2273273063073519886}
+  - component: {fileID: 7862504638083202169}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -190,6 +191,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   velocityIncreaseDecayRate: 0
+  loadoutController: {fileID: 0}
 --- !u!212 &8965827065026000362
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -323,6 +325,19 @@ MonoBehaviour:
   MessageName: OnTriggerEnter2D
   triggerTarget: 1
   momentumTransferFraction: 0
+--- !u!114 &7862504638083202169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8965827065026000364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80813165c5e3a9c45a32cbeb0f326fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
 --- !u!1001 &1068208239040518972
 PrefabInstance:
   m_ObjectHideFlags: 0

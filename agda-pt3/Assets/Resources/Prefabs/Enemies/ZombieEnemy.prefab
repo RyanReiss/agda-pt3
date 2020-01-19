@@ -62,6 +62,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerToFollow: {fileID: 0}
   moveSpeed: 0
+  lastPositionTargetSeen: {x: 0, y: 0, z: 0}
+  m_currentInteractions:
+    m_PersistentCalls:
+      m_Calls: []
+  damageToGive: 1
 --- !u!212 &2036269785209268258
 SpriteRenderer:
   m_ObjectHideFlags: 0

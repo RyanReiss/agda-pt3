@@ -7,7 +7,7 @@ public class AutoRifle : ReloadableGun
     // Start is called before the first frame update
     float timeCount = 0f;
 
-    void Start()
+    public override void Start()
     {
         //Loads bullet prefab
         fireRate = 0.15f;
@@ -33,7 +33,7 @@ public class AutoRifle : ReloadableGun
     public override void Attack()
     {
         timeCount += Time.deltaTime;
-        if (timeCount >= fireRate && Input.GetMouseButton(0) && !isReloading && currentClip > 0)
+        if (timeCount >= fireRate && Input.GetMouseButton(0) && (!isReloading || failSafe) && currentClip > 0)
         {
             //Deal with Ammo
             currentClip--;

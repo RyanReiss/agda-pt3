@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour
         primaryOrSecondary = true; // start on primary gun
         energy = maxEnergy;
         anim = gameObject.GetComponent<Animator>();
+        weaponBackpack.SetActive(false);
+        // foreach(Transform t in weaponBackpack.transform.GetComponentsInChildren<Transform>()){
+        //     t.gameObject.SetActive(false);
+        // }
+        secondaryWeaponHolder.SetActive(false);
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame

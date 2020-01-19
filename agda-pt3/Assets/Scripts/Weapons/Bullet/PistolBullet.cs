@@ -26,7 +26,7 @@ public class PistolBullet : Bullet {
     }
 
     public override void OnTriggerEnter2D (Collider2D col) {
-        if (col.gameObject.GetComponent<Health> () != null) {
+        if (col.gameObject.tag == "Enemy") {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
 

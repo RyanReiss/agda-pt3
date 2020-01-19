@@ -7,7 +7,7 @@ public class ShotGun : ReloadableGun
     // Start is called before the first frame update
     float timeCount = 0f;
     public float shotgunKnockback;
-    void Start()
+    public override void Start()
     {
         fireRate = 0.75f;
 
@@ -29,7 +29,7 @@ public class ShotGun : ReloadableGun
     public override void Attack() 
     {
         timeCount += Time.deltaTime;
-        if (timeCount >= fireRate && Input.GetMouseButton(0) && !isReloading && currentClip > 0)
+        if (timeCount >= fireRate && Input.GetMouseButton(0) && (!isReloading || failSafe) && currentClip > 0)
         {
             //Deal with Ammo System
             currentClip--;

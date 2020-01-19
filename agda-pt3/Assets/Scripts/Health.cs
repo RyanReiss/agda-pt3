@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Health : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
 
-    void Start()
+    public void Start()
     {
         currentHealth = maxHealth;
     }
@@ -19,7 +20,19 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage){
         currentHealth -= damage;
         if(currentHealth <= 0){
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
+            if(gameObject.name == "Player"){
+                gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("DebugScreen").gameObject.SetActive(false);
+                SceneManager.LoadScene("GameOverScreen");
+                gameObject.transform.position = Vector3.zero;
+                currentHealth = maxHealth;
+            }
         }
+    }
+
+    public float GetCurrentHealth(){
+        return currentHealth;
     }
 }

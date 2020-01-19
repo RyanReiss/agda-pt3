@@ -23,8 +23,7 @@ public class Explosions : Bullet
     }
     public override void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.GetComponent<Health>() != null)
-        {
+        if (col.gameObject.tag == "Enemy") {
             col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
         }
         //Destroy the bullet if it collides with something
