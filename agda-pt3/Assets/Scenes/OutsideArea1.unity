@@ -150,9 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e3cd11acdac5c49ae5621bba27e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: {x: 27.88166, y: -3, z: 0}
+  location: {x: 28, y: -1.43, z: 0}
   sceneName: TilemapTestScene
-  startingRoom: small-room-2
+  startingRoom: 
 --- !u!61 &266283130
 BoxCollider2D:
   m_ObjectHideFlags: 0

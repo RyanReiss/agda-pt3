@@ -11,15 +11,25 @@ public class SceneChanger : MonoBehaviour
     public string sceneName;
     public string startingRoom;
     GameObject player;
+    private float msUntilUnlocked;
+    private float waitTime = 0.03f;
+
     void Start() {
-        player = GameObject.Find("Player");    
+        player = GameObject.Find("Player");  
+        msUntilUnlocked = 0;
+    }
+
+    void Update(){
+        msUntilUnlocked++;
     }
 
     public void OnTriggerEnter2D(Collider2D col){
-        if(col.GetComponent<PlayerController>() != null){
+        Debug.Log(msUntilUnlocked);
+        if(col.GetComponent<PlayerController>() != null && msUntilUnlocked/1000f > waitTime){
             Debug.Log("Player Entered new scene!");
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             player.transform.position = location;
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+            Debug.Log("Loaded Scene: " + sceneName);
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetCameraPosition(location);
             if(GlobalGameSettings.Instance.allRoomsInGame.ContainsKey(startingRoom)){
                 GlobalGameSettings.Instance.allRoomsInGame.Remove(startingRoom);
