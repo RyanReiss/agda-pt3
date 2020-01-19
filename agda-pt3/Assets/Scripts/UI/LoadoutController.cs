@@ -36,10 +36,10 @@ public class LoadoutController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>() as PlayerController;
         lengthOfBackpack = backpackSlot.transform.childCount-1;
         currentBackpackIndex = 0;
-        foreach (GameObject g in backpackSlot.transform.GetComponentsInChildren<GameObject>())
-        {
-            g.SetActive(false);
-        }
+        // foreach (Image g in backpackSlot.transform.GetComponentsInChildren<Image>())
+        // {
+        //     g.gameObject.SetActive(false);
+        // }
         backpackSlot.transform.GetChild(0).gameObject.SetActive(true);
     }
 

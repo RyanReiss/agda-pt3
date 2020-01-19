@@ -424,7 +424,7 @@ PrefabInstance:
     - target: {fileID: 2922580157701584279, guid: 4a781037f22f31848bbdf63ebbedb248,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2922580157701584278, guid: 4a781037f22f31848bbdf63ebbedb248,
         type: 3}
@@ -2147,41 +2147,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678072491}
   m_CullTransparentMesh: 0
---- !u!1 &683386742
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 683386743}
-  m_Layer: 5
-  m_Name: HiddenGuns
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &683386743
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683386742}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1096524028}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &704854795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,7 +3039,6 @@ RectTransform:
   - {fileID: 1284622506}
   - {fileID: 820038645}
   - {fileID: 678072492}
-  - {fileID: 683386743}
   m_Father: {fileID: 704854799}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3127,7 +3091,7 @@ MonoBehaviour:
   secondaryWeaponSlot: {fileID: 179089072}
   backpackSlot: {fileID: 1284622507}
   player: {fileID: 0}
-  hiddenGuns: {fileID: 683386742}
+  hiddenGuns: {fileID: 0}
 --- !u!222 &1096524031
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3516,6 +3480,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57b29dfe9ecea442824db7d316800c8, type: 3}
+--- !u!1 &1217351373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2902495180731944084, guid: 07fa0b7ee07be3340862ad256d439e55,
+    type: 3}
+  m_PrefabInstance: {fileID: 1145653365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232139799
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,7 +5434,7 @@ PrefabInstance:
     - target: {fileID: 2922580157701584279, guid: 4a781037f22f31848bbdf63ebbedb248,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2922580157701584278, guid: 4a781037f22f31848bbdf63ebbedb248,
         type: 3}
@@ -8226,6 +8196,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlameThrower
       objectReference: {fileID: 0}
+    - target: {fileID: 2922580157701584279, guid: 4a781037f22f31848bbdf63ebbedb248,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2922580157701584278, guid: 4a781037f22f31848bbdf63ebbedb248,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8335,7 +8310,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponToDisplay
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1217351373}
     - target: {fileID: 2922580157701584265, guid: 4a781037f22f31848bbdf63ebbedb248,
         type: 3}
       propertyPath: m_Color.r
