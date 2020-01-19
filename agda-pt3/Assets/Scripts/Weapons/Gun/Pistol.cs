@@ -24,7 +24,7 @@ public class Pistol : ReloadableGun
         maxClipSize = 10;
         currentClip = maxClipSize;
         maxAmmo = 100;
-        currentAmmoStored = 10;
+        currentAmmoStored = 50;
         msReloadTime = 1000f; //1 second reload time
     }
 

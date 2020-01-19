@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
             //Destroy(gameObject);
             if(gameObject.name == "Player"){
                 gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("DebugScreen").gameObject.SetActive(false);
+                //GameObject.FindGameObjectWithTag("DebugScreen").gameObject.SetActive(false);
                 SceneManager.LoadScene("GameOverScreen");
                 gameObject.transform.position = Vector3.zero;
                 currentHealth = maxHealth;

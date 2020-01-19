@@ -13,6 +13,7 @@ public class LoadoutController : MonoBehaviour
     //Moving backpack controls
     private int lengthOfBackpack;
     private int currentBackpackIndex;
+    public GameObject hiddenGuns;
     // Singleton setup
     private static LoadoutController _instance;
 
@@ -35,6 +36,11 @@ public class LoadoutController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>() as PlayerController;
         lengthOfBackpack = backpackSlot.transform.childCount-1;
         currentBackpackIndex = 0;
+        foreach (GameObject g in backpackSlot.transform.GetComponentsInChildren<GameObject>())
+        {
+            g.SetActive(false);
+        }
+        backpackSlot.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void SwapWeaponsInBackPack(GameObject weapon, bool primaryOrSecondary){
@@ -99,5 +105,13 @@ public class LoadoutController : MonoBehaviour
             }
         }
         
+    }
+
+    public void AddGunToDisplay(string gun){
+        GameObject temp = hiddenGuns.transform.Find(gun).gameObject;
+        if(temp != null){
+            temp.transform.parent = backpackSlot.transform;
+            lengthOfBackpack = backpackSlot.transform.childCount-1;
+        }
     }
 }

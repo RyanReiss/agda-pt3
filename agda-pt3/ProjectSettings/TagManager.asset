@@ -9,6 +9,7 @@ TagManager:
   - TriggersToIgnore
   - LoadoutScreen
   - DebugScreen
+  - InventoryUIController
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 

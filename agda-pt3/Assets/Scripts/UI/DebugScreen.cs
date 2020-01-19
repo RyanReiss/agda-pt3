@@ -13,10 +13,12 @@ public class DebugScreen : MonoBehaviour
     Text debugText;
     string sText;
     ArrayList sLines = new ArrayList();
+    PlayerController player;
     // Start is called before the first frame update
     void Start()
     {
         debugText = gameObject.GetComponent<Text>();
+        player = ((PlayerController)FindObjectOfType(typeof(PlayerController))); // Player Object
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class DebugScreen : MonoBehaviour
     }
 
     private void UpdateDebugText(){
-        PlayerController player = ((PlayerController)FindObjectOfType(typeof(PlayerController))); // Player Object
+        
         if(player.GetCurrentWeapon().GetComponent<Weapon>() is ReloadableGun){
             // Adds a current ammo display if there is a gun
             AddDebugLine("Current Weapon Ammo: " + ((ReloadableGun)player.GetCurrentWeapon().GetComponent<Weapon>()).GetCurrentClipSize() +

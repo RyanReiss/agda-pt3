@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject secondaryWeaponHolder;
     public GameObject weaponBackpack;
     private bool primaryOrSecondary; // primary = true, secondary = false;
+    //public GameObject gun;
 
     // Sprinting Variables
     private float energy;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool isExceedingMaxVelocity;
     
     //Inventory control variables
+    public GameObject inventoryUIController;
     public GameObject loadoutController;
     private bool isLoadoutScreenOpen; // true = yes, false = no
 
@@ -59,16 +61,22 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         loadoutController = GameObject.FindGameObjectWithTag("LoadoutScreen");
+        Debug.Log("Loadout Controller: " + loadoutController.name);
+        inventoryUIController = GameObject.FindGameObjectWithTag("InventoryUIController");
         isLoadoutScreenOpen = false;
         loadoutController.SetActive(false);
         primaryOrSecondary = true; // start on primary gun
         energy = maxEnergy;
         anim = gameObject.GetComponent<Animator>();
+        if(anim != null){
+            Debug.Log("Reached");
+        }
         weaponBackpack.SetActive(false);
         // foreach(Transform t in weaponBackpack.transform.GetComponentsInChildren<Transform>()){
         //     t.gameObject.SetActive(false);
         // }
         secondaryWeaponHolder.SetActive(false);
+        //gun = primaryWeaponHolder.transform.GetChild(0).gameObject;
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame
@@ -191,6 +199,7 @@ public class PlayerController : MonoBehaviour
                 // Swap gun from secondary to primary
                 secondaryWeaponHolder.SetActive(false);
                 primaryWeaponHolder.SetActive(true);
+                //gun = primaryWeaponHolder.transform.GetChild(0).gameObject;
                 primaryOrSecondary = true;
             }
         } else if(Input.GetKey("2")){
@@ -198,6 +207,7 @@ public class PlayerController : MonoBehaviour
                 // Swap gun from primary to secondary
                 primaryWeaponHolder.SetActive(false);
                 secondaryWeaponHolder.SetActive(true);
+                //gun = secondaryWeaponHolder.transform.GetChild(0).gameObject;
                 primaryOrSecondary = false;
             }
         }
@@ -281,6 +291,17 @@ public class PlayerController : MonoBehaviour
         } else {
             currentVelocityIncrease = 0;
         }
-        
     }
+
+    public void PickupItem(string str, Sprite spr){
+        inventoryUIController.GetComponent<InventoryUIController>().AddItemToInventory(str, spr);
+    }
+    public bool InventoryContains(string item){
+        return inventoryUIController.GetComponent<InventoryUIController>().InventoryContains(item);
+    }
+
+    public void PickupGun(GameObject gun, string gunName){
+        gun.transform.parent = weaponBackpack.transform;
+    }
+
 }
