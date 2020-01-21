@@ -40,7 +40,8 @@ public class LoadoutController : MonoBehaviour
         // {
         //     g.gameObject.SetActive(false);
         // }
-        backpackSlot.transform.GetChild(0).gameObject.SetActive(true);
+        if(backpackSlot.transform.childCount >= 1)
+            backpackSlot.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void SwapWeaponsInBackPack(GameObject weapon, bool primaryOrSecondary){
@@ -107,11 +108,18 @@ public class LoadoutController : MonoBehaviour
         
     }
 
-    public void AddGunToDisplay(string gun){
-        GameObject temp = hiddenGuns.transform.Find(gun).gameObject;
+    public void AddGunToDisplay(GameObject gun, string gunName){
+        GameObject temp = Resources.Load("Prefabs/UI/LoadoutImages/" + gunName) as GameObject;
+        temp = Instantiate(temp, Vector3.zero, Quaternion.Euler(Vector3.zero));
         if(temp != null){
-            temp.transform.parent = backpackSlot.transform;
-            lengthOfBackpack = backpackSlot.transform.childCount-1;
+            if(secondaryWeaponSlot.transform.childCount == 0){
+                temp.transform.SetParent(secondaryWeaponSlot.transform);
+            } else {
+                temp.transform.SetParent(backpackSlot.transform);
+                lengthOfBackpack = backpackSlot.transform.childCount-1;
+            }
+            temp.GetComponent<RectTransform>().localPosition = Vector3.zero;
+            temp.GetComponent<LoadoutWeaponSlot>().weaponToDisplay = gun.gameObject;
         }
     }
 }

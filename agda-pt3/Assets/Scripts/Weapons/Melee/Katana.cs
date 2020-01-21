@@ -26,6 +26,9 @@ public class Katana : Melee
 
 
     public override void UpdateWeapon(){
+        if(blade == null){
+            Start();
+        }
         timeCount += Time.deltaTime;
         // Disable the blade if its enabled in the heirarchy and the timeUntilDisabled is less than the current time 
         if(blade.gameObject.activeSelf){

@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
                 primaryOrSecondary = true;
             }
         } else if(Input.GetKey("2")){
-            if(primaryOrSecondary){
+            if(primaryOrSecondary && secondaryWeaponHolder.transform.childCount >= 1){
                 // Swap gun from primary to secondary
                 primaryWeaponHolder.SetActive(false);
                 secondaryWeaponHolder.SetActive(true);
@@ -301,7 +301,15 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PickupGun(GameObject gun, string gunName){
-        gun.transform.parent = weaponBackpack.transform;
+        GameObject temp;
+        // GameObject gun should be the prefab instance of the gun to pickup
+        if(secondaryWeaponHolder.transform.childCount == 0){
+            temp = Instantiate(gun, secondaryWeaponHolder.transform);
+        } else {
+            temp = Instantiate(gun, weaponBackpack.transform);
+        }
+        //gun.SetActive(true);
+        loadoutController.GetComponent<LoadoutController>().AddGunToDisplay(temp, gunName);
     }
 
 }
