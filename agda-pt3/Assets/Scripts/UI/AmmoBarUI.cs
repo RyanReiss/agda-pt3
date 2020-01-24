@@ -17,7 +17,7 @@ public class AmmoBarUI : MonoBehaviour
     private void Update()
     {
         if(player.GetCurrentWeapon().GetComponent<ReloadableGun>()){
-            barImage.fillAmount = ((float)player.GetCurrentWeapon().GetComponent<ReloadableGun>().GetCurrentClipSize() / (float)player.GetCurrentWeapon().GetComponent<ReloadableGun>().maxClipSize);
+            barImage.fillAmount = player.GetCurrentWeapon().GetComponent<ReloadableGun>().GetAmmoRatio();
         } else {
             barImage.fillAmount = 0;
         }

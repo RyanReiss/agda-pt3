@@ -61,16 +61,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         loadoutController = GameObject.FindGameObjectWithTag("LoadoutScreen");
-        Debug.Log("Loadout Controller: " + loadoutController.name);
+        //Debug.Log("Loadout Controller: " + loadoutController.name);
         inventoryUIController = GameObject.FindGameObjectWithTag("InventoryUIController");
         isLoadoutScreenOpen = false;
         loadoutController.SetActive(false);
         primaryOrSecondary = true; // start on primary gun
         energy = maxEnergy;
         anim = gameObject.GetComponent<Animator>();
-        if(anim != null){
-            Debug.Log("Reached");
-        }
         weaponBackpack.SetActive(false);
         // foreach(Transform t in weaponBackpack.transform.GetComponentsInChildren<Transform>()){
         //     t.gameObject.SetActive(false);
@@ -251,6 +248,16 @@ public class PlayerController : MonoBehaviour
         } else {
             return secondaryWeaponHolder.transform.GetChild(0).gameObject;
         }
+    }
+
+    public List<GameObject> GetAllWeapons(){
+        List<GameObject> ret = new List<GameObject>();
+        ret.Add(primaryWeaponHolder.transform.GetChild(0).gameObject);
+        ret.Add(secondaryWeaponHolder.transform.GetChild(0).gameObject);
+        foreach (Weapon g in weaponBackpack.GetComponentsInChildren<Weapon>()) {
+            ret.Add(g.gameObject);
+        }
+        return ret;
     }
 
     // When called, interacts with any events currently subscribed to currentInteractions

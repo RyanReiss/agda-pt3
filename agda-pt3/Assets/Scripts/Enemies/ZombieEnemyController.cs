@@ -77,5 +77,21 @@ public class ZombieEnemyController : MonoBehaviour
       if (collision.gameObject.name == "Player"){
           collision.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
       }
-  }
+    }
+
+    public void OnTriggerStay2D(Collider2D collision) {
+        if(collision.gameObject.GetComponent<InteractionArea>() && collision.transform.parent.gameObject.GetComponent<Door>() && this.lastPositionTargetSeen != Vector3.zero){
+            if(!collision.transform.parent.GetComponent<Door>().GetState()){
+                collision.transform.parent.GetComponent<InteractableObject>().Interact();
+            }
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.GetComponent<InteractionArea>() && collision.transform.parent.gameObject.GetComponent<Door>() && this.lastPositionTargetSeen != Vector3.zero){
+            if(!collision.transform.parent.GetComponent<Door>().GetState()){
+                collision.transform.parent.GetComponent<InteractableObject>().Interact();
+            }
+        }
+    }
 }

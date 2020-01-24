@@ -10,13 +10,16 @@ public class Explosions : Bullet
     {
         bulletSpeed = 0f;
         damageToGive = 3.0f;
-        timeToDie = 0.4f;
+        timeToDie = 0.46666666666f;
+        GetComponent<Animator>().Play("Explosion",0,0f);
+        Destroy (gameObject, timeToDie);
+        //Debug.Log("Animation Length: ");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, timeToDie);
+        //Destroy(gameObject, timeToDie);
     }
     public override void BulletPath(float coefficient)
     {

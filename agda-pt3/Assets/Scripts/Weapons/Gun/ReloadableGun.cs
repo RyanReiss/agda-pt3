@@ -12,6 +12,7 @@ public abstract class ReloadableGun : Gun {
     protected bool isReloading = false; // True if the player is currently reloading their gun
     public float msReloadTime; // The time it takes for the player to reload the gun in milliseconds
     protected bool failSafe; // A bool used to fix a weird error. (see below)
+    private float startTime;
     
     /*
     //Sample Start Method initialization of all reload variables
@@ -29,18 +30,22 @@ public abstract class ReloadableGun : Gun {
 
     protected void ReloadGun(){
         // Check to make sure the gun isnt currently reloading...
-        Debug.Log("Current ammo left: "+ currentAmmoStored);
+        //Debug.Log("Current ammo left: "+ currentAmmoStored);
         if(!isReloading){
             // Check to make sure the current clip isnt already fully reloaded
             if(currentClip != maxClipSize){
-                Debug.Log("Reloading...");
+                //Debug.Log("Reloading...");
+                currentClip = 0;
+                startTime = Time.time;
                 StartCoroutine(WaitToReload(msReloadTime));
             }
         } else if(failSafe) {
             failSafe = false;
             isReloading = false;
             if(currentClip != maxClipSize){
-                Debug.Log("Reloading...");
+                //Debug.Log("Reloading...");
+                currentClip = 0;
+                startTime = Time.time;
                 StartCoroutine(WaitToReload(msReloadTime));
             }
         }
@@ -79,6 +84,15 @@ public abstract class ReloadableGun : Gun {
 
     public int GetCurrentClipSize(){
         return currentClip;
+    }
+
+    public float GetAmmoRatio(){
+        if(isReloading){
+            //Debug.Log(((Time.time-startTime) / ((Time.time-startTime) + msReloadTime/1000f))*2f);
+            return ((Time.time-startTime) / ((Time.time-startTime) + msReloadTime/1000f))*2f;
+        } else {
+            return (float)currentClip / (float)maxClipSize;
+        }
     }
     
 }

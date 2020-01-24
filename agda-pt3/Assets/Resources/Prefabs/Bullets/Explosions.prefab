@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 37263753785755095}
   - component: {fileID: -2016629524689187841}
   - component: {fileID: 8558158023938190210}
+  - component: {fileID: 7250664869357620550}
   m_Layer: 0
   m_Name: Explosions
   m_TagString: TriggersToIgnore
@@ -120,3 +121,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effc007dda9fbeb4a9cbdf9174177eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: 0
+--- !u!95 &7250664869357620550
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9154917990324621560}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4a0ac2302561644ba5ed10318a9e2aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

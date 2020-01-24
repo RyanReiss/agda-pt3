@@ -99,7 +99,7 @@ MonoBehaviour:
     type: 3}
   maxClipSize: 0
   msReloadTime: 0
-  shotgunKnockback: 50
+  shotgunKnockback: 25
 --- !u!1 &9104247438836328702
 GameObject:
   m_ObjectHideFlags: 0

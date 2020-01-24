@@ -24,7 +24,7 @@ public class SceneChanger : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D col){
-        Debug.Log(msUntilUnlocked);
+        //Debug.Log(msUntilUnlocked);
         if(col.GetComponent<PlayerController>() != null && msUntilUnlocked/1000f > waitTime){
             Debug.Log("Player Entered new scene!");
             player.transform.position = location;
