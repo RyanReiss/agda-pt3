@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     // Animator variables
     private Animator anim;
     private Vector2 lastPlayerMovement;
-    private bool isPlayerMoving;
+    public bool isPlayerMoving;
 
     public UnityEvent m_currentInteractions;
 

@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
     public Vector3 stickyPosition;
     public float stickyRadius = 10f;
     public float stickySpeed = 0.9f;
-    private float sticyMinDisplacement = 0.15f;
+    //private float sticyMinDisplacement = 0.15f;
     void Start()
     {
         stickyPosition = transform.position;

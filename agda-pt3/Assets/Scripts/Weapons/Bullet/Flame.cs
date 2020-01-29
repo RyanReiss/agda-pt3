@@ -28,6 +28,6 @@ public class Flame : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
             objectsHit.Add (col.gameObject);
         }
-        effect.triggerEffect (this.gameObject, col, timeToDie, 0f);
+        effect.triggerEffect (this.gameObject, col, 0f);
     }
 }

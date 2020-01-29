@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Effect : MonoBehaviour{
     protected GameObject effectPrefab;
-    public abstract void triggerEffect (GameObject bullet, Collider2D obj, float timeToDie, float k);
+    public abstract void triggerEffect (GameObject bullet, Collider2D obj, float k);
 }

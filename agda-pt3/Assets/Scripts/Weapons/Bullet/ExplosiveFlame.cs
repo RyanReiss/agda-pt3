@@ -10,7 +10,7 @@ public class ExplosiveFlame : Bullet {
         bulletSpeed = 0f;
         damageToGive = 1.5f;
         effect = this.gameObject.AddComponent<Explosion> ();
-        timeToDie = 0.3f;
+        timeToDie = 1f;
     }
 
     void Update () {
@@ -19,7 +19,7 @@ public class ExplosiveFlame : Bullet {
 
     public override void BulletPath (float coefficient) {
         // transform.position += transform.up.normalized * Time.deltaTime * bulletSpeed * coefficient;
-        Destroy (this.gameObject, 0.3f);
+        Destroy (this.gameObject, timeToDie);
     }
 
     public override void OnTriggerEnter2D (Collider2D col) {
@@ -28,6 +28,7 @@ public class ExplosiveFlame : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
             objectsHit.Add (col.gameObject);
         }
-        effect.triggerEffect (this.gameObject, col, timeToDie, 3f);
+        effect.triggerEffect (this.gameObject, col, 3f);
+        //Destroy(this);
     }
 }

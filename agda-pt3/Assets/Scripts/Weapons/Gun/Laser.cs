@@ -7,7 +7,7 @@ public class Laser : ReloadableGun
 
     //still in progress
     float timeCount = 0f;
-    int energyConsumePerSecond = 1;
+    //int energyConsumePerSecond = 1;
     float weaponRange = 10;
     public LineRenderer line;
     public Transform lineEndPoint;

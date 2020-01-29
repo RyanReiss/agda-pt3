@@ -29,7 +29,10 @@ public class PistolBullet : Bullet {
         if (col.gameObject.tag == "Enemy") {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
+        if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
+            Destroy(this.gameObject);
+        }
 
-        effect.triggerEffect (this.gameObject, col, timeToDie, 0f);
+        effect.triggerEffect (this.gameObject, col, 0f);
     }
 }

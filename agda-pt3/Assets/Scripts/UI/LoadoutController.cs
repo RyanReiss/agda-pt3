@@ -97,7 +97,7 @@ public class LoadoutController : MonoBehaviour
     }
 
     private void SetBackPackDisplay(int index){
-        Debug.Log("Setting Backpack Display: " + index);
+        //Debug.Log("Setting Backpack Display: " + index);
         for(int i = 0; i <= lengthOfBackpack; i++){
             if(i == index){
                 backpackSlot.transform.GetChild(i).gameObject.SetActive(true);

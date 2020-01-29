@@ -27,6 +27,9 @@ public class GunPickup : InteractableObject
     public override void Interact(){
         //GameObject temp = Instantiate(gunToGive);
         player.PickupGun(gunToGive, gunName);
+        if(this.GetComponent<DestroyWhenPickedUp>() && this.GetComponent<DestroyWhenPickedUp>().identifier != ""){
+            this.GetComponent<DestroyWhenPickedUp>().PickUp();
+        }
         Destroy(this.gameObject);
     }
 }

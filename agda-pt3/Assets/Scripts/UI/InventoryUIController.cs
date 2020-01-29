@@ -39,7 +39,6 @@ public class InventoryUIController : MonoBehaviour
     }
 
     public bool InventoryContains(string item){
-        Debug.Log("Gothere + " + item + " + "+ inventorySlots.ContainsValue(item));
         if(inventorySlots.ContainsValue(item)){
             return true;
         }

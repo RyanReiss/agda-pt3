@@ -15,6 +15,8 @@ public class Door : InteractableObject
     public bool lockedDoor;
     public string keyToUnlock;
     private PlayerController player;
+    public List<string> linesToShowOnLockedDoorInteract;
+    private DialogueController dialogueController;
 
     protected override void Start() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -26,6 +28,7 @@ public class Door : InteractableObject
             needToShowRoom = false;
         }
         anim = GetComponent<Animator>();
+        dialogueController = GameObject.FindGameObjectWithTag("DialogueController").GetComponent<DialogueController>();
     }
 
     public override void Interact(){
@@ -50,6 +53,9 @@ public class Door : InteractableObject
         } else if(player.InventoryContains(keyToUnlock)){
             lockedDoor = false;
             Interact();
+        }
+        if(lockedDoor && linesToShowOnLockedDoorInteract.Count > 0){
+            dialogueController.InteractWithTextBox(linesToShowOnLockedDoorInteract);
         }
         
     }

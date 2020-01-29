@@ -27,7 +27,9 @@ public class RifleBullet : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
         //Destroy the bullet if it collides with something
-        effect.triggerEffect (this.gameObject, col, timeToDie, 0f);
-
+        effect.triggerEffect (this.gameObject, col, 0f);
+        if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
+            Destroy(this.gameObject);
+        }
     }
 }

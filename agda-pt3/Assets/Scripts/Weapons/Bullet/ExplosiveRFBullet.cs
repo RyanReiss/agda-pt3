@@ -27,7 +27,10 @@ public class ExplosiveRFBullet : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
         //Destroy the bullet if it collides with something
-        effect.triggerEffect (this.gameObject, col, timeToDie, 3f);
+        effect.triggerEffect (this.gameObject, col, 3f);
+        if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
+            Destroy(this.gameObject);
+        }
 
     }
 }

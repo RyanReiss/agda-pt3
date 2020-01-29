@@ -30,6 +30,9 @@ public class PushbackPistolBullet : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
 
-        effect.triggerEffect (this.gameObject, col, timeToDie, 80f);
+        effect.triggerEffect (this.gameObject, col, 80f);
+        if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
+            Destroy(this.gameObject);
+        }
     }
 }

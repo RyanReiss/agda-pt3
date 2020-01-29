@@ -8,7 +8,7 @@ public class WeaponStat : Gun
     //A class that manage statistics of weapons
     float weaponRange;
     float weaponDamage;
-    float fireRate;
+    //float fireRate;
     float reloadTime;
     float velocicy;
 

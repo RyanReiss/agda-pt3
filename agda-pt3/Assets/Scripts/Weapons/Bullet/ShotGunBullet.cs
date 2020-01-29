@@ -29,6 +29,9 @@ public class ShotGunBullet : Bullet {
         if (col.gameObject.tag == "Enemy") {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
-        effect.triggerEffect(this.gameObject, col, timeToDie, 3f);
+        effect.triggerEffect(this.gameObject, col, 3f);
+        if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
+            Destroy(this.gameObject);
+        }
     }
 }
