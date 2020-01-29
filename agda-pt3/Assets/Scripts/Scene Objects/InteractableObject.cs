@@ -12,10 +12,9 @@ public abstract class InteractableObject : MonoBehaviour {
     // enter the area
 
     public Collider2D interactionArea;
-    protected virtual void Start()
-    {
-        interactionArea = transform.GetComponentInChildren<Collider2D>();
+    protected virtual void Start () {
+        interactionArea = transform.GetComponentInChildren<Collider2D> ();
     }
 
-    public abstract void Interact(); // called when a player enters the interaction area and presses "e"
+    public abstract void Interact (); // called when a player enters the interaction area and presses "e"
 }

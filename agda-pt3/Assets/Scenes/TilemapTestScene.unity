@@ -3242,7 +3242,7 @@ GameObject:
   - component: {fileID: 1249877641}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5925,7 +5925,7 @@ GameObject:
   - component: {fileID: 1616663902}
   m_Layer: 0
   m_Name: HiddenRooms
-  m_TagString: Untagged
+  m_TagString: TriggersToIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6035,7 +6035,7 @@ GameObject:
   - component: {fileID: 1671391975}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7804,7 +7804,7 @@ GameObject:
   - component: {fileID: 1748905103}
   m_Layer: 0
   m_Name: TopOfWalls
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9570,7 +9570,7 @@ GameObject:
   - component: {fileID: 2013988959}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

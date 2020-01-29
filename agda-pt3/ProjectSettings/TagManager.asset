@@ -10,6 +10,7 @@ TagManager:
   - LoadoutScreen
   - DebugScreen
   - InventoryUIController
+  - Map
   layers:
   - Default
   - TransparentFX
