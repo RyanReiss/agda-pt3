@@ -11,23 +11,34 @@ public class Health : MonoBehaviour
 
     public float maxHealth;
     private float currentHealth;
+    public float msInvulnerability;
+    private float invulnEndTime;
+    ScreenStaticController screenStaticController;
 
     public void Start()
     {
         currentHealth = maxHealth;
+        screenStaticController = GameObject.FindGameObjectWithTag("ScreenStaticController").GetComponent<ScreenStaticController>();
     }
 
     public void TakeDamage(float damage){
-        currentHealth -= damage;
-        if(currentHealth <= 0){
-            gameObject.SetActive(false);
-            //Destroy(gameObject);
+        if(invulnEndTime <= Time.time){
+            invulnEndTime = Time.time + msInvulnerability/1000f;
+            currentHealth -= damage;
             if(gameObject.name == "Player"){
-                gameObject.SetActive(true);
-                //GameObject.FindGameObjectWithTag("DebugScreen").gameObject.SetActive(false);
-                SceneManager.LoadScene("GameOverScreen");
-                gameObject.transform.position = Vector3.zero;
-                currentHealth = maxHealth;
+                Debug.Log("Starting Static...");
+                screenStaticController.StartScreenStatic(currentHealth/maxHealth);
+            }
+            if(currentHealth <= 0){
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
+                if(gameObject.name == "Player"){
+                    gameObject.SetActive(true);
+                    //GameObject.FindGameObjectWithTag("DebugScreen").gameObject.SetActive(false);
+                    SceneManager.LoadScene("GameOverScreen");
+                    gameObject.transform.position = Vector3.zero;
+                    currentHealth = maxHealth;
+                }
             }
         }
     }

@@ -6,8 +6,10 @@ public class Explosions : Bullet
 {
     // Start is called before the first frame update
     public float size;
+    private List<GameObject> objectsHit;
     void Start()
     {
+        objectsHit = new List<GameObject>();
         bulletSpeed = 0f;
         damageToGive = 3.0f;
         timeToDie = 0.46666666666f;
@@ -26,7 +28,8 @@ public class Explosions : Bullet
     }
     public override void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy") {
+        if (col.gameObject && col.gameObject.tag == "Enemy" && !objectsHit.Contains(col.gameObject)) {
+            objectsHit.Add (col.gameObject);
             col.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
         }
         //Destroy the bullet if it collides with something

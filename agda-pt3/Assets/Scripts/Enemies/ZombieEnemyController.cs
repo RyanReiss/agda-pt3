@@ -69,7 +69,7 @@ public class ZombieEnemyController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision){
+    void OnCollisionStay2D(Collision2D collision){
         // Ignore all collisions with other enemies (Change when more enemies are added!)
       if (collision.gameObject.GetComponent<ZombieEnemyController>())
       {

@@ -12,5 +12,6 @@ public class GameOverScreen : MonoBehaviour
             g.Start();
         }
         GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().Start();
+        GameObject.FindGameObjectWithTag("Player").transform.position = Vector3.zero;
     }
 }

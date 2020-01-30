@@ -20,7 +20,7 @@ public class DialogueController : MonoBehaviour
         dialogueBox.SetActive(false);
         queuedText = new List<string>();
         dialogueText.text = "";
-        InvokeRepeating("UpdateText",0.1f,0.055f);
+        InvokeRepeating("UpdateText",0.1f,0.050f);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 

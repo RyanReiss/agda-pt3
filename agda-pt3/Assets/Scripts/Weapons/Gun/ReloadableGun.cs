@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class ReloadableGun : Gun {
 
     // Ammo System
-    protected int currentAmmoStored; // The current amount of ammo that the player is holding (that isnt in currentClip)
+    public int currentAmmoStored; // The current amount of ammo that the player is holding (that isnt in currentClip)
     protected int maxAmmo; // The maximum amount of ammo the player can hold.
     public int maxClipSize; // The max ammo that can be stored in a clip
     protected int currentClip; // The current ammo inside the player's clip
@@ -35,6 +35,7 @@ public abstract class ReloadableGun : Gun {
             // Check to make sure the current clip isnt already fully reloaded
             if(currentClip != maxClipSize){
                 //Debug.Log("Reloading...");
+                currentAmmoStored += currentClip;
                 currentClip = 0;
                 startTime = Time.time;
                 StartCoroutine(WaitToReload(msReloadTime));
@@ -44,6 +45,7 @@ public abstract class ReloadableGun : Gun {
             isReloading = false;
             if(currentClip != maxClipSize){
                 //Debug.Log("Reloading...");
+                currentAmmoStored += currentClip;
                 currentClip = 0;
                 startTime = Time.time;
                 StartCoroutine(WaitToReload(msReloadTime));
@@ -62,6 +64,7 @@ public abstract class ReloadableGun : Gun {
             } else {
                 currentAmmoStored += currentClip;
             }
+            currentAmmoStored += currentClip;
             currentClip = 0;
         }
         // Does the player have enough ammo to fully reload a clip?
@@ -93,6 +96,17 @@ public abstract class ReloadableGun : Gun {
         } else {
             return (float)currentClip / (float)maxClipSize;
         }
+    }
+
+    public void AddAmmoToAmmoStorage(int ammoToAdd){
+        currentAmmoStored+=ammoToAdd;
+        if(currentAmmoStored > maxAmmo){
+            currentAmmoStored = maxAmmo;
+        }
+    }
+
+    public bool IsGunReloading(){
+        return isReloading;
     }
     
 }

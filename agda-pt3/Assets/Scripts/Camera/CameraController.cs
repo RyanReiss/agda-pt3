@@ -23,6 +23,7 @@ public class CameraController : MonoBehaviour
         stickyPosition = transform.position;
 
         tracked = GameObject.Find("Player").transform;
+        transform.position = new Vector3(tracked.position.x,tracked.position.y,transform.position.z);
     }
 
     // Update is called once per frame

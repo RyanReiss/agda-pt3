@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
 
     // Singleton setup
     private static PlayerController _instance;
-
     public static PlayerController Instance { get { return _instance; } }
 
 
@@ -193,19 +192,27 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKey("1")){
             if(!primaryOrSecondary){
-                // Swap gun from secondary to primary
-                secondaryWeaponHolder.SetActive(false);
-                primaryWeaponHolder.SetActive(true);
-                //gun = primaryWeaponHolder.transform.GetChild(0).gameObject;
-                primaryOrSecondary = true;
+                if(GetCurrentWeapon().GetComponent<ReloadableGun>() && !GetCurrentWeapon().GetComponent<ReloadableGun>().IsGunReloading()){
+                    // If the current gun isnt reloading... swap!
+                    // Swap gun from secondary to primary
+                    secondaryWeaponHolder.SetActive(false);
+                    primaryWeaponHolder.SetActive(true);
+                    //gun = primaryWeaponHolder.transform.GetChild(0).gameObject;
+                    primaryOrSecondary = true;
+                }
+                
+                
             }
         } else if(Input.GetKey("2")){
             if(primaryOrSecondary && secondaryWeaponHolder.transform.childCount >= 1){
-                // Swap gun from primary to secondary
-                primaryWeaponHolder.SetActive(false);
-                secondaryWeaponHolder.SetActive(true);
-                //gun = secondaryWeaponHolder.transform.GetChild(0).gameObject;
-                primaryOrSecondary = false;
+                if(GetCurrentWeapon().GetComponent<ReloadableGun>() && !GetCurrentWeapon().GetComponent<ReloadableGun>().IsGunReloading()){
+                    // If the current gun is reloading... dont swap!
+                    // Swap gun from primary to secondary
+                    primaryWeaponHolder.SetActive(false);
+                    secondaryWeaponHolder.SetActive(true);
+                    //gun = secondaryWeaponHolder.transform.GetChild(0).gameObject;
+                    primaryOrSecondary = false;
+                }
             }
         }
         /*if (Input.GetKey("1")){

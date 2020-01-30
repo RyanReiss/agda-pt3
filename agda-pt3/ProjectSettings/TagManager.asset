@@ -11,6 +11,8 @@ TagManager:
   - DebugScreen
   - InventoryUIController
   - DialogueController
+  - Map
+  - ScreenStaticController
   layers:
   - Default
   - TransparentFX

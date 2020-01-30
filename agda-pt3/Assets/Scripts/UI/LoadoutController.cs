@@ -114,8 +114,13 @@ public class LoadoutController : MonoBehaviour
         if(temp != null){
             if(secondaryWeaponSlot.transform.childCount == 0){
                 temp.transform.SetParent(secondaryWeaponSlot.transform);
+                temp.SetActive(true);
             } else {
                 temp.transform.SetParent(backpackSlot.transform);
+                if(backpackSlot.transform.childCount == 1){
+                    //First weapon in backpack
+                    temp.SetActive(true);
+                }
                 lengthOfBackpack = backpackSlot.transform.childCount-1;
             }
             temp.GetComponent<RectTransform>().localPosition = Vector3.zero;
