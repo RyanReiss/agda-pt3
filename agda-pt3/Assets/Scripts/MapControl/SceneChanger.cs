@@ -12,7 +12,7 @@ public class SceneChanger : MonoBehaviour
     public string startingRoom;
     GameObject player;
     private float msUntilUnlocked;
-    private float waitTime = 0.03f;
+    private float waitTime = 0.05f;
 
     void Start() {
         player = GameObject.Find("Player");  
