@@ -13,6 +13,7 @@ TagManager:
   - DialogueController
   - Map
   - ScreenStaticController
+  - MapObjects
   layers:
   - Default
   - TransparentFX
@@ -50,7 +51,7 @@ TagManager:
   - name: Map Background
     uniqueID: 3530580855
     locked: 0
-  - name: Map Objects
+  - name: Map Objects Back
     uniqueID: 1410250735
     locked: 0
   - name: Default
@@ -58,6 +59,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 809260879
+    locked: 0
+  - name: Map Objects Front
+    uniqueID: 3481496515
     locked: 0
   - name: TopOfWalls
     uniqueID: 2704098337
