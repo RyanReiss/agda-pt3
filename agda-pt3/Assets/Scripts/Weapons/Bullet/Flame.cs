@@ -9,7 +9,7 @@ public class Flame : Bullet {
     void Start () {
         bulletSpeed = 0f;
         damageToGive = 1.5f;
-        effect = this.gameObject.AddComponent<NoEffect> ();
+        SetEffect(effectName);
         timeToDie = 0.3f;
     }
 
@@ -28,6 +28,6 @@ public class Flame : Bullet {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
             objectsHit.Add (col.gameObject);
         }
-        effect.triggerEffect (this.gameObject, col, 0f);
+        TriggerEffect(col);
     }
 }

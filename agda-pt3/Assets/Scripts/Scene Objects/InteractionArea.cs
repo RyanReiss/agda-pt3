@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class InteractionArea : MonoBehaviour
 {
-
     // handles assigning the Intreact() function of the parent's InteractableObject script to the player when they
     // enter the area.
     private bool added;
@@ -13,7 +12,7 @@ public class InteractionArea : MonoBehaviour
         if(col.GetComponent<PlayerController>() != null){
             added = true;
             //Debug.Log("Player Entered Interaction Zone!");
-            col.GetComponent<PlayerController>().m_currentInteractions.RemoveAllListeners();
+            //col.GetComponent<PlayerController>().m_currentInteractions.RemoveAllListeners();
             col.GetComponent<PlayerController>().m_currentInteractions.AddListener(transform.parent.GetComponent<InteractableObject>().Interact);
         }
     }
@@ -22,7 +21,7 @@ public class InteractionArea : MonoBehaviour
         if(col.GetComponent<PlayerController>() != null && added == false){
             added = true;
             //Debug.Log("Player Entered Interaction Zone!");
-            col.GetComponent<PlayerController>().m_currentInteractions.RemoveAllListeners();
+            //col.GetComponent<PlayerController>().m_currentInteractions.RemoveAllListeners();
             col.GetComponent<PlayerController>().m_currentInteractions.AddListener(transform.parent.GetComponent<InteractableObject>().Interact);
         }
     }

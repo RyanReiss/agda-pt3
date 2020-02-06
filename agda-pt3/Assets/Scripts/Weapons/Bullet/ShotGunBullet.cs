@@ -8,7 +8,7 @@ public class ShotGunBullet : Bullet {
     void Start () {
         bulletSpeed = 70f;
         damageToGive = 1.667f;
-        effect = this.gameObject.AddComponent<NoEffect>();
+        SetEffect(effectName);
         timeToDie = 1.0f;
     }
 
@@ -29,7 +29,7 @@ public class ShotGunBullet : Bullet {
         if (col.gameObject.tag == "Enemy") {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
-        effect.triggerEffect(this.gameObject, col, 3f);
+        TriggerEffect(col);
         if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
             Destroy(this.gameObject);
         }

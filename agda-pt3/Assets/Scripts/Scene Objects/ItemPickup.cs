@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickup : InteractableObject
+public class ItemPickup : Pickup
 {
     private PlayerController player;
     public string itemName;
     public List<string> linesToShowWhenItemPickedUp;
     DialogueController dialogueController;
+    
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -25,5 +26,9 @@ public class ItemPickup : InteractableObject
             dialogueController.InteractWithTextBox(linesToShowWhenItemPickedUp);
         }
         Destroy(this.gameObject);
+    }
+
+    public override void SetPickupValue(float value){
+        
     }
 }

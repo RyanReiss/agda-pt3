@@ -13,6 +13,8 @@ public abstract class ReloadableGun : Gun {
     public float msReloadTime; // The time it takes for the player to reload the gun in milliseconds
     protected bool failSafe; // A bool used to fix a weird error. (see below)
     private float startTime;
+
+    public string currentEffect;
     
     /*
     //Sample Start Method initialization of all reload variables
@@ -26,7 +28,9 @@ public abstract class ReloadableGun : Gun {
     }
     */
 
-    public abstract void Start();
+    public virtual void Start(){
+        currentEffect = "NoEffect";
+    }
 
     protected void ReloadGun(){
         // Check to make sure the gun isnt currently reloading...
@@ -107,6 +111,13 @@ public abstract class ReloadableGun : Gun {
 
     public bool IsGunReloading(){
         return isReloading;
+    }
+
+    public void SetWeaponEffect (string effectKey) {
+        Debug.Log ("Setting Weapon Effect...");
+        Debug.Log("effectKey in weapon: " + effectKey);
+        this.currentEffect = effectKey;
+        //bulletPrefab.GetComponent<Bullet> ().SetBulletEffect (effectKey);
     }
     
 }

@@ -383,6 +383,7 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+<<<<<<< HEAD
   - first: {x: -5, y: -7, z: 0}
     second:
       m_TileIndex: 108
@@ -437,6 +438,8 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+=======
+>>>>>>> 121084e282f8c3114204534b9b0234e49070e1bf
   - first: {x: -2, y: -6, z: 0}
     second:
       m_TileIndex: 48
@@ -545,6 +548,7 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+<<<<<<< HEAD
   - first: {x: 4, y: -5, z: 0}
     second:
       m_TileIndex: 104
@@ -599,6 +603,8 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+=======
+>>>>>>> 121084e282f8c3114204534b9b0234e49070e1bf
   - first: {x: -2, y: -4, z: 0}
     second:
       m_TileIndex: 36

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class GunPickup : InteractableObject
+public class GunPickup : Pickup
 {
     private PlayerController player;
     public string gunName;
@@ -31,5 +31,9 @@ public class GunPickup : InteractableObject
             this.GetComponent<DestroyWhenPickedUp>().PickUp();
         }
         Destroy(this.gameObject);
+    }
+
+    public override void SetPickupValue(float value){
+        
     }
 }

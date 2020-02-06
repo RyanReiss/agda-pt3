@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPickup : InteractableObject
+public class AmmoPickup : Pickup
 {
     public string gunName;
     public int ammoToPickup;
@@ -32,4 +32,7 @@ public class AmmoPickup : InteractableObject
         }
     }
 
+    public override void SetPickupValue(float value){
+        ammoToPickup = (int)value;
+    }
 }

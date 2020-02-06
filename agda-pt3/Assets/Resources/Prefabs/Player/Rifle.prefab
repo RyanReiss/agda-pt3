@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725821217959244009}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11897705, y: 0.37112692, z: 0}
+  m_LocalPosition: {x: -0.11897705, y: 0.627, z: 0}
   m_LocalScale: {x: 3.9262342, y: 1.1235956, z: 1}
   m_Children: []
   m_Father: {fileID: 5374453585739959914}
@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 5374453585739959914}
   - component: {fileID: 6279833306341289307}
   - component: {fileID: 2084761689896126327}
+  - component: {fileID: 1057233712805377336}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -57,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 6652060915787457746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.26000005, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2124452795624076794}
   m_Father: {fileID: 0}
@@ -101,13 +102,13 @@ SpriteRenderer:
   m_SortingLayerID: 809260879
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7882079255503406319, guid: ba7c412140514144f8bf0ec156a06737,
+  m_Sprite: {fileID: -7616813405664703038, guid: 6522a2fd10c5b914581232cf29c1eadc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.23, y: 0.63}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,5 +129,26 @@ MonoBehaviour:
   spawnPos: {fileID: 2124452795624076794}
   bulletPrefab: {fileID: 4818835750755421087, guid: b57790970f0c8dc469d95d60b8679bf0,
     type: 3}
+  currentAmmoStored: 0
   maxClipSize: 0
   msReloadTime: 0
+  currentEffect: 
+--- !u!95 &1057233712805377336
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6652060915787457746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d1d42bde5fe9aa4480809548d2c02dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

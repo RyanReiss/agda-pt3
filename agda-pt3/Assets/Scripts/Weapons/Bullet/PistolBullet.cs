@@ -5,12 +5,15 @@ using UnityEngine;
 public class PistolBullet : Bullet {
 
     public int bulletPenetrations;
+    //public string bulletEffect;
 
     // Start is called before the first frame update
     void Start () {
         bulletSpeed = 40f;
         damageToGive = 1f;
-        effect = this.gameObject.AddComponent<NoEffect> ();
+        SetEffect (effectName);
+        Debug.Log("Current Starting Effect: " + effectName);
+        // effect = this.gameObject.AddComponent<NoEffect> ();
         // effect.GetComponent<Penetration>().maxPenetrationHits = bulletPenetrations; // Default
         timeToDie = 1.0f;
     }
@@ -29,10 +32,9 @@ public class PistolBullet : Bullet {
         if (col.gameObject.tag == "Enemy") {
             col.gameObject.GetComponent<Health> ().TakeDamage (damageToGive);
         }
+        TriggerEffect(col);
         if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
-            Destroy(this.gameObject);
+            Destroy (this.gameObject);
         }
-
-        effect.triggerEffect (this.gameObject, col, 0f);
     }
 }

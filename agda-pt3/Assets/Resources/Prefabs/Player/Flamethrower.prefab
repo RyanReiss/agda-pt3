@@ -98,6 +98,7 @@ MonoBehaviour:
   spawnPos: {fileID: 1261611323562599983}
   bulletPrefab: {fileID: 8173294367923598818, guid: 014975b76c04fc94aa3fd6ee4a4569f0,
     type: 3}
+  currentAmmoStored: 0
   maxClipSize: 100
   msReloadTime: 1000
 --- !u!1 &6878023064730460702

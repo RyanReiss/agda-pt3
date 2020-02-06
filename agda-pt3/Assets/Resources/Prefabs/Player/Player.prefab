@@ -156,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 8965827065026000364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: 0.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 3788288302995633317}
   m_Father: {fileID: 0}
@@ -183,6 +183,7 @@ MonoBehaviour:
   primaryWeaponHolder: {fileID: 5884649250294885462}
   secondaryWeaponHolder: {fileID: 1355966606564138215}
   weaponBackpack: {fileID: 0}
+  isPlayerMoving: 0
   m_currentInteractions:
     m_PersistentCalls:
       m_Calls: []
@@ -251,7 +252,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0147084, y: -0.6005757}
+  m_Offset: {x: 0.014708415, y: -0.6839771}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -262,7 +263,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.82158434, y: 0.56281173}
+  m_Size: {x: 0.82158434, y: 0.39600897}
   m_EdgeRadius: 0
 --- !u!50 &8965827065026000361
 Rigidbody2D:
@@ -335,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  msInvulnerability: 0
 --- !u!1001 &6764564016509624256
 PrefabInstance:
   m_ObjectHideFlags: 0
