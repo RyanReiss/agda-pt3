@@ -12,7 +12,7 @@ public class SceneChanger : MonoBehaviour
     public string startingRoom;
     GameObject player;
     private float msUntilUnlocked;
-    private float waitTime = 0.05f;
+    private float waitTime = 0.03f;
 
     void Start() {
         player = GameObject.Find("Player");  
@@ -27,8 +27,10 @@ public class SceneChanger : MonoBehaviour
         //Debug.Log(msUntilUnlocked);
         if(col.GetComponent<PlayerController>() != null && msUntilUnlocked/1000f > waitTime){
             Debug.Log("Player Entered new scene!");
+            
             player.transform.position = location;
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+
             Debug.Log("Loaded Scene: " + sceneName);
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetCameraPosition(location);
             if(GlobalGameSettings.Instance.allRoomsInGame.ContainsKey(startingRoom)){
@@ -37,5 +39,6 @@ public class SceneChanger : MonoBehaviour
             }
         }
     }
+    
 
 }
