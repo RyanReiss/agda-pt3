@@ -9,6 +9,7 @@ public class AutoRifle : ReloadableGun
 
     public override void Start()
     {
+        base.Start();
         //Loads bullet prefab
         fireRate = 0.15f;
         // bulletPrefab = Resources.Load("Prefabs/Bullets/RifleBullet") as GameObject;
@@ -41,6 +42,10 @@ public class AutoRifle : ReloadableGun
                 ReloadGun();
             }
             GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;
+            aBullet.GetComponent<Bullet>().SetEffect(currentEffect);
+            if(this.GetComponent<Animator>()){
+                this.GetComponent<Animator>().SetTrigger("Shoot");
+            }
             timeCount = 0f;
         }
     }

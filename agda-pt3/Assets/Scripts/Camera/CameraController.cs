@@ -70,7 +70,9 @@ public class CameraController : MonoBehaviour
     }
 
     public void SetCameraPosition(Vector3 pos){
-        stickyPosition = pos;
-        transform.position = pos;
+        Vector3 cameraPos = new Vector3(pos.x,pos.y,-10f);
+        stickyPosition = cameraPos;
+        transform.position = cameraPos;
+        
     }
 }

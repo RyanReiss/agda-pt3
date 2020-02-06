@@ -9,6 +9,7 @@ public class ShotGun : ReloadableGun
     public float shotgunKnockback;
     public override void Start()
     {
+        base.Start();
         fireRate = 0.75f;
 
         //Ammo System init
@@ -39,6 +40,7 @@ public class ShotGun : ReloadableGun
             for (int i = 0; i < 6; i++)
             {
                 GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;
+                aBullet.GetComponent<Bullet>().SetEffect(currentEffect);
                 aBullet.transform.Rotate(0,0, Random.Range(-20, 20));
             }
             transform.parent.parent.parent.GetComponent<PlayerController>().ApplyGunKnockback(shotgunKnockback);

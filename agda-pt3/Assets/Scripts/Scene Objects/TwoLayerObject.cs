@@ -17,7 +17,6 @@ public class TwoLayerObject : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(player.position.y <= this.transform.position.y && transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName == frontLayerName){

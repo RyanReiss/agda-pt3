@@ -6,6 +6,7 @@ public class FlameThrower : ReloadableGun {
     float timeCount = 0f;
 
     public override void Start () {
+        base.Start();
         //Loads bullet prefab
         fireRate = 0.1f;
         // bulletPrefab = Resources.Load("Prefabs/Bullet/PistolBullet") as GameObject;
@@ -48,6 +49,7 @@ public class FlameThrower : ReloadableGun {
                 ReloadGun ();
             }
             GameObject aBullet = Instantiate (bulletPrefab, spawnPos.position + (spawnPos.up * 4f), spawnPos.rotation) as GameObject;
+            aBullet.GetComponent<Bullet>().SetEffect(currentEffect);
             currentClip--;
             timeCount = 0f;
         }

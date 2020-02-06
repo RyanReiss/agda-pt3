@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/House-f2.unity
     guid: b9bcc5c2816907d4e94afe528916b11d
+  - enabled: 1
+    path: Assets/Scenes/ForestIntro.unity
+    guid: 8be83fdb7f924ab458d920f9c66ee9b2
   m_configObjects: {}

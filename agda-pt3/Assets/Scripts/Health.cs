@@ -31,6 +31,9 @@ public class Health : MonoBehaviour
             }
             if(currentHealth <= 0){
                 gameObject.SetActive(false);
+                if(gameObject.GetComponent<BaseEnemyAI>()){
+                    DropTableController.Instance.RollDropTable(gameObject.GetComponent<BaseEnemyAI>().dropTableName,gameObject.transform);
+                }
                 //Destroy(gameObject);
                 if(gameObject.name == "Player"){
                     gameObject.SetActive(true);
@@ -39,6 +42,7 @@ public class Health : MonoBehaviour
                     gameObject.transform.position = Vector3.zero;
                     currentHealth = maxHealth;
                 }
+
             }
         }
     }
