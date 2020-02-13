@@ -41,6 +41,13 @@ public class AutoRifle : ReloadableGun
             if(currentClip <= 0){
                 ReloadGun();
             }
+            GameObject muzzleFlash = PlayerEffectsController.Instance.GetEffect("greenFlash");
+            muzzleFlash.transform.position = spawnPos.position;
+            muzzleFlash.transform.rotation = spawnPos.rotation;
+            muzzleFlash.transform.position += muzzleFlash.transform.up*.75f;
+            muzzleFlash.GetComponent<MuzzleFlash>().transformToReturnTo = muzzleFlash.transform.parent;
+            muzzleFlash.transform.parent = this.transform;
+            muzzleFlash.SetActive(true);
             GameObject aBullet = Instantiate(bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;
             aBullet.GetComponent<Bullet>().SetEffect(currentEffect);
             if(this.GetComponent<Animator>()){

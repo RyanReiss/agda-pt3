@@ -32,8 +32,8 @@ public class ZombieEnemyController : BaseEnemyAI
         }
         if(currentState == EnemyState.MovingTowardsTarget){
             // Move towards the target
-            transform.position = Vector2.MoveTowards(transform.position, (targetToAttack.position + (Vector3)targetToAttack.GetComponent<BoxCollider2D>().offset), movementSpeed * Time.deltaTime); // move towards the player
-            lastPositionTargetSeen = (targetToAttack.position + (Vector3)targetToAttack.GetComponent<BoxCollider2D>().offset);
+            transform.position = Vector2.MoveTowards(transform.position, (targetToAttack.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset), movementSpeed * Time.deltaTime); // move towards the player
+            lastPositionTargetSeen = (targetToAttack.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset);
         } else if(currentState == EnemyState.LookingForPlayer){
             // If the target isnt currently in vision, move towards the last seen position
             transform.position = Vector2.MoveTowards(transform.position, lastPositionTargetSeen, movementSpeed * Time.deltaTime); // move towards the last seen position of the target

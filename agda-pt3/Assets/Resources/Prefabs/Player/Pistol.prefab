@@ -101,6 +101,7 @@ MonoBehaviour:
   currentAmmoStored: 0
   maxClipSize: 0
   msReloadTime: 0
+  currentEffect: 
 --- !u!1 &6406868699048983223
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6406868699048983223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.118975624, y: 0.93, z: 0}
+  m_LocalPosition: {x: -1.61, y: 3.4, z: 0}
   m_LocalScale: {x: 3.9261878, y: 1.1235955, z: 1}
   m_Children: []
   m_Father: {fileID: 2417741494954482481}

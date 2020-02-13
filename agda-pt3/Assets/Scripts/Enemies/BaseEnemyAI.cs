@@ -26,7 +26,7 @@ public abstract class BaseEnemyAI : MonoBehaviour
     public EnemyState currentState;
 
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {
         targetToAttack = PlayerController.Instance.gameObject.transform;
         currentState = EnemyState.Idle;
@@ -42,7 +42,7 @@ public abstract class BaseEnemyAI : MonoBehaviour
     // Returns true if the targetToAttack is in LineOfSight
     protected bool LineOfSight(float rayCastLength){
         Vector3 start = transform.position;
-        Vector3 direction = (targetToAttack.position + (Vector3)targetToAttack.GetComponent<BoxCollider2D>().offset) - transform.position;
+        Vector3 direction = (targetToAttack.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset) - transform.position;
         //Debug.DrawRay(start,direction*rayCastLength,Color.blue,2f,false);
 
         RaycastHit2D[] lineOfSight = Physics2D.RaycastAll(start, direction, rayCastLength);

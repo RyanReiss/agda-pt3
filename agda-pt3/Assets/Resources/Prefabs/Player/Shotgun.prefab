@@ -100,6 +100,7 @@ MonoBehaviour:
   currentAmmoStored: 0
   maxClipSize: 0
   msReloadTime: 0
+  currentEffect: 
   shotgunKnockback: 40
 --- !u!1 &9104247438836328702
 GameObject:
@@ -125,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9104247438836328702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.469, z: 0}
+  m_LocalPosition: {x: -0.51, y: 2.16, z: 0}
   m_LocalScale: {x: 3.9262342, y: 1.1235956, z: 1}
   m_Children: []
   m_Father: {fileID: 7822727727674166915}

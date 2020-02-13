@@ -44,6 +44,14 @@ public class Pistol : ReloadableGun {
             if (currentClip <= 0) {
                 ReloadGun ();
             }
+            Debug.Log("Spawning MuzzleFlash");
+            GameObject muzzleFlash = PlayerEffectsController.Instance.GetEffect("whiteFlash");
+            muzzleFlash.transform.position = spawnPos.position;
+            muzzleFlash.transform.rotation = spawnPos.rotation;
+            muzzleFlash.transform.position += muzzleFlash.transform.up*.75f;
+            muzzleFlash.GetComponent<MuzzleFlash>().transformToReturnTo = muzzleFlash.transform.parent;
+            muzzleFlash.transform.parent = this.transform;
+            muzzleFlash.SetActive(true);
             GameObject aBullet = Instantiate (bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;
             aBullet.GetComponent<Bullet>().SetEffect(currentEffect);
             timeCount = 0f;

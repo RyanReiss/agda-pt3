@@ -9,6 +9,9 @@ public class LoadoutController : MonoBehaviour
     public Image primaryWeaponSlot;
     public Image secondaryWeaponSlot;
     public Image backpackSlot;
+    public Text primaryWeaponText;
+    public Text secondaryWeaponText;
+    public Text backpackWeaponText;
     public PlayerController player;
     //Moving backpack controls
     private int lengthOfBackpack;
@@ -42,6 +45,11 @@ public class LoadoutController : MonoBehaviour
         // }
         if(backpackSlot.transform.childCount >= 1)
             backpackSlot.transform.GetChild(0).gameObject.SetActive(true);
+        ReloadLoadoutText();
+    }
+    
+    private void LateUpdate() {
+        ReloadLoadoutText();
     }
 
     public void SwapWeaponsInBackPack(GameObject weapon, bool primaryOrSecondary){
@@ -105,12 +113,12 @@ public class LoadoutController : MonoBehaviour
                 backpackSlot.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
-        
     }
 
     public void AddGunToDisplay(GameObject gun, string gunName){
-        GameObject temp = Resources.Load("Prefabs/UI/LoadoutImages/" + gunName) as GameObject;
-        temp = Instantiate(temp, Vector3.zero, Quaternion.Euler(Vector3.zero));
+        GameObject temp2 = Resources.Load("Prefabs/UI/LoadoutImages/" + gunName) as GameObject;
+        GameObject temp = Instantiate(temp2, Vector3.zero, Quaternion.Euler(Vector3.zero));
+        temp.name = temp2.name;
         if(temp != null){
             if(secondaryWeaponSlot.transform.childCount == 0){
                 temp.transform.SetParent(secondaryWeaponSlot.transform);
@@ -126,5 +134,11 @@ public class LoadoutController : MonoBehaviour
             temp.GetComponent<RectTransform>().localPosition = Vector3.zero;
             temp.GetComponent<LoadoutWeaponSlot>().weaponToDisplay = gun.gameObject;
         }
+    }
+
+    private void ReloadLoadoutText(){
+        primaryWeaponText.GetComponent<LoadoutSlotText>().UpdateText();
+        secondaryWeaponText.GetComponent<LoadoutSlotText>().UpdateText();
+        backpackWeaponText.GetComponent<LoadoutSlotText>().UpdateText();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Health : MonoBehaviour
     public float msInvulnerability;
     private float invulnEndTime;
     ScreenStaticController screenStaticController;
+    public UnityEvent m_OnDeath; // Event called on death of the current gameObject
 
     public void Start()
     {
@@ -30,6 +32,7 @@ public class Health : MonoBehaviour
                 screenStaticController.StartScreenStatic(currentHealth/maxHealth);
             }
             if(currentHealth <= 0){
+                m_OnDeath.Invoke();
                 gameObject.SetActive(false);
                 if(gameObject.GetComponent<BaseEnemyAI>()){
                     DropTableController.Instance.RollDropTable(gameObject.GetComponent<BaseEnemyAI>().dropTableName,gameObject.transform);

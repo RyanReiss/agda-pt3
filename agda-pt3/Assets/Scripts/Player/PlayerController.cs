@@ -322,6 +322,7 @@ public class PlayerController : MonoBehaviour
         } else {
             temp = Instantiate(gun, weaponBackpack.transform);
         }
+        temp.name = gun.name;
         //gun.SetActive(true);
         loadoutController.GetComponent<LoadoutController>().AddGunToDisplay(temp, gunName);
     }

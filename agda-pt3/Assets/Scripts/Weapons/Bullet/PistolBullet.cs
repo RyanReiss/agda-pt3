@@ -12,7 +12,7 @@ public class PistolBullet : Bullet {
         bulletSpeed = 40f;
         damageToGive = 1f;
         SetEffect (effectName);
-        Debug.Log("Current Starting Effect: " + effectName);
+        //Debug.Log("Current Starting Effect: " + effectName);
         // effect = this.gameObject.AddComponent<NoEffect> ();
         // effect.GetComponent<Penetration>().maxPenetrationHits = bulletPenetrations; // Default
         timeToDie = 1.0f;
@@ -35,6 +35,7 @@ public class PistolBullet : Bullet {
         TriggerEffect(col);
         if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
             Destroy (this.gameObject);
+            // col.ClosestPoint(this.transform.position);
         }
     }
 }

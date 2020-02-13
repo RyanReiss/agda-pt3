@@ -60,7 +60,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -99,7 +99,7 @@ MonoBehaviour:
   mode: 0
   minSpeed: 0.3
   minDisplacement: 0.1
-  elasticSpeed: 0.3
+  elasticSpeed: 0.5
   elasticRamp: 1.4
   stickyPosition: {x: 0, y: 0, z: 0}
   stickyRadius: 7
