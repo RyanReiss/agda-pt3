@@ -12,7 +12,7 @@ public class MuzzleFlash : MonoBehaviour
     private void OnEnable() {
         if(animator != null){
             this.GetComponent<Animator>().SetTrigger("StartFlash");
-            Debug.Log("Starting Muzzle Flash");
+            // Debug.Log("Starting Muzzle Flash");
         }  
     }
     public void EndMuzzleFlash(){

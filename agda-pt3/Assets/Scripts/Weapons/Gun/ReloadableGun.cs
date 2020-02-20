@@ -14,6 +14,9 @@ public abstract class ReloadableGun : Gun {
     protected bool failSafe; // A bool used to fix a weird error. (see below)
     private float startTime;
 
+    public AudioObject fireAudio;
+    public AudioObject reloadAudio;
+
     public string currentEffect;
     
     /*
@@ -61,6 +64,9 @@ public abstract class ReloadableGun : Gun {
         isReloading = true;
         // Check to make sure the clip is emptied before reloading
         failSafe = true;
+        if (reloadAudio != null) {
+            reloadAudio.PlayAll(msWaitTime);
+        }
         yield return new WaitForSeconds(msWaitTime/1000f); // Wait to reload the gun
         if(currentClip != 0){
             if(currentAmmoStored + currentClip > maxAmmo){
