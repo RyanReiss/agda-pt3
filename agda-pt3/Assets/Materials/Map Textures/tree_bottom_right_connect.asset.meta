@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:agda-pt3/Assets/Materials/Map Textures/tree_bottom_right_connect.asset.meta
 guid: 281df7f66dbe92748a84f7be4330ed64
 NativeFormatImporter:
+=======
+guid: 1ae758a08b6a3479c9062ca36e694573
+folderAsset: yes
+DefaultImporter:
+>>>>>>> 7237998a82cbaa8c41ef406f587c3b23e9c79a29:agda-pt3/Assets/Audio/Music.meta
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 

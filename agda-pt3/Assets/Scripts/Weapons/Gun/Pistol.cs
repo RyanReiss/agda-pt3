@@ -44,7 +44,10 @@ public class Pistol : ReloadableGun {
             if (currentClip <= 0) {
                 ReloadGun ();
             }
-            Debug.Log("Spawning MuzzleFlash");
+            if (fireAudio != null) {
+                fireAudio.Play();
+            }
+            // Debug.Log("Spawning MuzzleFlash");
             GameObject muzzleFlash = PlayerEffectsController.Instance.GetEffect("whiteFlash");
             muzzleFlash.transform.position = spawnPos.position;
             muzzleFlash.transform.rotation = spawnPos.rotation;

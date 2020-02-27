@@ -101,6 +101,8 @@ MonoBehaviour:
   currentAmmoStored: 0
   maxClipSize: 0
   msReloadTime: 0
+  fireAudio: {fileID: 11400000, guid: e745fb9654bb14236a1059c6efc1ecbc, type: 2}
+  reloadAudio: {fileID: 11400000, guid: 2e65cb76deb294846a2dc3e178eb0ee4, type: 2}
   currentEffect: 
 --- !u!1 &6406868699048983223
 GameObject:

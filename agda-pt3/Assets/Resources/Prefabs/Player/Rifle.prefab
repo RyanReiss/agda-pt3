@@ -132,6 +132,8 @@ MonoBehaviour:
   currentAmmoStored: 0
   maxClipSize: 0
   msReloadTime: 0
+  fireAudio: {fileID: 11400000, guid: 40207c6699c3944bcbaf2d94dbb6f903, type: 2}
+  reloadAudio: {fileID: 11400000, guid: 148a9101f7ce34a72beeceee7ce4f7ea, type: 2}
   currentEffect: 
 --- !u!95 &1057233712805377336
 Animator:

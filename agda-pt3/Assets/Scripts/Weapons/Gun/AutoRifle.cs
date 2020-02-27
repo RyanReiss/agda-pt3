@@ -41,6 +41,9 @@ public class AutoRifle : ReloadableGun
             if(currentClip <= 0){
                 ReloadGun();
             }
+            if (fireAudio != null) {
+                fireAudio.Play();
+            }
             GameObject muzzleFlash = PlayerEffectsController.Instance.GetEffect("greenFlash");
             muzzleFlash.transform.position = spawnPos.position;
             muzzleFlash.transform.rotation = spawnPos.rotation;
