@@ -17,6 +17,5 @@ public class DialogueInteraction : InteractableObject
     public override void Interact(){
         // Pass Dialogue Lines to Controller
         dialogueController.InteractWithTextBox(dialogueToGive);
-
     }
 }

@@ -21,10 +21,10 @@ public class TwoLayerObject : MonoBehaviour
     {
         if(player.position.y <= this.transform.position.y && transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName == frontLayerName){
             // The player is in front of the object
-            Debug.Log("Swapped to back");
+            //Debug.Log("Swapped to back");
             transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName = backLayerName;
         } else if(player.position.y > this.transform.position.y && transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName == backLayerName){
-            Debug.Log("Swapped to front");
+            //Debug.Log("Swapped to front");
             transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName = frontLayerName;
         }
     }

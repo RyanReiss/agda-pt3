@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     //Inventory control variables
     public GameObject inventoryUIController;
     public GameObject loadoutController;
-    private bool isLoadoutScreenOpen; // true = yes, false = no
+    private bool lockPlayerInPlace; // true = yes, false = no
 
     // Singleton setup
     private static PlayerController _instance;
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         loadoutController = GameObject.FindGameObjectWithTag("LoadoutScreen");
         //Debug.Log("Loadout Controller: " + loadoutController.name);
         inventoryUIController = GameObject.FindGameObjectWithTag("InventoryUIController");
-        isLoadoutScreenOpen = false;
+        lockPlayerInPlace = false;
         loadoutController.SetActive(false);
         primaryOrSecondary = true; // start on primary gun
         energy = maxEnergy;
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate is called at fixed intervals, usually every other frame
     void FixedUpdate()
     {
-        if(!isLoadoutScreenOpen){
+        if(!lockPlayerInPlace){
             SwapCurrentGun();
             Movement();
             PlayerRotate();
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update(){
-        if(!isLoadoutScreenOpen){
+        if(!lockPlayerInPlace){
             GetCurrentWeapon().GetComponent<Weapon>().UpdateWeapon();
             InteractWithObjects();
         }
@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour
     private void OpenInventory(){
         if(Input.GetKeyDown(KeyCode.I)){
             loadoutController.SetActive(!loadoutController.activeSelf);
-            isLoadoutScreenOpen = loadoutController.activeSelf;
+            lockPlayerInPlace = loadoutController.activeSelf;
         }
     }
 
@@ -325,6 +325,21 @@ public class PlayerController : MonoBehaviour
         temp.name = gun.name;
         //gun.SetActive(true);
         loadoutController.GetComponent<LoadoutController>().AddGunToDisplay(temp, gunName);
+    }
+
+    public void MoveTowardsLocation(Vector3 location){
+        Debug.Log("Moving Player....");
+        anim.SetBool("PlayerMoving",true);
+        Debug.Log(" - Current Location Of Player: " + this.transform.position);
+        transform.position = Vector2.MoveTowards(transform.position, location, maxSpeed * Time.deltaTime);
+        Debug.Log(" - Current Location Of Player after moving: " + this.transform.position);
+        if(transform.position == location){
+            anim.SetBool("PlayerMoving",false);
+        }
+    }
+
+    public void SetPlayerLockInPlace(bool lockToSet){
+        lockPlayerInPlace = lockToSet;
     }
 
 }

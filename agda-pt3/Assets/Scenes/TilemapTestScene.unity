@@ -1290,6 +1290,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380728028}
   m_CullTransparentMesh: 0
+--- !u!1 &386978636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386978638}
+  - component: {fileID: 386978637}
+  m_Layer: 0
+  m_Name: GreenBulletImpactPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &386978637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386978636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3bc1f0a039bc64a88e04a3f4246b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 7095982162030535559, guid: ed2259f526276204cb9485ecf0a53a56,
+    type: 3}
+  amountToPool: 15
+--- !u!4 &386978638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386978636}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499574375}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &396907506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1451,12 @@ MonoBehaviour:
   yellowMuzzleFlashPrefab: {fileID: 6935472847326108074, guid: d77986a2db395014ea9687dd9d49ccba,
     type: 3}
   whiteMuzzleFlashPrefab: {fileID: 6135993229436312796, guid: b3b30881bfd86b74d940805265f64a23,
+    type: 3}
+  whiteBulletImpact: {fileID: 6926127339868369707, guid: 5f43353415153574a948b437dbea3cce,
+    type: 3}
+  yellowBulletImpact: {fileID: 5672528215065697423, guid: 947bd35ba97c5484bbea408f7eae489e,
+    type: 3}
+  greenBulletImpact: {fileID: 7095982162030535559, guid: ed2259f526276204cb9485ecf0a53a56,
     type: 3}
 --- !u!4 &403320292
 Transform:
@@ -1746,6 +1799,9 @@ MonoBehaviour:
   - {fileID: 1735924331}
   - {fileID: 726872620}
   - {fileID: 784782110}
+  - {fileID: 605992752}
+  - {fileID: 1805363416}
+  - {fileID: 386978637}
 --- !u!4 &499574375
 Transform:
   m_ObjectHideFlags: 0
@@ -1761,6 +1817,9 @@ Transform:
   - {fileID: 1735924330}
   - {fileID: 726872619}
   - {fileID: 784782109}
+  - {fileID: 605992751}
+  - {fileID: 1805363415}
+  - {fileID: 386978638}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2031,6 +2090,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447638c3208e0554d87b23e89c552425, type: 3}
+--- !u!1 &605992750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 605992751}
+  - component: {fileID: 605992752}
+  m_Layer: 0
+  m_Name: WhiteBulletImpactPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &605992751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605992750}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499574375}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605992752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605992750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3bc1f0a039bc64a88e04a3f4246b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 6926127339868369707, guid: 5f43353415153574a948b437dbea3cce,
+    type: 3}
+  amountToPool: 15
 --- !u!1 &606602387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5392326483720204889, guid: 447638c3208e0554d87b23e89c552425,
@@ -3586,7 +3692,7 @@ PrefabInstance:
     - target: {fileID: 8965827065026000360, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
       propertyPath: sprintingMultiplier
-      value: 1.3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8965827065026000360, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
@@ -3603,6 +3709,11 @@ PrefabInstance:
       propertyPath: loadoutController
       value: 
       objectReference: {fileID: 1096524027}
+    - target: {fileID: 8965827065026000360, guid: 07fa0b7ee07be3340862ad256d439e55,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8965827065026000365, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
       propertyPath: m_Offset.y
@@ -3910,7 +4021,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -764386441
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
@@ -6976,23 +7087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f521692a3bfbac488b72abe928c85b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms:
-  - roomName: 3-man-closet
-    roomCovers:
-    - {fileID: 902177869}
-  - roomName: big-room-1
-    roomCovers:
-    - {fileID: 2020324505}
-  - roomName: small-room-1
-    roomCovers:
-    - {fileID: 513506497}
-  - roomName: small-room-2
-    roomCovers:
-    - {fileID: 943452155}
-  - roomName: outside
-    roomCovers:
-    - {fileID: 826797856}
-  startingRoom: 
 --- !u!1 &1617211941
 GameObject:
   m_ObjectHideFlags: 0
@@ -7203,7 +7297,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -764386441
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
@@ -10457,6 +10551,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798018904}
   m_CullTransparentMesh: 0
+--- !u!1 &1805363414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805363415}
+  - component: {fileID: 1805363416}
+  m_Layer: 0
+  m_Name: YellowBulletImpactPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1805363415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805363414}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499574375}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1805363416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805363414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3bc1f0a039bc64a88e04a3f4246b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 5672528215065697423, guid: 947bd35ba97c5484bbea408f7eae489e,
+    type: 3}
+  amountToPool: 15
 --- !u!1 &1807675046
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,11 @@ public class ShotGunBullet : Bullet {
         }
         TriggerEffect(col);
         if (col.transform.name != "Player" && col.transform.tag != "TriggersToIgnore") {
+            GameObject bulletImpact = PlayerEffectsController.Instance.GetEffect("yellowBulletImpact");
+            bulletImpact.transform.position = col.ClosestPoint(this.transform.position);
+            bulletImpact.transform.rotation = this.transform.rotation;
+            bulletImpact.transform.position += bulletImpact.transform.up*-.60f;
+            bulletImpact.SetActive(true);
             Destroy(this.gameObject);
         }
     }

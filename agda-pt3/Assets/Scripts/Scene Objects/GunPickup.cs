@@ -9,6 +9,7 @@ public class GunPickup : Pickup
     private PlayerController player;
     public string gunName;
     public GameObject gunToGive;
+    
     // Start is called before the first frame update
     protected override void Start()
     {

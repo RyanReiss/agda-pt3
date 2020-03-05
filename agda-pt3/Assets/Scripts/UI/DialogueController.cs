@@ -12,6 +12,21 @@ public class DialogueController : MonoBehaviour
     int currentQueuedTextIndex;
     int currentTextToWriteIndex;
     PlayerController player;
+
+    private static DialogueController _instance;
+    public static DialogueController Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +41,7 @@ public class DialogueController : MonoBehaviour
 
     private void Update() {
         if(dialogueBox.activeInHierarchy){
-            if(Input.anyKey && (player.velocity.magnitude > 10f)){
+            if(Input.anyKey && (player.velocity.magnitude >= 10f)){
                 CloseDialogBox();
             }
         }

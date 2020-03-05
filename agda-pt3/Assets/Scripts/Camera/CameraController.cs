@@ -17,7 +17,20 @@ public class CameraController : MonoBehaviour
     public Vector3 stickyPosition;
     public float stickyRadius = 10f;
     public float stickySpeed = 0.9f;
-    //private float sticyMinDisplacement = 0.15f;
+    
+    private static CameraController _instance;
+    public static CameraController Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         stickyPosition = transform.position;
@@ -74,5 +87,13 @@ public class CameraController : MonoBehaviour
         stickyPosition = cameraPos;
         transform.position = cameraPos;
         
+    }
+
+    public void MoveCameraTowardsPosition(Vector3 pos){
+        gameObject.transform.localPosition = Vector3.MoveTowards(gameObject.transform.localPosition, new Vector3(pos.x,pos.y,-10f), 0.1f);
+    }
+
+    public void SetCameraMode(CameraController.Modes modeToSwapTo){
+        mode = modeToSwapTo;
     }
 }

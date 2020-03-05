@@ -194,7 +194,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -764386441
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
@@ -8694,7 +8694,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -764386441
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
@@ -13668,6 +13668,157 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 867449759}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1100149916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1100149919}
+  - component: {fileID: 1100149918}
+  - component: {fileID: 1100149917}
+  m_Layer: 0
+  m_Name: CutSceneTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1100149917
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100149916}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11992502, y: -0.017784119}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.822625, y: 5.0001144}
+  m_EdgeRadius: 0
+--- !u!114 &1100149918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100149916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601cc7f4daadae141a103feee9440034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableOnEnd: 1
+  cutsceneSequence:
+  - actionToPerform: 3
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 0}
+    positionToMoveTo: {x: 0, y: 0, z: 0}
+    dialogueToSay:
+    - Oh! Hello! Welcome to cutscenes
+    - Cutscenes are totally customizable, and can be modified to do anything you want
+    - Lets see what some features of cutscenes are.
+    soundToPlay: 
+    timeToWait: 0
+  - actionToPerform: 0
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 0}
+    positionToMoveTo: {x: -13, y: 6, z: 0}
+    dialogueToSay: []
+    soundToPlay: 
+    timeToWait: 0
+  - actionToPerform: 3
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 0}
+    positionToMoveTo: {x: 0, y: 0, z: 0}
+    dialogueToSay:
+    - You can move the player from place to place
+    soundToPlay: 
+    timeToWait: 0
+  - actionToPerform: 5
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 0}
+    positionToMoveTo: {x: 5, y: 6, z: 0}
+    dialogueToSay: []
+    soundToPlay: 
+    timeToWait: 0
+  - actionToPerform: 3
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 0}
+    positionToMoveTo: {x: 0, y: 0, z: 0}
+    dialogueToSay:
+    - You can move the camera to certain locations (it always returns after cutscene
+      end!)
+    soundToPlay: 
+    timeToWait: 0
+  - actionToPerform: 2
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 1742267422}
+    positionToMoveTo: {x: 0, y: 0, z: 0}
+    dialogueToSay:
+    - 
+    soundToPlay: 
+    timeToWait: 0
+  - actionToPerform: 3
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 0}
+    positionToMoveTo: {x: 0, y: 0, z: 0}
+    dialogueToSay:
+    - You can hide/show objects in the scene alongside moving them.
+    soundToPlay: 
+    timeToWait: 0
+  - actionToPerform: 1
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 1742267422}
+    positionToMoveTo: {x: 8.5, y: 12, z: 0}
+    dialogueToSay: []
+    soundToPlay: 
+    timeToWait: 0
+  - actionToPerform: 6
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 1742267422}
+    positionToMoveTo: {x: 8.5, y: 12, z: 0}
+    dialogueToSay: []
+    soundToPlay: 
+    timeToWait: 3
+  - actionToPerform: 3
+    waitUntilActionFinishes: 1
+    focusObject: {fileID: 1742267422}
+    positionToMoveTo: {x: 8.5, y: 12, z: 0}
+    dialogueToSay:
+    - You can even wait and do nothing! (for that juicy suspense)
+    soundToPlay: 
+    timeToWait: 0
+--- !u!4 &1100149919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100149916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.93, y: 17.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1301363105
 GameObject:
   m_ObjectHideFlags: 0
@@ -13820,6 +13971,123 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1742267421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2051582648542848106, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogueInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848106, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: TriggersToIgnore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848106, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051582648542848104, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805621705612293644, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: dialogueToGive.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805621705612293644, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: dialogueToGive.Array.data[0]
+      value: Welcome to DialogueBoxes!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805621705612293644, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: dialogueToGive.Array.data[1]
+      value: You can have multiple screens in a dialogue box like this one
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805621705612293644, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: dialogueToGive.Array.data[2]
+      value: See?~~~~~~~~ Isn't that cool?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805621705612293644, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: dialogueToGive.Array.data[3]
+      value: Put a tilde/squiggly-horizontal-line to put breaks into sentences.~~~~~~~~~~
+        Like that
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805621705612293644, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+        type: 3}
+      propertyPath: dialogueToGive.Array.data[4]
+      value: Also. you can press e again while the text is scrolling to render the
+        full box
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e65ae0825d1d2b64a993a94cdb813f0b, type: 3}
+--- !u!1 &1742267422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2051582648542848106, guid: e65ae0825d1d2b64a993a94cdb813f0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742267421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1772447693
 GameObject:
   m_ObjectHideFlags: 0
@@ -13849,8 +14117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f521692a3bfbac488b72abe928c85b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
-  startingRoom: 
 --- !u!4 &1772447695
 Transform:
   m_ObjectHideFlags: 0

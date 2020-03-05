@@ -67,10 +67,10 @@ public abstract class BaseEnemyAI : MonoBehaviour
 
     protected void OnCollisionStay2D(Collision2D collision){
         // Ignore all collisions with other enemies (Change when more enemies are added!)
-      if (collision.gameObject.GetComponent<BaseEnemyAI>())
-      {
-          Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-      }
+      //if (collision.gameObject.GetComponent<BaseEnemyAI>())
+      //{
+          //Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+      //}
       if (collision.gameObject.name == "Player"){
           collision.gameObject.GetComponent<Health>().TakeDamage(damageToGive);
       }

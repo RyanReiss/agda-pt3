@@ -63,7 +63,6 @@ public abstract class ReloadableGun : Gun {
     protected IEnumerator WaitToReload(float msWaitTime){
         isReloading = true;
         // Check to make sure the clip is emptied before reloading
-        failSafe = true;
         if (reloadAudio != null) {
             reloadAudio.PlayAll(msWaitTime);
         }
@@ -89,6 +88,10 @@ public abstract class ReloadableGun : Gun {
         }
         failSafe = false;
         isReloading = false;
+    }
+
+    private void OnDisable() {
+        failSafe = true;
     }
 
     public int GetCurrentAmmoStored(){

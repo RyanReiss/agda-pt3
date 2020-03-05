@@ -76,7 +76,7 @@ public class PorcupineAI : BaseEnemyAI
         attackCooldown = Time.time;
         this.GetComponent<Animator>().SetTrigger("Attack");
         float offset = Random.Range(0f,10f);
-        for(float i = offset; i < 360+offset; i+=9){
+        for(float i = offset; i < 360+offset; i+=18){
             //GameObject aBullet = Instantiate(enemyBulletPrefab,this.transform.position,Quaternion.Euler(new Vector3(0,0,i)));
             GameObject aBullet = ObjectPoolingController.Instance.GetPooledObject(enemyBulletPrefab);
             if(aBullet != null){
