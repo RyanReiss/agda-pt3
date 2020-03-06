@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RiverBridge.unity
     guid: f7b915b4f4550ee448068c3246fea914
+  - enabled: 1
+    path: Assets/Scenes/Barn.unity
+    guid: bc23af759ecb7034280c800938a6c0db
   m_configObjects: {}
