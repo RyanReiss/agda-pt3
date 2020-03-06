@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverScreen.unity
     guid: 39922d6ef3e8c874d840a8e80cbe1978
+  - enabled: 1
+    path: Assets/Scenes/RiverBridge.unity
+    guid: f7b915b4f4550ee448068c3246fea914
   m_configObjects: {}

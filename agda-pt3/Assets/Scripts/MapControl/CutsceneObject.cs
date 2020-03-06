@@ -26,7 +26,8 @@ public class CutsceneObject : MonoBehaviour
             ShowDialogueBox,
             PlaySound,
             MoveCamera,
-            WaitForTime
+            WaitForTime,
+            AnimateObject
         }
         [SerializeField]
         public Action actionToPerform;
@@ -39,7 +40,7 @@ public class CutsceneObject : MonoBehaviour
         [SerializeField]
         public List<string> dialogueToSay;
         [SerializeField]
-        public string soundToPlay;
+        public string soundOrAnimatonToPlay;
         [SerializeField]
         public float timeToWait;
     }
@@ -106,6 +107,9 @@ public class CutsceneObject : MonoBehaviour
                     break;
                 case CutSceneAction.Action.HideOrShowObject:
                     StartCoroutine(HideOrShowObject(cutsceneSequence[index].focusObject, index));
+                    break;
+                case CutSceneAction.Action.AnimateObject:
+                    StartCoroutine(AnimateObject(cutsceneSequence[index].focusObject, cutsceneSequence[index].soundOrAnimatonToPlay, index));
                     break;
             }
         }
@@ -187,7 +191,20 @@ public class CutsceneObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private IEnumerator AnimateObject(GameObject focusObject, string animName, int tempIndex){
+        PlayerController.Instance.SetPlayerLockInPlace(true);
+        focusObject.GetComponent<Animator>().SetTrigger(animName);
+        yield return null;
+        while(focusObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName(animName)){
+            yield return null;
+        }
+        PlayerController.Instance.SetPlayerLockInPlace(false);
+        if(cutsceneSequence[tempIndex].waitUntilActionFinishes){
+            moveToNextAction = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.GetComponent<PlayerController>() && cutsceneStarted == false){
             Debug.Log("Starting Cutscene....");
             other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
