@@ -46,6 +46,7 @@ public class ScreenFadeController : MonoBehaviour
         fadeOutComplete = false;
         spawnLoc = locationToSpawn;
         levelToLoad = levelToOpen;
+        AudioController.Instance.FadeOut(AudioController.Fade.MUSIC);
         FadeOut();
         yield return new WaitUntil(()=>fadeOutComplete);
     }
@@ -60,6 +61,7 @@ public class ScreenFadeController : MonoBehaviour
         PlayerController.Instance.transform.position = spawnLoc;
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetCameraPosition(spawnLoc);
         fadeAnim.SetTrigger("FadeIn");
+        AudioController.Instance.FadeIn(AudioController.Fade.MUSIC);
         fadeOutComplete = true;
     }
 }

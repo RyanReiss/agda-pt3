@@ -13734,14 +13734,14 @@ MonoBehaviour:
     - Oh! Hello! Welcome to cutscenes
     - Cutscenes are totally customizable, and can be modified to do anything you want
     - Lets see what some features of cutscenes are.
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
   - actionToPerform: 0
     waitUntilActionFinishes: 1
     focusObject: {fileID: 0}
     positionToMoveTo: {x: -13, y: 6, z: 0}
     dialogueToSay: []
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
   - actionToPerform: 3
     waitUntilActionFinishes: 1
@@ -13749,14 +13749,14 @@ MonoBehaviour:
     positionToMoveTo: {x: 0, y: 0, z: 0}
     dialogueToSay:
     - You can move the player from place to place
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
   - actionToPerform: 5
     waitUntilActionFinishes: 1
     focusObject: {fileID: 0}
     positionToMoveTo: {x: 5, y: 6, z: 0}
     dialogueToSay: []
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
   - actionToPerform: 3
     waitUntilActionFinishes: 1
@@ -13765,7 +13765,7 @@ MonoBehaviour:
     dialogueToSay:
     - You can move the camera to certain locations (it always returns after cutscene
       end!)
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
   - actionToPerform: 2
     waitUntilActionFinishes: 1
@@ -13773,7 +13773,7 @@ MonoBehaviour:
     positionToMoveTo: {x: 0, y: 0, z: 0}
     dialogueToSay:
     - 
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
   - actionToPerform: 3
     waitUntilActionFinishes: 1
@@ -13781,21 +13781,21 @@ MonoBehaviour:
     positionToMoveTo: {x: 0, y: 0, z: 0}
     dialogueToSay:
     - You can hide/show objects in the scene alongside moving them.
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
   - actionToPerform: 1
     waitUntilActionFinishes: 1
     focusObject: {fileID: 1742267422}
     positionToMoveTo: {x: 8.5, y: 12, z: 0}
     dialogueToSay: []
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
   - actionToPerform: 6
     waitUntilActionFinishes: 1
     focusObject: {fileID: 1742267422}
     positionToMoveTo: {x: 8.5, y: 12, z: 0}
     dialogueToSay: []
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 3
   - actionToPerform: 3
     waitUntilActionFinishes: 1
@@ -13803,7 +13803,7 @@ MonoBehaviour:
     positionToMoveTo: {x: 8.5, y: 12, z: 0}
     dialogueToSay:
     - You can even wait and do nothing! (for that juicy suspense)
-    soundToPlay: 
+    soundOrAnimatonToPlay: 
     timeToWait: 0
 --- !u!4 &1100149919
 Transform:
@@ -14130,6 +14130,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1929789700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929789702}
+  - component: {fileID: 1929789701}
+  m_Layer: 0
+  m_Name: AudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1929789701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929789700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e090fdb50267a40c1a537ad52f27ebb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audio: {fileID: 11400000, guid: 2b7a53f71194746b2a50b284bdecc578, type: 2}
+--- !u!4 &1929789702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929789700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.14660189, y: 0.045217153, z: -0.077798106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2137065982
 PrefabInstance:

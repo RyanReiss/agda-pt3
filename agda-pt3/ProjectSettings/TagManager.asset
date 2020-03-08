@@ -14,6 +14,7 @@ TagManager:
   - Map
   - ScreenStaticController
   - MapObjects
+  - Audio
   layers:
   - Default
   - TransparentFX

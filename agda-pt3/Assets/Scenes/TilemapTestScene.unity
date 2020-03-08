@@ -1563,7 +1563,7 @@ GameObject:
   - component: {fileID: 431837225}
   - component: {fileID: 431837226}
   m_Layer: 0
-  m_Name: AudioTest
+  m_Name: AudioPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e090fdb50267a40c1a537ad52f27ebb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestSound: {fileID: 11400000, guid: e745fb9654bb14236a1059c6efc1ecbc, type: 2}
+  Audio: {fileID: 11400000, guid: 191bf158ccc3b4a8aa6482ecdf86cac3, type: 2}
 --- !u!1001 &438749478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3416,7 +3416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.799988, y: 4.600006}
+  m_AnchoredPosition: {x: 6.800049, y: 4.600006}
   m_SizeDelta: {x: -194, y: -78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096524029
@@ -6326,6 +6326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44be1f7a43cfb4b91a39d024bc693ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeTime: 0.5
 --- !u!4 &1471744618
 Transform:
   m_ObjectHideFlags: 0

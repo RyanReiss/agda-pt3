@@ -16,6 +16,7 @@ public class AudioObject : ScriptableObject
     [Range(0f, 1f)]
     public float spatialBlend = 1f;
     public bool loop;
+    public bool music = false;
 
     private AudioClip RandomClip()
     {
@@ -33,7 +34,7 @@ public class AudioObject : ScriptableObject
         }
 
         src = AudioController.Instance.GetSource();
-        src.SetProperties((clip == -1) ? RandomClip() : clips[clip], pitch, volume, spatialBlend, loop);
+        src.SetProperties((clip == -1) ? RandomClip() : clips[clip], pitch, volume, spatialBlend, loop, music);
         if (position != null) {
             Debug.Log("Setting position to " + position.GetValueOrDefault());
             src.SetPosition(position.GetValueOrDefault());
@@ -45,7 +46,7 @@ public class AudioObject : ScriptableObject
     public AudioPoolSource PlayAll(float msDelay, Transform parent=null) {
         AudioPoolSource src = AudioController.Instance.GetSource();
         for (int i = 0; i < clips.Count; i++) {
-            src.PlayAfter((msDelay / clips.Count) * i, clips[i], pitch, volume, spatialBlend, loop, parent);
+            src.PlayAfter((msDelay / clips.Count) * i, clips[i], pitch, volume, spatialBlend, loop, music, parent);
         }
         return src;
     }
