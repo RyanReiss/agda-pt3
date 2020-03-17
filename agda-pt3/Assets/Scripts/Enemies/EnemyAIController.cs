@@ -44,7 +44,7 @@ public class EnemyAIController : MonoBehaviour
         AddEnemiesToController();
     }
 
-    void AddEnemiesToController(){
+    public void AddEnemiesToController(){
         foreach(GameObject g in GameObject.FindGameObjectsWithTag("Enemy")){
             if(g.GetComponent<BaseEnemyAI>() && !currentEnemies.Contains(g.GetComponent<BaseEnemyAI>())){
                 currentEnemies.Add(g.GetComponent<BaseEnemyAI>());

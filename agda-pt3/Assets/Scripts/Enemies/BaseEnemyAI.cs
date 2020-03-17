@@ -14,7 +14,8 @@ public abstract class BaseEnemyAI : MonoBehaviour
         ChargingUpAttack,
         Attacking,
         LookingForPlayer,
-        ReturningToSpawnPoint
+        ReturningToSpawnPoint,
+        WaitingForAttackToFinish
     }
 
     public Transform targetToAttack; // Transform attached to enemy's target

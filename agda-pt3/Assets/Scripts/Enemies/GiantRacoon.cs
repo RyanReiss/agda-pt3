@@ -8,12 +8,14 @@ public class GiantRacoon : BaseEnemyAI
     public float attackSpeed;
     protected Vector3 locationToAttack;
     public float currentAttackTime;
+    private float currentAttackTimeTimer;
     protected float attackCooldown;
     public GameObject scream;
     public GameObject smash;
     public GameObject rabbit;
     public override void UpdateEnemy()
     {
+        Debug.Log("Current State: " + currentState.ToString());
         if (currentState != EnemyState.Idle)
         {
             // If the player isnt idle, go into handling potential movement
@@ -44,7 +46,13 @@ public class GiantRacoon : BaseEnemyAI
 
     protected void screamAttack()
     {
-        Instantiate(scream, this.transform.position, Quaternion.identity);
+        if(currentState != EnemyState.WaitingForAttackToFinish){
+            Debug.Log("Spawning scream " + currentState.ToString());
+            Instantiate(scream, this.transform.position, Quaternion.identity);
+            currentState = EnemyState.WaitingForAttackToFinish;
+            currentAttackTimeTimer = 0.5f;
+        }
+        //currentAttackTimeTimer = 0.5f;
         if (currentAttackTime + 0.5f < Time.time)
         {
             // End the attack, and put it on cooldown
@@ -68,7 +76,12 @@ public class GiantRacoon : BaseEnemyAI
 
     protected void smashAttack()
     {
-        Instantiate(smash, this.transform.position + (this.transform.right * 2), Quaternion.identity);
+        if(currentState != EnemyState.WaitingForAttackToFinish){
+            Debug.Log("Spawning smash " + currentState.ToString());
+            Instantiate(smash, this.transform.position + (this.transform.right * 2), Quaternion.identity);
+            currentState = EnemyState.WaitingForAttackToFinish;
+            currentAttackTimeTimer = 0.5f;
+        }
         if (currentAttackTime + 0.5f < Time.time)
         {
             // End the attack, and put it on cooldown
@@ -80,7 +93,13 @@ public class GiantRacoon : BaseEnemyAI
 
     protected void summonAttack()
     {
-        Instantiate(rabbit, new Vector2(Random.Range(-5, 5) + this.transform.position.x, Random.Range(-5, 5) + this.transform.position.y), Quaternion.identity);
+        if(currentState != EnemyState.WaitingForAttackToFinish){
+            Debug.Log("Spawning rabbit " + currentState.ToString());
+            Instantiate(rabbit, new Vector2(Random.Range(-5, 5) + this.transform.position.x, Random.Range(-5, 5) + this.transform.position.y), Quaternion.identity);
+            EnemyAIController.Instance.AddEnemiesToController();
+            currentState = EnemyState.WaitingForAttackToFinish;
+            currentAttackTimeTimer = 0.5f;
+        }
         if (currentAttackTime + 0.5f < Time.time)
         {
             // End the attack, and put it on cooldown
@@ -101,7 +120,7 @@ public class GiantRacoon : BaseEnemyAI
             currentState = EnemyState.LookingForPlayer;
         }
 
-        if (currentState != EnemyState.Attacking && LineOfSight(attackDistance) && attackCooldown + 1f < Time.time)
+        if ((currentState != EnemyState.Attacking && currentState != EnemyState.WaitingForAttackToFinish) && LineOfSight(attackDistance) && attackCooldown + 1f < Time.time)
         {
             // Start Attacking
             //Debug.Log("Starting Attack...");
@@ -112,16 +131,25 @@ public class GiantRacoon : BaseEnemyAI
 
         if (currentState == EnemyState.Attacking)
         {
-            if (Vector2.Distance(targetToAttack.position, this.transform.position) < 3)
+            if (Vector2.Distance(targetToAttack.position, this.transform.position) < 3f)
             {
                 smashAttack();
-            }else if (Vector2.Distance(targetToAttack.position, this.transform.position) < 5)
+            }else if (Vector2.Distance(targetToAttack.position, this.transform.position) < 5f)
             {
                 screamAttack();
             }
             else
             {
                 summonAttack();
+            }
+        }
+        else if (currentState == EnemyState.WaitingForAttackToFinish){
+            if(currentAttackTime + currentAttackTimeTimer < Time.time){
+                // End the attack, and put it on cooldown
+                Debug.Log("Setting idle");
+                currentState = EnemyState.Idle;
+                attackCooldown = Time.time;
+                //Debug.Log("Ending Attack...");
             }
         }
         else if (currentState == EnemyState.MovingTowardsTarget)
