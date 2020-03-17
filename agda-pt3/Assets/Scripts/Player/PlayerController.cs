@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if(!lockPlayerInPlace){
-            SwapCurrentGun();
             Movement();
             PlayerRotate();
         }
@@ -87,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     void Update(){
         if(!lockPlayerInPlace){
+            SwapCurrentGun();
             GetCurrentWeapon().GetComponent<Weapon>().UpdateWeapon();
             InteractWithObjects();
         }
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
     // Will eventually be replaced by inventory / loadout system
     void SwapCurrentGun()
     {
-        if(Input.GetKey("1")){
+        if(Input.GetKeyDown(KeyCode.Tab)){
             if(!primaryOrSecondary){
                 if(GetCurrentWeapon().GetComponent<ReloadableGun>() && !GetCurrentWeapon().GetComponent<ReloadableGun>().IsGunReloading()){
                     // If the current gun isnt reloading... swap!
@@ -200,11 +200,30 @@ public class PlayerController : MonoBehaviour
                     //gun = primaryWeaponHolder.transform.GetChild(0).gameObject;
                     primaryOrSecondary = true;
                 }
-                
-                
             }
-        } else if(Input.GetKey("2")){
-            if(primaryOrSecondary && secondaryWeaponHolder.transform.childCount >= 1){
+            else if(primaryOrSecondary && secondaryWeaponHolder.transform.childCount > 0){
+                if(GetCurrentWeapon().GetComponent<ReloadableGun>() && !GetCurrentWeapon().GetComponent<ReloadableGun>().IsGunReloading()){
+                    // If the current gun is reloading... dont swap!
+                    // Swap gun from primary to secondary
+                    primaryWeaponHolder.SetActive(false);
+                    secondaryWeaponHolder.SetActive(true);
+                    //gun = secondaryWeaponHolder.transform.GetChild(0).gameObject;
+                    primaryOrSecondary = false;
+                }
+            }
+        } else if(Input.GetKeyDown(KeyCode.Alpha1)){
+            if(!primaryOrSecondary){
+                if(GetCurrentWeapon().GetComponent<ReloadableGun>() && !GetCurrentWeapon().GetComponent<ReloadableGun>().IsGunReloading()){
+                    // If the current gun isnt reloading... swap!
+                    // Swap gun from secondary to primary
+                    secondaryWeaponHolder.SetActive(false);
+                    primaryWeaponHolder.SetActive(true);
+                    //gun = primaryWeaponHolder.transform.GetChild(0).gameObject;
+                    primaryOrSecondary = true;
+                }
+            }
+        } else if(Input.GetKeyDown(KeyCode.Alpha2)) {
+            if(primaryOrSecondary && secondaryWeaponHolder.transform.childCount > 0){
                 if(GetCurrentWeapon().GetComponent<ReloadableGun>() && !GetCurrentWeapon().GetComponent<ReloadableGun>().IsGunReloading()){
                     // If the current gun is reloading... dont swap!
                     // Swap gun from primary to secondary
@@ -325,6 +344,7 @@ public class PlayerController : MonoBehaviour
         temp.name = gun.name;
         //gun.SetActive(true);
         loadoutController.GetComponent<LoadoutController>().AddGunToDisplay(temp, gunName);
+        temp.GetComponent<ReloadableGun>().Start();
     }
 
     public void MoveTowardsLocation(Vector3 location){

@@ -39,6 +39,7 @@ public class Health : MonoBehaviour
                 }
                 //Destroy(gameObject);
                 if(gameObject.name == "Player"){
+                    // Change this so that enemies dont keep moving when they are disabled. Maybe destroy the enemy when they die instead
                     gameObject.SetActive(true);
                     //GameObject.FindGameObjectWithTag("DebugScreen").gameObject.SetActive(false);
                     SceneManager.LoadScene("GameOverScreen");

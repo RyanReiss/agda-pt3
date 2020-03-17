@@ -24,9 +24,12 @@ public class LoadoutSlotText : MonoBehaviour
         }
         if(slot != null){
             if(slot.weaponToDisplay.GetComponent<ReloadableGun>()){
+                string temp = "\n-------------\n";
+                if(slot.weaponToDisplay.GetComponent<ReloadableGun>().currentEffect != "NoEffect"){
+                    temp = "\n"+ slot.weaponToDisplay.GetComponent<ReloadableGun>().currentEffect + " bullets\n";
+                }
                 text.text = 
-                "" + slot.name + "\n" +
-                "-------------\n" +
+                "" + slot.name + temp +
                 slot.weaponToDisplay.GetComponent<ReloadableGun>().GetCurrentClipSize() +
                 " / " + slot.weaponToDisplay.GetComponent<ReloadableGun>().GetCurrentAmmoStored();
             } else if(slot.weaponToDisplay != null){
@@ -38,7 +41,9 @@ public class LoadoutSlotText : MonoBehaviour
             if(slotToDisplay.transform.childCount >= 1){
                 slot = slotToDisplay.transform.GetChild(0).GetComponent<LoadoutWeaponSlot>();
             }
-            text.text = "";
+            if(text != null){
+                text.text = "";
+            }
         }
         
         }

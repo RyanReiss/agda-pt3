@@ -22,6 +22,13 @@ public class EffectsPickup : Pickup {
         GameObject weapon = player.GetCurrentWeapon();
         Debug.Log("Interaction!!!");
         weapon.GetComponent<ReloadableGun>().SetWeaponEffect(effectName);
+        if(this.GetComponent<DestroyWhenPickedUp>()){
+            this.GetComponent<DestroyWhenPickedUp>().PickUp();
+        }
+        List<string> messageToSend = new List<string>();
+        messageToSend.Add("* picked up " + effectName.ToLower() + " bullet effect on " + weapon.GetComponent<ReloadableGun>().name.ToLower() + " *");
+        DialogueController.Instance.InteractWithTextBox(messageToSend);
+        Destroy(this.gameObject);
     }
 
     public override void SetPickupValue(float value){

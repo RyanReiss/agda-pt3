@@ -26,22 +26,22 @@ public class LoadoutWeaponSlot : MonoBehaviour, IDragHandler, IEndDragHandler
                 if(raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().transform.parent.name == "BackpackSlot"){
                     if(this.transform.parent.name == "PrimarySlot"){
                         //transform.parent.parent.GetComponent<LoadoutController>().SwapWeaponsInBackPack(weaponToDisplay, true);
-                        transform.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
+                        transform.parent.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
                     } else {
                         //transform.parent.parent.GetComponent<LoadoutController>().SwapWeaponsInBackPack(weaponToDisplay, false);
-                        transform.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
+                        transform.parent.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
                     }
                 } else if(this.transform.parent.name == "BackpackSlot"){
                     if(raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().transform.parent.name == "PrimarySlot"){
                         //transform.parent.parent.GetComponent<LoadoutController>().SwapWeaponsInBackPack(raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay, true);
-                        transform.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
+                        transform.parent.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
                     } else {
                         //transform.parent.parent.GetComponent<LoadoutController>().SwapWeaponsInBackPack(raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay, false);
-                        transform.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
+                        transform.parent.parent.parent.GetComponent<LoadoutController>().SwapWeapons(weaponToDisplay, raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().weaponToDisplay);
                     }
                 } else {
                     // Swap primary and secondary
-                    transform.parent.parent.GetComponent<LoadoutController>().SwapPrimaryAndSecondary();
+                    transform.parent.parent.parent.GetComponent<LoadoutController>().SwapPrimaryAndSecondary();
                 }
                 raycastResultList[i].gameObject.GetComponent<LoadoutWeaponSlot>().SwapWithOtherSlot(this);
             }

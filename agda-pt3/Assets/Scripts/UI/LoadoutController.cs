@@ -53,6 +53,7 @@ public class LoadoutController : MonoBehaviour
     }
 
     public void SwapWeaponsInBackPack(GameObject weapon, bool primaryOrSecondary){
+        Debug.Log("Swapping weapons 2");
         //primaryOrSeconday = true: primary gun
         //primaryOrSeconday = false: secondary gun
         if(primaryOrSecondary){
@@ -71,12 +72,14 @@ public class LoadoutController : MonoBehaviour
     }
 
     public void SwapWeapons(GameObject first, GameObject second){
+        Debug.Log("Swapping weapons 1");
         Transform temp = first.transform.parent;
         first.transform.parent = second.transform.parent;
         second.transform.parent = temp;
     }
 
     public void SwapPrimaryAndSecondary(){
+        Debug.Log("Swapping weapons 3");
         Transform temp = player.secondaryWeaponHolder.transform.GetChild(0);
         player.primaryWeaponHolder.transform.GetChild(0).parent = player.secondaryWeaponHolder.transform;
         temp.parent = player.primaryWeaponHolder.transform;

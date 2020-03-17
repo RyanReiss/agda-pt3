@@ -56,12 +56,13 @@ public class ScreenFadeController : MonoBehaviour
     }
 
     public void OnFadeComplete(){
-        Debug.Log("Reached!");
+        //Debug.Log("Reached!");
         SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
         PlayerController.Instance.transform.position = spawnLoc;
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetCameraPosition(spawnLoc);
         fadeAnim.SetTrigger("FadeIn");
         AudioController.Instance.FadeIn(AudioController.Fade.MUSIC);
+        GlobalGameSettings.Instance.SetNewRespawnPoint(levelToLoad);
         fadeOutComplete = true;
     }
 }

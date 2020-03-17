@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalGameSettings : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GlobalGameSettings : MonoBehaviour
     public Dictionary<string,bool> allRoomsInGame = new Dictionary<string, bool>();
     // allPickups <string,bool> = <pickupIdentifier,pickedUpOrNot>. pickedUpOrNot is true when it has been picked up, false when it has not been picked up
     public Dictionary<string,bool> allPickupsInGame = new Dictionary<string, bool>();
+    public Vector3 currentRespawnPoint;
+    public string sceneToRespawnIn;
 
 
 
@@ -30,7 +33,7 @@ public class GlobalGameSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentRespawnPoint = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -66,4 +69,27 @@ public class GlobalGameSettings : MonoBehaviour
             allPickupsInGame.Add(d.identifier,d.hasBeenPickedUp);
         }
     }
+
+    public void SetNewRespawnPoint(string currentScene){
+        Debug.Log("Setting respawn point...: " + currentScene);
+        switch (currentScene)
+        {
+            case "FirstBossArea":
+                currentRespawnPoint = new Vector3(15f,0f,0f);
+                sceneToRespawnIn = currentScene;
+                break;
+            case "ForestIntro":
+                currentRespawnPoint = new Vector3(-50f,10f,0f);
+                sceneToRespawnIn = currentScene;
+                break;
+            case "TilemapTestScene":
+                currentRespawnPoint = new Vector3(3.84f,-2.87f,0f);
+                sceneToRespawnIn = currentScene;
+                break;
+            default:
+                break;
+        }
+    }
+
+    
 }

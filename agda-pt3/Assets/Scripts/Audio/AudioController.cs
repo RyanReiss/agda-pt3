@@ -15,7 +15,7 @@ public class AudioController : MonoBehaviour
     private List<AudioPoolSource> _pool = new List<AudioPoolSource>();
     private AudioMixer _mixer;
 
-    public enum Fade { MUSIC, SFX, ALL }
+    public enum Fade { MUSIC, SFX, AxLL }
 
     // if fade in and out time aren't the same, bugs can occur when you switch rooms too fast
     public float fadeTime = 0.5f; 
