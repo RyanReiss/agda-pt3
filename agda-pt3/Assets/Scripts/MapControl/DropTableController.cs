@@ -11,6 +11,7 @@ public class DropTableController : MonoBehaviour
     public GameObject shotgunAmmoDropPrefab;
     public GameObject rifleAmmoDropPrefab;
     public GameObject flamethrowerAmmoDropPrefab;
+    public GameObject explosiveBulletEffectDropPrefab;
 
     List<DropTable> dropTables = new List<DropTable>();
 
@@ -51,6 +52,7 @@ public class DropTableController : MonoBehaviour
         Drop shotgunAmmoDrop_10 = CreateDrop("shotgunAmmoDrop_10", shotgunAmmoDropPrefab, 10f);
         Drop pistolAmmoDrop_10 = CreateDrop("pistolAmmoDrop_10", pistolAmmoDropPrefab, 10f);
         Drop pistolAmmoDrop_20 = CreateDrop("pistolAmmoDrop_20", pistolAmmoDropPrefab, 20f);
+        Drop explosiveDrop = CreateDrop("explosiveDrop", explosiveBulletEffectDropPrefab, 1f);
 
         // Drop Tables:
         //-------------------------------------------
@@ -62,6 +64,10 @@ public class DropTableController : MonoBehaviour
         test.dropTable.Add(pistolAmmoDrop_10,20f);
         test.dropTable.Add(pistolAmmoDrop_20,10f);
         dropTables.Add(test);
+
+        // Porcupine with explosives (Cutscene)
+        DropTable pExplosives = CreateDropTable("PorcupineExplosives");
+        pExplosives.dropTable.Add(explosiveDrop,100f);
     }
 
     private DropTable CreateDropTable(string name){

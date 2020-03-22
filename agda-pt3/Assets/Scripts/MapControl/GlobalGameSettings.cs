@@ -34,6 +34,7 @@ public class GlobalGameSettings : MonoBehaviour
     void Start()
     {
         currentRespawnPoint = Vector3.zero;
+        sceneToRespawnIn = "TilemapTestScene";
     }
 
     // Update is called once per frame

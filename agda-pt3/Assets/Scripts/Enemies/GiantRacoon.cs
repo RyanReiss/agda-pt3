@@ -17,9 +17,10 @@ public class GiantRacoon : BaseEnemyAI
     public GameObject rabbit;
     private Health health;
     private bool attackLock = true;
+    private string currentAttackName;
     public override void UpdateEnemy()
     {
-        Debug.Log("Current State: " + currentState.ToString());
+        //Debug.Log("Current State: " + currentState.ToString());
         if (currentState != EnemyState.Idle)
         {
             // If the player isnt idle, go into handling potential movement
@@ -54,8 +55,9 @@ public class GiantRacoon : BaseEnemyAI
     protected void screamAttack()
     {
         attackLock = false;
+        currentAttackName = "scream";
         if (currentState != EnemyState.WaitingForAttackToFinish){
-            Debug.Log("Spawning scream " + currentState.ToString());
+            //Debug.Log("Spawning scream " + currentState.ToString());
             Instantiate(scream, this.transform.position, Quaternion.identity);
             currentState = EnemyState.WaitingForAttackToFinish;
             currentAttackTimeTimer = 0.5f;
@@ -67,14 +69,16 @@ public class GiantRacoon : BaseEnemyAI
             currentState = EnemyState.Idle;
             attackCooldown = Time.time;
             //Debug.Log("Ending Attack...");
+            ult++;
+            attackLock = true;
+            currentAttackName = "";
         }
-        ult++;
-        attackLock = true;
     }
 
     protected void chargeAttack()
     {
         attackLock = false;
+        currentAttackName = "charge";
         transform.position = Vector2.MoveTowards(transform.position, locationToAttack, attackSpeed * Time.deltaTime);
         if (currentAttackTime + 0.5f < Time.time)
         {
@@ -82,18 +86,20 @@ public class GiantRacoon : BaseEnemyAI
             currentState = EnemyState.Idle;
             attackCooldown = Time.time;
             //Debug.Log("Ending Attack...");
+            ult++;
+            attackLock = true;
+            currentAttackName = "";
         }
-        ult++;
-        attackLock = true;
     }
 
     protected void smashAttack()
     {
         attackLock = false;
+        currentAttackName = "smash";
         if (currentState != EnemyState.WaitingForAttackToFinish){
-            Debug.Log("Spawning smash " + currentState.ToString());
             Vector2 direction = targetToAttack.position - transform.position;
-            Instantiate(smash, direction.normalized, Quaternion.identity);
+            Debug.Log("Spawning smash " + currentState.ToString() + " " + direction);
+            Instantiate(smash, ((Vector2)transform.position + direction), Quaternion.identity);
             currentState = EnemyState.WaitingForAttackToFinish;
             currentAttackTimeTimer = 0.5f;
         }
@@ -103,14 +109,16 @@ public class GiantRacoon : BaseEnemyAI
             currentState = EnemyState.Idle;
             attackCooldown = Time.time;
             //Debug.Log("Ending Attack...");
+            ult++;
+            attackLock = true;
+            currentAttackName = "";
         }
-        ult++;
-        attackLock = true;
     }
 
     protected void summonAttack()
     {
         attackLock = false;
+        currentAttackName = "summon";
         if (currentState != EnemyState.WaitingForAttackToFinish){
             Debug.Log("Spawning rabbit " + currentState.ToString());
             Instantiate(rabbit, new Vector2(Random.Range(-5, 5) + this.transform.position.x, Random.Range(-5, 5) + this.transform.position.y), Quaternion.identity);
@@ -123,9 +131,11 @@ public class GiantRacoon : BaseEnemyAI
             // End the attack, and put it on cooldown
             currentState = EnemyState.Idle;
             attackCooldown = Time.time;
+            attackLock = true;
             //Debug.Log("Ending Attack...");
+            currentAttackName = "";
         }
-        attackLock = true;
+        
     }
 
     protected override void Movement()
@@ -153,11 +163,11 @@ public class GiantRacoon : BaseEnemyAI
         {
             if (health.GetCurrentHealth() > 0.5 * health.GetMaxHealth())
             {
-                if (Vector2.Distance(targetToAttack.position, this.transform.position) < 3f)
+                if (Vector2.Distance(targetToAttack.position, this.transform.position) < 5f)
                 {
                     smashAttack();
                 }
-                else if (Vector2.Distance(targetToAttack.position, this.transform.position) < 5f)
+                else if (Vector2.Distance(targetToAttack.position, this.transform.position) < 10f)
                 {
                     screamAttack();
                 }
@@ -185,6 +195,26 @@ public class GiantRacoon : BaseEnemyAI
                     }
                 }
             }
+        } else if(currentState == EnemyState.Attacking && attackLock == false){
+            // Current Attack has been chosen and is being executed
+            switch (currentAttackName)
+            {
+                case "charge":
+                chargeAttack();
+                break;
+                case "scream":
+                screamAttack();
+                break;
+                case "smash":
+                smashAttack();
+                break;
+                case "summon":
+                summonAttack();
+                break;
+                case "":
+                Debug.Log("ERROR: NO ATTACK SELECTED DURING LOCK!");
+                break;
+            }
         }
         else if (currentState == EnemyState.WaitingForAttackToFinish){
             if(currentAttackTime + currentAttackTimeTimer < Time.time){
@@ -193,6 +223,7 @@ public class GiantRacoon : BaseEnemyAI
                 currentState = EnemyState.Idle;
                 attackCooldown = Time.time;
                 //Debug.Log("Ending Attack...");
+                attackLock = true;
             }
         }
         else if (currentState == EnemyState.MovingTowardsTarget)

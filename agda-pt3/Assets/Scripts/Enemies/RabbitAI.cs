@@ -10,8 +10,9 @@ public class RabbitAI : BaseEnemyAI
     public float currentAttackTime;
     protected float attackCooldown;
     protected Animator anim;
+    Vector3 direction = Vector3.right; // Set the default direction of the enemy (for animation)
 
-    protected void Start() {
+    protected override void Start() {
         base.Start();
         anim = this.GetComponent<Animator>();
     }
@@ -36,19 +37,21 @@ public class RabbitAI : BaseEnemyAI
         // - Start attack animation
         // - While jumping in animation, move character quickly, almost as if they are dashing at the player.
         // - Hopefull this will look good in game
+        anim.SetBool("EnemyAttacking", true);
         transform.position = Vector2.MoveTowards(transform.position, locationToAttack, attackSpeed * Time.deltaTime);
-
-        if(currentAttackTime + 0.5f < Time.time){
+        if(transform.position == locationToAttack){
+            FinishJumpAnimation();
+        } else if(currentAttackTime + 0.5f < Time.time){
             // End the attack, and put it on cooldown
             currentState = EnemyState.Idle;
             attackCooldown = Time.time;
             //Debug.Log("Ending Attack...");
+            anim.SetBool("EnemyAttacking", false);
         }
     }
 
     protected override void Movement()
     {
-        Vector3 direction = Vector3.right; // Set the default direction of the enemy (for animation)
         if(currentState == EnemyState.TargetInSight){
             currentState = EnemyState.MovingTowardsTarget;
         }
@@ -56,7 +59,7 @@ public class RabbitAI : BaseEnemyAI
             currentState = EnemyState.LookingForPlayer;
         }
         
-        if(currentState != EnemyState.Attacking && LineOfSight(attackDistance)  && attackCooldown + 1f < Time.time){
+        if(currentState != EnemyState.Attacking && currentState != EnemyState.WaitingForAttackToFinish && LineOfSight(attackDistance)  && attackCooldown + 1f < Time.time){
             // Start Attacking
             //Debug.Log("Starting Attack...");
             currentState = EnemyState.Attacking;
@@ -98,5 +101,19 @@ public class RabbitAI : BaseEnemyAI
         if(currentState != EnemyState.Idle){
             this.anim.SetBool("EnemyMoving", true);
         }
+    }
+
+    public void FinishJumpAnimation(){
+        if(currentState == EnemyState.WaitingForAttackToFinish){
+            // Stop waiting for attack to finish and idle since attack is done
+            currentState = EnemyState.Idle;
+        } else if(currentState == EnemyState.Attacking){
+            // Rabbit is still in leap when animation finishes... Shouldnt nessecarily reach here
+            //Debug.Log("ERROR. ANIMATION FINISHED BEFORE ATTACK");
+            // end attack anyways
+            currentState = EnemyState.Idle;
+            attackCooldown = Time.time;
+        }
+        anim.SetBool("EnemyAttacking", false);
     }
 }
