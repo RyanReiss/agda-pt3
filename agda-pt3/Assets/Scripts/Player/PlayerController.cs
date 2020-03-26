@@ -361,5 +361,8 @@ public class PlayerController : MonoBehaviour
     public void SetPlayerLockInPlace(bool lockToSet){
         lockPlayerInPlace = lockToSet;
     }
+    public bool IsPlayerLockedInPlace(){
+        return lockPlayerInPlace;
+    }
 
 }

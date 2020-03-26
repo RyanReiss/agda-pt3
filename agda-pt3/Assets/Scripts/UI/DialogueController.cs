@@ -41,7 +41,7 @@ public class DialogueController : MonoBehaviour
 
     private void Update() {
         if(dialogueBox.activeInHierarchy){
-            if(Input.anyKey && (player.velocity.magnitude >= 10f)){
+            if((player.velocity.magnitude >= 10f)){
                 CloseDialogBox();
             }
         }

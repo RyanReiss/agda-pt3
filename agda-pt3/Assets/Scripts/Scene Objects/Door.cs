@@ -19,7 +19,7 @@ public class Door : InteractableObject
     private DialogueController dialogueController;
 
     protected override void Start() {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = PlayerController.Instance;
         roomController = (HiddenRoomController)FindObjectOfType(typeof(HiddenRoomController));
         base.Start();
         if(roomToShow != ""){
@@ -28,7 +28,7 @@ public class Door : InteractableObject
             needToShowRoom = false;
         }
         anim = GetComponent<Animator>();
-        dialogueController = GameObject.FindGameObjectWithTag("DialogueController").GetComponent<DialogueController>();
+        dialogueController = DialogueController.Instance;
     }
 
     public override void Interact(){

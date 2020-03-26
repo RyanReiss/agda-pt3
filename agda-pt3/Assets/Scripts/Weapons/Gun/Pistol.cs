@@ -57,6 +57,9 @@ public class Pistol : ReloadableGun {
             muzzleFlash.SetActive(true);
             GameObject aBullet = Instantiate (bulletPrefab, spawnPos.position, spawnPos.rotation) as GameObject;
             aBullet.GetComponent<Bullet>().SetEffect(currentEffect);
+            if(this.GetComponent<Animator>()){
+                this.GetComponent<Animator>().SetTrigger("Shoot");
+            }
             timeCount = 0f;
         }
     }

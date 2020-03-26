@@ -18,6 +18,13 @@ public class GiantRacoon : BaseEnemyAI
     private Health health;
     private bool attackLock = true;
     private string currentAttackName;
+    private Animator anim;
+    private Vector3 direction;
+
+    protected override void Start() {
+        base.Start();
+        anim = this.GetComponent<Animator>();
+    }
     public override void UpdateEnemy()
     {
         //Debug.Log("Current State: " + currentState.ToString());
@@ -57,22 +64,20 @@ public class GiantRacoon : BaseEnemyAI
         attackLock = false;
         currentAttackName = "scream";
         if (currentState != EnemyState.WaitingForAttackToFinish){
-            //Debug.Log("Spawning scream " + currentState.ToString());
-            Instantiate(scream, this.transform.position, Quaternion.identity);
-            currentState = EnemyState.WaitingForAttackToFinish;
-            currentAttackTimeTimer = 0.5f;
+            // Starting scream... 
+            StartScreamAttack();
         }
         //currentAttackTimeTimer = 0.5f;
-        if (currentAttackTime + 0.5f < Time.time)
-        {
-            // End the attack, and put it on cooldown
-            currentState = EnemyState.Idle;
-            attackCooldown = Time.time;
-            //Debug.Log("Ending Attack...");
-            ult++;
-            attackLock = true;
-            currentAttackName = "";
-        }
+        // if (currentAttackTime + 0.5f < Time.time)
+        // {
+        //     // End the attack, and put it on cooldown
+        //     currentState = EnemyState.Idle;
+        //     attackCooldown = Time.time;
+        //     //Debug.Log("Ending Attack...");
+        //     ult++;
+        //     attackLock = true;
+        //     currentAttackName = "";
+        // }
     }
 
     protected void chargeAttack()
@@ -92,27 +97,23 @@ public class GiantRacoon : BaseEnemyAI
         }
     }
 
-    protected void smashAttack()
+    protected void swipeAttack()
     {
         attackLock = false;
-        currentAttackName = "smash";
+        currentAttackName = "swipe";
         if (currentState != EnemyState.WaitingForAttackToFinish){
-            Vector2 direction = targetToAttack.position - transform.position;
-            Debug.Log("Spawning smash " + currentState.ToString() + " " + direction);
-            Instantiate(smash, ((Vector2)transform.position + direction), Quaternion.identity);
-            currentState = EnemyState.WaitingForAttackToFinish;
-            currentAttackTimeTimer = 0.5f;
+            StartSwipeAttack();
         }
-        if (currentAttackTime + 0.5f < Time.time)
-        {
-            // End the attack, and put it on cooldown
-            currentState = EnemyState.Idle;
-            attackCooldown = Time.time;
-            //Debug.Log("Ending Attack...");
-            ult++;
-            attackLock = true;
-            currentAttackName = "";
-        }
+        // if (currentAttackTime + 0.5f < Time.time)
+        // {
+        //     // End the attack, and put it on cooldown
+        //     currentState = EnemyState.Idle;
+        //     attackCooldown = Time.time;
+        //     //Debug.Log("Ending Attack...");
+        //     ult++;
+        //     attackLock = true;
+        //     currentAttackName = "";
+        // }
     }
 
     protected void summonAttack()
@@ -154,6 +155,7 @@ public class GiantRacoon : BaseEnemyAI
         {
             // Start Attacking
             //Debug.Log("Starting Attack...");
+            direction = (targetToAttack.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset) - this.transform.position; // get the direction that the enemy is moving
             currentState = EnemyState.Attacking;
             locationToAttack = targetToAttack.position;
             currentAttackTime = Time.time;
@@ -163,11 +165,11 @@ public class GiantRacoon : BaseEnemyAI
         {
             if (health.GetCurrentHealth() > 0.5 * health.GetMaxHealth())
             {
-                if (Vector2.Distance(targetToAttack.position, this.transform.position) < 5f)
+                if (Vector2.Distance(targetToAttack.position, this.transform.position) < 4f)
                 {
-                    smashAttack();
+                    swipeAttack();
                 }
-                else if (Vector2.Distance(targetToAttack.position, this.transform.position) < 10f)
+                else if (Vector2.Distance(targetToAttack.position, this.transform.position) < 7f)
                 {
                     screamAttack();
                 }
@@ -205,8 +207,8 @@ public class GiantRacoon : BaseEnemyAI
                 case "scream":
                 screamAttack();
                 break;
-                case "smash":
-                smashAttack();
+                case "swipe":
+                swipeAttack();
                 break;
                 case "summon":
                 summonAttack();
@@ -217,7 +219,7 @@ public class GiantRacoon : BaseEnemyAI
             }
         }
         else if (currentState == EnemyState.WaitingForAttackToFinish){
-            if(currentAttackTime + currentAttackTimeTimer < Time.time){
+            if(currentAttackTime + currentAttackTimeTimer < Time.time && (currentAttackName != "scream" && currentAttackName != "swipe")){
                 // End the attack, and put it on cooldown
                 Debug.Log("Setting idle");
                 currentState = EnemyState.Idle;
@@ -229,12 +231,14 @@ public class GiantRacoon : BaseEnemyAI
         else if (currentState == EnemyState.MovingTowardsTarget)
         {
             // Move towards the target
+            direction = (targetToAttack.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset) - this.transform.position; // get the direction that the enemy is moving
             transform.position = Vector2.MoveTowards(transform.position, (targetToAttack.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset), movementSpeed * Time.deltaTime); // move towards the player
             lastPositionTargetSeen = (targetToAttack.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset);
         }
         else if (currentState == EnemyState.LookingForPlayer)
         {
             // If the target isnt currently in vision, move towards the last seen position
+            direction = (targetToAttack.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset) - this.transform.position; // get the direction that the enemy is moving
             transform.position = Vector2.MoveTowards(transform.position, lastPositionTargetSeen, movementSpeed * Time.deltaTime); // move towards the last seen position of the target
             if (transform.position == lastPositionTargetSeen)
             {
@@ -247,6 +251,57 @@ public class GiantRacoon : BaseEnemyAI
                 currentState = EnemyState.TargetInSight;
             }
         }
+        direction.z = 0f;
+        direction = direction.normalized;
+        
+        Vector2Int ordinalDirection = new Vector2Int(Mathf.RoundToInt(direction.x),Mathf.RoundToInt(direction.y));
+        
+        // Sets values for animator
+        anim.SetFloat("MoveX",ordinalDirection.x);
+        anim.SetFloat("MoveY",ordinalDirection.y);
+        anim.SetFloat("LastMoveX",ordinalDirection.x);
+        anim.SetFloat("LastMoveY",ordinalDirection.y);
+        if(currentState != EnemyState.Idle){
+            this.anim.SetBool("EnemyMoving", true);
+        }
 
+    }
+
+    public void StartScreamAttack(){
+        anim.SetTrigger("ScreamAttack");
+        currentState = EnemyState.WaitingForAttackToFinish;
+        currentAttackTimeTimer = 0.5f;
+    }
+
+    public void InstantiateScreamAttack(){
+        //Debug.Log("Spawning scream " + currentState.ToString());
+        Instantiate(scream, this.transform.position, Quaternion.identity);
+    }
+
+
+    public void StartSwipeAttack(){
+        anim.SetTrigger("SwipeAttack");
+        currentState = EnemyState.WaitingForAttackToFinish;
+        currentAttackTimeTimer = 0.5f;
+    }
+
+    public void InstantiateSwipeAttack(){
+            Vector2 dir = targetToAttack.position - transform.position;
+            dir = Vector3.ClampMagnitude(dir,4.5f);
+            Debug.Log("Spawning swipe " + currentState.ToString() + " " + dir);
+            Instantiate(smash, ((Vector2)transform.position + dir), Quaternion.identity);
+    }
+
+    public void StopAttack(){
+        Debug.Log("stopping attack....  ");
+        anim.SetTrigger("StopAttack");
+        currentState = EnemyState.Idle;
+        attackCooldown = Time.time;
+        //Debug.Log("Ending Attack...");
+        if(currentAttackName != "summon"){
+            ult++;
+        }
+        attackLock = true;
+        currentAttackName = "";
     }
 }

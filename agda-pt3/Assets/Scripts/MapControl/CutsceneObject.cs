@@ -71,6 +71,7 @@ public class CutsceneObject : MonoBehaviour
             cutsceneStarted = false;
             StopAllCoroutines();
             CameraController.Instance.SetCameraMode(CameraController.Modes.Elastic);
+            PlayerController.Instance.gameObject.GetComponent<PlayerController>().SetPlayerLockInPlace(false);
             if(disableOnEnd){
                 this.gameObject.SetActive(false);
             }
@@ -85,33 +86,35 @@ public class CutsceneObject : MonoBehaviour
             Debug.Log("Proceeding to next action...");
             moveToNextAction = false;
             index++;
-            if(!cutsceneSequence[index].waitUntilActionFinishes){
-                moveToNextAction = true;
-            }
-            switch (cutsceneSequence[index].actionToPerform)
-            {
-                case CutSceneAction.Action.MovePlayer:
-                    StartCoroutine(MovePlayerToLocation(cutsceneSequence[index].positionToMoveTo, index));
-                    break;
-                case CutSceneAction.Action.ShowDialogueBox:
-                    StartCoroutine(ShowDialogueBox(cutsceneSequence[index].dialogueToSay, index));
-                    break;
-                case CutSceneAction.Action.MoveCamera:
-                    StartCoroutine(MoveCamera(cutsceneSequence[index].positionToMoveTo, index));
-                    break;
-                case CutSceneAction.Action.WaitForTime:
-                    StartCoroutine(WaitForTime(cutsceneSequence[index].timeToWait, index));
-                    break;
-                case CutSceneAction.Action.MoveObject:
-                    StartCoroutine(MoveObject(cutsceneSequence[index].focusObject, cutsceneSequence[index].positionToMoveTo, index));
-                    break;
-                case CutSceneAction.Action.HideOrShowObject:
-                    StartCoroutine(HideOrShowObject(cutsceneSequence[index].focusObject, index));
-                    break;
-                case CutSceneAction.Action.AnimateObject:
-                    StartCoroutine(AnimateObject(cutsceneSequence[index].focusObject, cutsceneSequence[index].soundOrAnimatonToPlay, index));
-                    break;
-            }
+            if(index < cutsceneSequence.Count){
+                if(!cutsceneSequence[index].waitUntilActionFinishes){
+                    moveToNextAction = true;
+                }
+                switch (cutsceneSequence[index].actionToPerform)
+                {
+                    case CutSceneAction.Action.MovePlayer:
+                        StartCoroutine(MovePlayerToLocation(cutsceneSequence[index].positionToMoveTo, index));
+                        break;
+                    case CutSceneAction.Action.ShowDialogueBox:
+                        StartCoroutine(ShowDialogueBox(cutsceneSequence[index].dialogueToSay, index));
+                        break;
+                    case CutSceneAction.Action.MoveCamera:
+                        StartCoroutine(MoveCamera(cutsceneSequence[index].positionToMoveTo, index));
+                        break;
+                    case CutSceneAction.Action.WaitForTime:
+                        StartCoroutine(WaitForTime(cutsceneSequence[index].timeToWait, index));
+                        break;
+                    case CutSceneAction.Action.MoveObject:
+                        StartCoroutine(MoveObject(cutsceneSequence[index].focusObject, cutsceneSequence[index].positionToMoveTo, index));
+                        break;
+                    case CutSceneAction.Action.HideOrShowObject:
+                        StartCoroutine(HideOrShowObject(cutsceneSequence[index].focusObject, index));
+                        break;
+                    case CutSceneAction.Action.AnimateObject:
+                        StartCoroutine(AnimateObject(cutsceneSequence[index].focusObject, cutsceneSequence[index].soundOrAnimatonToPlay, index));
+                        break;
+                }
+            } 
         }
     }
 
@@ -131,10 +134,14 @@ public class CutsceneObject : MonoBehaviour
     }
 
     private IEnumerator ShowDialogueBox(List<string> dialogueToShow, int tempIndex){
-        DialogueController.Instance.InteractWithTextBox(dialogueToShow);
         PlayerController.Instance.SetPlayerLockInPlace(true);
-        yield return null;
+        StopPlayer();
+        yield return new WaitForSeconds(0.2f);
+        DialogueController.Instance.InteractWithTextBox(dialogueToShow);
+        StopPlayer();
         while(DialogueController.Instance.dialogueBox.activeInHierarchy){
+            PlayerController.Instance.SetPlayerLockInPlace(true);
+            Debug.Log("Is Player Locked: " + PlayerController.Instance.IsPlayerLockedInPlace());
             if(Input.GetKeyDown(KeyCode.E)){
                 DialogueController.Instance.InteractWithTextBox(dialogueToShow);
             }
@@ -163,7 +170,7 @@ public class CutsceneObject : MonoBehaviour
     private IEnumerator WaitForTime(float timeToWait, int tempIndex){
         PlayerController.Instance.SetPlayerLockInPlace(true);
         yield return new WaitForSeconds(timeToWait);
-        PlayerController.Instance.SetPlayerLockInPlace(false);
+        //PlayerController.Instance.SetPlayerLockInPlace(false);
         if(cutsceneSequence[tempIndex].waitUntilActionFinishes){
             moveToNextAction = true;
         }
@@ -207,11 +214,16 @@ public class CutsceneObject : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.GetComponent<PlayerController>() && cutsceneStarted == false){
             Debug.Log("Starting Cutscene....");
-            other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            other.gameObject.GetComponent<Animator>().SetBool("PlayerMoving",false);
+            StopPlayer();
             index = -1;
             cutsceneStarted = true;
             moveToNextAction = true;
         }
+    }
+
+    private void StopPlayer(){
+            PlayerController.Instance.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            PlayerController.Instance.velocity = Vector3.zero;
+            PlayerController.Instance.gameObject.GetComponent<Animator>().SetBool("PlayerMoving",false);
     }
 }
