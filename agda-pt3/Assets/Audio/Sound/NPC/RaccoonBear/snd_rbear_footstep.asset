@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
-  m_Name: snd_gunshot0
+  m_Name: snd_rbear_footstep
   m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 8699509a747ec4396a2a82b526e0adb0, type: 3}
+  clips: []
   pitch: 1
-  volume: 0.525
-  spatialBlend: 0
+  volume: 0
+  spatialBlend: 1
   loop: 0
+  music: 0

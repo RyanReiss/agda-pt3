@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
+  m_Name: snd_footstep_asphalt
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 5ee39cadc9925464ca277e5fe33bee2c, type: 3}
+  - {fileID: 8300000, guid: 348c0984f6e5d4864a1eec01f9447b19, type: 3}
+  - {fileID: 8300000, guid: 9aa8328676c8f4eaeabc258f20e3f51f, type: 3}
+  pitch: 1
+  volume: 0.672
+  spatialBlend: 1
+  loop: 0
+  music: 0

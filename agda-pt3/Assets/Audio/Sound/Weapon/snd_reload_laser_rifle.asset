@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
+  m_Name: snd_reload_laser_rifle
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 3ff444c1c89b3451095bf8a19b7ac352, type: 3}
+  - {fileID: 8300000, guid: 1cecc9151fb3d4c5f9c4a42e05bd9418, type: 3}
+  - {fileID: 8300000, guid: c81e3994516a24e87b03872292dd78b6, type: 3}
+  pitch: 1
+  volume: 0.566
+  spatialBlend: 1
+  loop: 0
+  music: 0
