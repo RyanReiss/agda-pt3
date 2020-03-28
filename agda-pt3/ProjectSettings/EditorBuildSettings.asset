@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/OutsideArea1.unity
     guid: 826ac12f145447543ba001848f6be95f
   - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
+    path: Assets/Scenes/UI/TitleScreen.unity
     guid: c831aad3f29d8164c82fd2f47a63ee99
   - enabled: 1
     path: Assets/Scenes/GameOverScreen.unity

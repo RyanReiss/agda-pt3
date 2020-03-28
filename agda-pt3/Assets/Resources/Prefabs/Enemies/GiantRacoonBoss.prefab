@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetToAttack: {fileID: 0}
-  movementSpeed: 5
+  movementSpeed: 7
   lineOfSightDistance: 100
   damageToGive: 1
   dropTableName: TestDropTable

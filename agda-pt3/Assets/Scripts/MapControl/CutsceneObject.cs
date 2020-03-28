@@ -40,9 +40,11 @@ public class CutsceneObject : MonoBehaviour
         [SerializeField]
         public List<string> dialogueToSay;
         [SerializeField]
-        public string soundOrAnimatonToPlay;
+        public string animationToPlay;
         [SerializeField]
         public float timeToWait;
+        [SerializeField]
+        public AudioObject soundToPlay;
     }
 
 
@@ -111,7 +113,10 @@ public class CutsceneObject : MonoBehaviour
                         StartCoroutine(HideOrShowObject(cutsceneSequence[index].focusObject, index));
                         break;
                     case CutSceneAction.Action.AnimateObject:
-                        StartCoroutine(AnimateObject(cutsceneSequence[index].focusObject, cutsceneSequence[index].soundOrAnimatonToPlay, index));
+                        StartCoroutine(AnimateObject(cutsceneSequence[index].focusObject, cutsceneSequence[index].animationToPlay, index));
+                        break;
+                    case CutSceneAction.Action.PlaySound:
+                        StartCoroutine(PlaySound(cutsceneSequence[index].soundToPlay, index));
                         break;
                 }
             } 
@@ -203,6 +208,19 @@ public class CutsceneObject : MonoBehaviour
         focusObject.GetComponent<Animator>().SetTrigger(animName);
         yield return null;
         while(focusObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName(animName)){
+            yield return null;
+        }
+        PlayerController.Instance.SetPlayerLockInPlace(false);
+        if(cutsceneSequence[tempIndex].waitUntilActionFinishes){
+            moveToNextAction = true;
+        }
+    }
+
+    private IEnumerator PlaySound(AudioObject audioToPlay, int tempIndex){
+        PlayerController.Instance.SetPlayerLockInPlace(true);
+        AudioPoolSource aps = audioToPlay.Play();
+        yield return null;
+        while(aps.isPlaying){
             yield return null;
         }
         PlayerController.Instance.SetPlayerLockInPlace(false);

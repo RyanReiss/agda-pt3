@@ -183,15 +183,17 @@ MonoBehaviour:
     focusObject: {fileID: 0}
     positionToMoveTo: {x: 0, y: 0, z: 0}
     dialogueToSay: []
-    soundOrAnimatonToPlay: 
+    animationToPlay: 
     timeToWait: 0.2
+    soundToPlay: {fileID: 0}
   - actionToPerform: 5
     waitUntilActionFinishes: 0
     focusObject: {fileID: 0}
     positionToMoveTo: {x: 50.68, y: 12.44, z: 0}
     dialogueToSay: []
-    soundOrAnimatonToPlay: 
+    animationToPlay: 
     timeToWait: 0
+    soundToPlay: {fileID: 0}
   - actionToPerform: 3
     waitUntilActionFinishes: 1
     focusObject: {fileID: 0}
@@ -199,29 +201,33 @@ MonoBehaviour:
     dialogueToSay:
     - Hmm, I better go grab some firepower. Better safe than sorry
     - I think I left the gun in the shed last.~~~~~.~~~~~.
-    soundOrAnimatonToPlay: 
+    animationToPlay: 
     timeToWait: 0
+    soundToPlay: {fileID: 0}
   - actionToPerform: 6
     waitUntilActionFinishes: 1
     focusObject: {fileID: 0}
     positionToMoveTo: {x: 0, y: 0, z: 0}
     dialogueToSay: []
-    soundOrAnimatonToPlay: 
+    animationToPlay: 
     timeToWait: 2
-  - actionToPerform: 5
+    soundToPlay: {fileID: 0}
+  - actionToPerform: 6
     waitUntilActionFinishes: 1
     focusObject: {fileID: 0}
     positionToMoveTo: {x: -1.89, y: -3.81, z: 0}
     dialogueToSay: []
-    soundOrAnimatonToPlay: 
+    animationToPlay: 
     timeToWait: 0
+    soundToPlay: {fileID: 0}
   - actionToPerform: 6
     waitUntilActionFinishes: 0
     focusObject: {fileID: 0}
     positionToMoveTo: {x: 0, y: 0, z: 0}
     dialogueToSay: []
-    soundOrAnimatonToPlay: 
+    animationToPlay: 
     timeToWait: 0
+    soundToPlay: {fileID: 0}
 --- !u!4 &84694943
 Transform:
   m_ObjectHideFlags: 0

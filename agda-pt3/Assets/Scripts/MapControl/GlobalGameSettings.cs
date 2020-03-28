@@ -87,7 +87,32 @@ public class GlobalGameSettings : MonoBehaviour
                 currentRespawnPoint = new Vector3(3.84f,-2.87f,0f);
                 sceneToRespawnIn = currentScene;
                 break;
+            case "InsideArea2":
+                currentRespawnPoint = new Vector3(-32.51f, -23.45f,0f);
+                sceneToRespawnIn = currentScene;
+                break;
             default:
+                break;
+        }
+    }
+
+    public void SetPlayerSizeBasedOnScene(string currentScene){
+        switch (currentScene)
+        {
+            case "House-f1-CutsceneTest":
+                PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
+                break;
+            case "House-f1":
+                PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
+                break;
+            case "House-f2":
+                PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
+                break;
+            case "Barn":
+                PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
+                break;
+            default:
+                PlayerController.Instance.transform.localScale = new Vector3(1.5f,1.5f,1f);
                 break;
         }
     }

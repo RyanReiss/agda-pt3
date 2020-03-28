@@ -18,4 +18,8 @@ public class BossAttack : MonoBehaviour
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
     }
+
+    public void StopAnimation(){
+        Destroy(this.gameObject);
+    }
 }

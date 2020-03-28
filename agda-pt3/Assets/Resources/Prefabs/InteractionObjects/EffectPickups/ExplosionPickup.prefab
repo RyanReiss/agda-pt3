@@ -24,7 +24,7 @@ PrefabInstance:
     - target: {fileID: 1898248297582038552, guid: 405d806958d4d2c47ac5feb9614a722f,
         type: 3}
       propertyPath: m_Name
-      value: EffectPickup
+      value: ExplosionPickup
       objectReference: {fileID: 0}
     - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
         type: 3}
@@ -34,18 +34,18 @@ PrefabInstance:
     - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b8c8e749913452a4491933c550e526f5,
+      objectReference: {fileID: 21300000, guid: 5e4015d76496c3c418bba2057e96fa61,
         type: 3}
     - target: {fileID: 1898248297582038554, guid: 405d806958d4d2c47ac5feb9614a722f,
         type: 3}

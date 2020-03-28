@@ -24,6 +24,7 @@ public class GiantRacoon : BaseEnemyAI
     protected override void Start() {
         base.Start();
         anim = this.GetComponent<Animator>();
+        EnemyAIController.Instance.AddEnemiesToController();
     }
     public override void UpdateEnemy()
     {
@@ -121,22 +122,20 @@ public class GiantRacoon : BaseEnemyAI
         attackLock = false;
         currentAttackName = "summon";
         if (currentState != EnemyState.WaitingForAttackToFinish){
-            Debug.Log("Spawning rabbit " + currentState.ToString());
-            Instantiate(rabbit, new Vector2(Random.Range(-5, 5) + this.transform.position.x, Random.Range(-5, 5) + this.transform.position.y), Quaternion.identity);
-            EnemyAIController.Instance.AddEnemiesToController();
-            currentState = EnemyState.WaitingForAttackToFinish;
-            currentAttackTimeTimer = 0.5f;
+            // Debug.Log("Spawning rabbit " + currentState.ToString());
+            // Instantiate(rabbit, new Vector2(Random.Range(-5, 5) + this.transform.position.x, Random.Range(-5, 5) + this.transform.position.y), Quaternion.identity);
+            // EnemyAIController.Instance.AddEnemiesToController();
+            StartSummonAttack();
         }
-        if (currentAttackTime + 0.5f < Time.time)
-        {
-            // End the attack, and put it on cooldown
-            currentState = EnemyState.Idle;
-            attackCooldown = Time.time;
-            attackLock = true;
-            //Debug.Log("Ending Attack...");
-            currentAttackName = "";
-        }
-        
+        // if (currentAttackTime + 0.5f < Time.time)
+        // {
+        //     // End the attack, and put it on cooldown
+        //     currentState = EnemyState.Idle;
+        //     attackCooldown = Time.time;
+        //     attackLock = true;
+        //     //Debug.Log("Ending Attack...");
+        //     currentAttackName = "";
+        // }
     }
 
     protected override void Movement()
@@ -219,7 +218,7 @@ public class GiantRacoon : BaseEnemyAI
             }
         }
         else if (currentState == EnemyState.WaitingForAttackToFinish){
-            if(currentAttackTime + currentAttackTimeTimer < Time.time && (currentAttackName != "scream" && currentAttackName != "swipe")){
+            if(currentAttackTime + currentAttackTimeTimer < Time.time && (currentAttackName != "charge")){
                 // End the attack, and put it on cooldown
                 Debug.Log("Setting idle");
                 currentState = EnemyState.Idle;
@@ -255,16 +254,16 @@ public class GiantRacoon : BaseEnemyAI
         direction = direction.normalized;
         
         Vector2Int ordinalDirection = new Vector2Int(Mathf.RoundToInt(direction.x),Mathf.RoundToInt(direction.y));
-        
-        // Sets values for animator
-        anim.SetFloat("MoveX",ordinalDirection.x);
-        anim.SetFloat("MoveY",ordinalDirection.y);
-        anim.SetFloat("LastMoveX",ordinalDirection.x);
-        anim.SetFloat("LastMoveY",ordinalDirection.y);
-        if(currentState != EnemyState.Idle){
-            this.anim.SetBool("EnemyMoving", true);
+        if(currentState != EnemyState.WaitingForAttackToFinish && currentState != EnemyState.Attacking){
+            // Sets values for animator
+            anim.SetFloat("MoveX",ordinalDirection.x);
+            anim.SetFloat("MoveY",ordinalDirection.y);
+            anim.SetFloat("LastMoveX",ordinalDirection.x);
+            anim.SetFloat("LastMoveY",ordinalDirection.y);
+            if(currentState != EnemyState.Idle){
+                this.anim.SetBool("EnemyMoving", true);
+            }
         }
-
     }
 
     public void StartScreamAttack(){
@@ -290,6 +289,18 @@ public class GiantRacoon : BaseEnemyAI
             dir = Vector3.ClampMagnitude(dir,4.5f);
             Debug.Log("Spawning swipe " + currentState.ToString() + " " + dir);
             Instantiate(smash, ((Vector2)transform.position + dir), Quaternion.identity);
+    }
+
+    public void StartSummonAttack(){
+        anim.SetTrigger("SummonAttack");
+        currentState = EnemyState.WaitingForAttackToFinish;
+        currentAttackTimeTimer = 1f;
+    }
+
+    public void InstantiateSummonAttack(){
+        //Debug.Log("Spawning scream " + currentState.ToString());
+        Instantiate(rabbit, new Vector2(Random.Range(-5, 5) + this.transform.position.x, Random.Range(-5, 5) + this.transform.position.y), Quaternion.identity);
+        EnemyAIController.Instance.AddEnemiesToController();
     }
 
     public void StopAttack(){

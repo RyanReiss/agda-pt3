@@ -60,6 +60,7 @@ public class ScreenFadeController : MonoBehaviour
         SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
         PlayerController.Instance.transform.position = spawnLoc;
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetCameraPosition(spawnLoc);
+        GlobalGameSettings.Instance.SetPlayerSizeBasedOnScene(levelToLoad);
         fadeAnim.SetTrigger("FadeIn");
         AudioController.Instance.FadeIn(AudioController.Fade.MUSIC);
         GlobalGameSettings.Instance.SetNewRespawnPoint(levelToLoad);

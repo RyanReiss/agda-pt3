@@ -46,6 +46,7 @@ public class DropTableController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Debug.Log("Creating Drops....");
         // Drops:
         //-------------------------------------------
         Drop shotgunAmmoDrop_5 = CreateDrop("shotgunAmmoDrop_5", shotgunAmmoDropPrefab, 5f);
@@ -66,8 +67,10 @@ public class DropTableController : MonoBehaviour
         dropTables.Add(test);
 
         // Porcupine with explosives (Cutscene)
-        DropTable pExplosives = CreateDropTable("PorcupineExplosives");
-        pExplosives.dropTable.Add(explosiveDrop,100f);
+        DropTable PorcupineExplosives = CreateDropTable("PorcupineExplosives");
+        PorcupineExplosives.dropTable.Add(explosiveDrop,100f);
+        dropTables.Add(PorcupineExplosives);
+        //Debug.Log("Amount of dropTables: " + dropTables.Count);
     }
 
     private DropTable CreateDropTable(string name){
@@ -85,7 +88,9 @@ public class DropTableController : MonoBehaviour
     }
 
     private DropTable FindDropTable(string dTName){
+        //Debug.Log("Trying to find droptable: " + dTName);
         foreach(DropTable d in dropTables){
+            //Debug.Log("Looking at DropTable: " + d.dropTableName);
             if(d.dropTableName == dTName){
                 return d;
             }
@@ -108,7 +113,9 @@ public class DropTableController : MonoBehaviour
     }
 
     public void RollDropTable(string nameOfDropTable, Transform positionToSpawnDrop){
+        //Debug.Log("DropTableName: " + nameOfDropTable);
         DropTable tableToRoll = FindDropTable(nameOfDropTable);
+        Debug.Log(tableToRoll.dropTableName);
         Drop dropToInstantiate = RollTable(tableToRoll);
         if(dropToInstantiate.dropGameObject != null){
             GameObject drop = Instantiate(dropToInstantiate.dropGameObject, positionToSpawnDrop.position, Quaternion.Euler(Vector3.zero));

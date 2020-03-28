@@ -23,7 +23,7 @@ public class StartScreen : MonoBehaviour
     }
 
     public void StartGame(){
-        SceneManager.LoadScene("TilemapTestScene");
+        SceneManager.LoadScene("House-f1-CutsceneTest");
     }
 
     protected IEnumerator WaitToDisplay(float msWaitTime){

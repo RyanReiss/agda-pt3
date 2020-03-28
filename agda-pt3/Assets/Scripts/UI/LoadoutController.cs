@@ -123,7 +123,11 @@ public class LoadoutController : MonoBehaviour
         GameObject temp = Instantiate(temp2, Vector3.zero, Quaternion.Euler(Vector3.zero));
         temp.name = temp2.name;
         if(temp != null){
-            if(secondaryWeaponSlot.transform.childCount == 0){
+            if(primaryWeaponSlot.transform.childCount == 0){
+                temp.transform.SetParent(primaryWeaponSlot.transform);
+                temp.SetActive(true);
+            }
+            else if(secondaryWeaponSlot.transform.childCount == 0){
                 temp.transform.SetParent(secondaryWeaponSlot.transform);
                 temp.SetActive(true);
             } else {

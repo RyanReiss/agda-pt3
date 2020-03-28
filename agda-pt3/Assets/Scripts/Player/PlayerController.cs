@@ -87,7 +87,9 @@ public class PlayerController : MonoBehaviour
     void Update(){
         if(!lockPlayerInPlace){
             SwapCurrentGun();
-            GetCurrentWeapon().GetComponent<Weapon>().UpdateWeapon();
+            if(GetCurrentWeapon().GetComponent<Weapon>()){
+                GetCurrentWeapon().GetComponent<Weapon>().UpdateWeapon();
+            }
             InteractWithObjects();
         }
         OpenInventory();
@@ -173,7 +175,9 @@ public class PlayerController : MonoBehaviour
         //Normalize, then round the direction into ordinalDirection for the animator
         direction.Normalize();
         //weaponSystem.transform.up = direction;
-        GetCurrentWeapon().transform.GetChild(0).transform.up = direction;
+        if(GetCurrentWeapon().GetComponent<ReloadableGun>()){
+            GetCurrentWeapon().transform.GetChild(0).transform.up = direction;
+        }
         Vector2Int ordinalDirection = new Vector2Int(Mathf.RoundToInt(direction.x),Mathf.RoundToInt(direction.y));
         
         // Sets values for animator
@@ -270,9 +274,17 @@ public class PlayerController : MonoBehaviour
 
     public GameObject GetCurrentWeapon(){
         if(primaryOrSecondary){
-            return primaryWeaponHolder.transform.GetChild(0).gameObject;
+            if(primaryWeaponHolder.transform.childCount > 0){
+                return primaryWeaponHolder.transform.GetChild(0).gameObject;
+            } else {
+                return primaryWeaponHolder.transform.gameObject;
+            }
         } else {
-            return secondaryWeaponHolder.transform.GetChild(0).gameObject;
+            if(primaryWeaponHolder.transform.childCount > 0){
+                return secondaryWeaponHolder.transform.GetChild(0).gameObject;
+            } else {
+                return secondaryWeaponHolder.transform.gameObject;
+            }
         }
     }
 
@@ -336,7 +348,10 @@ public class PlayerController : MonoBehaviour
     public void PickupGun(GameObject gun, string gunName){
         GameObject temp;
         // GameObject gun should be the prefab instance of the gun to pickup
-        if(secondaryWeaponHolder.transform.childCount == 0){
+        if(primaryWeaponHolder.transform.childCount == 0){
+            temp = Instantiate(gun, primaryWeaponHolder.transform);
+        }
+        else if(secondaryWeaponHolder.transform.childCount == 0){
             temp = Instantiate(gun, secondaryWeaponHolder.transform);
         } else {
             temp = Instantiate(gun, weaponBackpack.transform);
