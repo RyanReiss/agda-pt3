@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
-  m_Name: snd_rbear_hurt
+  m_Name: snd_rbear_smash
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 0}

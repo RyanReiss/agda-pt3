@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
   m_Name: snd_rabbit_hurt
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 0}
   pitch: 1
   volume: 0
   spatialBlend: 1

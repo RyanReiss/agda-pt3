@@ -11,6 +11,7 @@ public class PorcupineAI : BaseEnemyAI
     public GameObject enemyBulletPrefab;
     private Animator anim;
     private Vector3 direction;
+    public AudioObject shootAudio;
     protected override void Start()
     {
         base.Start();
@@ -95,6 +96,9 @@ public class PorcupineAI : BaseEnemyAI
         currentState = EnemyState.LookingForPlayer;
         attackCooldown = Time.time;
         anim.SetTrigger("Attack");
+        if (shootAudio != null) {
+            shootAudio.Play(-1, this.transform);
+        }
         float offset = Random.Range(0f,10f);
         for(float i = offset; i < 360+offset; i+=18){
             //GameObject aBullet = Instantiate(enemyBulletPrefab,this.transform.position,Quaternion.Euler(new Vector3(0,0,i)));

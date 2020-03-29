@@ -53,6 +53,8 @@ MonoBehaviour:
   m_OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  hurtAudio: {fileID: 0}
+  deathAudio: {fileID: 11400000, guid: f16a6ea10d77c4097b5eea83c0cedcaa, type: 2}
 --- !u!212 &6046395152834565178
 SpriteRenderer:
   m_ObjectHideFlags: 0

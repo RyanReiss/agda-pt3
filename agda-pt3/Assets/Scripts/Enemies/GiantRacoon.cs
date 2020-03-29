@@ -21,7 +21,16 @@ public class GiantRacoon : BaseEnemyAI
     private Animator anim;
     private Vector3 direction;
 
+    public AudioObject screamAudio;
+    public AudioObject summonAudio;
+    public AudioObject smashAudio;
+    public AudioObject swipeAudio;
+    public AudioObject wakeupAudio;
+
     protected override void Start() {
+        if (wakeupAudio != null) {
+            wakeupAudio.Play();
+        }
         base.Start();
         anim = this.GetComponent<Animator>();
         EnemyAIController.Instance.AddEnemiesToController();
@@ -267,6 +276,9 @@ public class GiantRacoon : BaseEnemyAI
     }
 
     public void StartScreamAttack(){
+        if (screamAudio != null) {
+            screamAudio.Play();
+        }
         anim.SetTrigger("ScreamAttack");
         currentState = EnemyState.WaitingForAttackToFinish;
         currentAttackTimeTimer = 0.5f;
@@ -279,6 +291,9 @@ public class GiantRacoon : BaseEnemyAI
 
 
     public void StartSwipeAttack(){
+        if (smashAudio != null) {
+            smashAudio.Play();
+        }
         anim.SetTrigger("SwipeAttack");
         currentState = EnemyState.WaitingForAttackToFinish;
         currentAttackTimeTimer = 0.5f;
@@ -292,6 +307,9 @@ public class GiantRacoon : BaseEnemyAI
     }
 
     public void StartSummonAttack(){
+        if (summonAudio != null) {
+            summonAudio.Play();
+        }
         anim.SetTrigger("SummonAttack");
         currentState = EnemyState.WaitingForAttackToFinish;
         currentAttackTimeTimer = 1f;

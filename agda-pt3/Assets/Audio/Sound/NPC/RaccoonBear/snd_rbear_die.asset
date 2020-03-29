@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
   m_Name: snd_rbear_die
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: c430ab82f3646418e856207ece0131fa, type: 3}
   pitch: 1
-  volume: 0
-  spatialBlend: 1
+  volume: 0.615
+  spatialBlend: 0
   loop: 0
   music: 0

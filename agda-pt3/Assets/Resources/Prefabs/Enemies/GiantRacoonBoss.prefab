@@ -150,6 +150,8 @@ MonoBehaviour:
   m_OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  hurtAudio: {fileID: 0}
+  deathAudio: {fileID: 11400000, guid: 436426c2b35534550b26878f1d2a29f3, type: 2}
 --- !u!114 &1493619952752026449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +176,11 @@ MonoBehaviour:
   scream: {fileID: 315494759671103787, guid: 3dc1b887dc1514545928612bb566fd5c, type: 3}
   smash: {fileID: 7025586164415700270, guid: 07343d749cff06940bb133d4b657fa18, type: 3}
   rabbit: {fileID: 6046395152834565173, guid: bb207678e161d704e816365741e2f9d6, type: 3}
+  screamAudio: {fileID: 11400000, guid: 52ffd8cb013274a9bb38ec5de4a1466b, type: 2}
+  summonAudio: {fileID: 11400000, guid: 8c1c2e0f0277f477ea79c3aa3ea165df, type: 2}
+  smashAudio: {fileID: 11400000, guid: eaae1e67334cb4cca8addb27ca50d38d, type: 2}
+  swipeAudio: {fileID: 11400000, guid: eaae1e67334cb4cca8addb27ca50d38d, type: 2}
+  wakeupAudio: {fileID: 0}
 --- !u!95 &3475817919929882787
 Animator:
   serializedVersion: 3

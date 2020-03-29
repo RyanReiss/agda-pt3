@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     ScreenStaticController screenStaticController;
     public UnityEvent m_OnDeath; // Event called on death of the current gameObject
     public AudioObject hurtAudio;
+    public AudioObject deathAudio;
     private float hurtVolume = 0f;
     private int hits = 0;
     private float maxHitsTime = 1f;
@@ -59,6 +60,9 @@ public class Health : MonoBehaviour
                 screenStaticController.StartScreenStatic(currentHealth/maxHealth);
             }
             if(currentHealth <= 0){
+                if (deathAudio != null) {
+                    deathAudio.Play(-1, this.transform);
+                }
                 m_OnDeath.Invoke();
                 gameObject.SetActive(false);
                 if(gameObject.GetComponent<BaseEnemyAI>()){

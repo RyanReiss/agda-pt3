@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
-  m_Name: snd_rbear_hurt
+  m_Name: snd_rabbit_die
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 083324f95468e47bdb3adf74f6b57a31, type: 3}
   pitch: 1
-  volume: 0
-  spatialBlend: 1
+  volume: 0.68
+  spatialBlend: 0.918
   loop: 0
   music: 0

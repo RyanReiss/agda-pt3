@@ -53,6 +53,8 @@ MonoBehaviour:
   m_OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  hurtAudio: {fileID: 0}
+  deathAudio: {fileID: 11400000, guid: 6de0c74c53a0648619f53ff69873eee9, type: 2}
 --- !u!212 &264180993277219413
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,7 +121,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6133332, y: 2.1866667}
+    oldSize: {x: 1.96, y: 1.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -172,6 +174,7 @@ MonoBehaviour:
   startPreAttackTime: 0
   enemyBulletPrefab: {fileID: 8871173390605124279, guid: ca88a2b1b9e889d44864194a62817940,
     type: 3}
+  shootAudio: {fileID: 11400000, guid: 921537c8656c94da39c773c5efcc2363, type: 2}
 --- !u!95 &6970994925611647110
 Animator:
   serializedVersion: 3

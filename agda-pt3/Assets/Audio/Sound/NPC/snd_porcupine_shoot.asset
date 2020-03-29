@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
   m_Name: snd_porcupine_shoot
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 12b1faa4c54fe42e08d95a1522190e80, type: 3}
   pitch: 1
-  volume: 0
-  spatialBlend: 1
+  volume: 0.549
+  spatialBlend: 0.926
   loop: 0
   music: 0
