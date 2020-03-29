@@ -3641,12 +3641,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotToDisplay: {fileID: 23365052}
---- !u!1 &1110672133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8965827065102845168, guid: 07fa0b7ee07be3340862ad256d439e55,
-    type: 3}
-  m_PrefabInstance: {fileID: 1145653365}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1118060461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7410407489935850836, guid: a28fd903bca64474e971b08beb2061f6,
@@ -3785,6 +3779,23 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8965827065026000360, guid: 07fa0b7ee07be3340862ad256d439e55,
+        type: 3}
+      propertyPath: footstepAudio
+      value: 
+      objectReference: {fileID: 11400000, guid: cc5c0ed0909f64950967449d30228ce0,
+        type: 2}
+    - target: {fileID: 8965827065026000360, guid: 07fa0b7ee07be3340862ad256d439e55,
+        type: 3}
+      propertyPath: sprintingActivationAudio
+      value: 
+      objectReference: {fileID: 11400000, guid: e21afcf4669a04df4a3c06518b918bfb,
+        type: 2}
+    - target: {fileID: 8965827065026000360, guid: 07fa0b7ee07be3340862ad256d439e55,
+        type: 3}
+      propertyPath: sprintingDelay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8965827065026000365, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
       propertyPath: m_Offset.y
@@ -3886,6 +3897,12 @@ PrefabInstance:
       propertyPath: msInvulnerability
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 7862504638083202169, guid: 07fa0b7ee07be3340862ad256d439e55,
+        type: 3}
+      propertyPath: hurtAudio
+      value: 
+      objectReference: {fileID: 11400000, guid: 7da566da2e64445ce915ef672f22c5fe,
+        type: 2}
     - target: {fileID: -2273273063073519886, guid: 07fa0b7ee07be3340862ad256d439e55,
         type: 3}
       propertyPath: m_Enabled
@@ -11564,7 +11581,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponToDisplay
       value: 
-      objectReference: {fileID: 1110672133}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d252a40b7db9b4e9329c9b7270c5d9, type: 3}
 --- !u!4 &5723837561153086143 stripped

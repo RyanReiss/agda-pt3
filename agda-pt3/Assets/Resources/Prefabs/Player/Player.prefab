@@ -189,6 +189,13 @@ MonoBehaviour:
   velocityIncreaseDecayRate: 0
   inventoryUIController: {fileID: 0}
   loadoutController: {fileID: 0}
+  pickupItemAudio: {fileID: 0}
+  pickupWeaponAudio: {fileID: 0}
+  weaponSwapAudio: {fileID: 0}
+  footstepAudio: {fileID: 11400000, guid: 1d113b42f102d49b1964fff59875036c, type: 2}
+  sprintActivationAudio: {fileID: 0}
+  walkingDelay: 0.2
+  sprintingDelay: 100
 --- !u!212 &8965827065026000362
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -313,6 +320,7 @@ MonoBehaviour:
   m_OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  hurtAudio: {fileID: 0}
 --- !u!58 &7523749740426826043
 CircleCollider2D:
   m_ObjectHideFlags: 0

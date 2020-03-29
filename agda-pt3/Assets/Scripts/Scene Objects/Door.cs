@@ -17,6 +17,8 @@ public class Door : InteractableObject
     private PlayerController player;
     public List<string> linesToShowOnLockedDoorInteract;
     private DialogueController dialogueController;
+    public AudioObject doorOpenAudio;
+    public AudioObject doorCloseAudio;
 
     protected override void Start() {
         player = PlayerController.Instance;
@@ -37,11 +39,17 @@ public class Door : InteractableObject
                 //If the door is open, close it
                 state = !state;
                 anim.SetBool("doorState", state);
+                if (doorCloseAudio != null) {
+                    doorCloseAudio.Play();
+                }
                 // Hide the room if it needs to be hidden
             } else {
                 //If the door is closed, open it
                 state = !state;
                 anim.SetBool("doorState", state);
+                if (doorOpenAudio != null) {
+                    doorOpenAudio.Play();
+                }
                 // If the room is currently hidden, unhide it!
                 if(roomToShow != ""){
                     if(needToShowRoom){

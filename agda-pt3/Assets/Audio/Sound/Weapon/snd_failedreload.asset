@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: snd_failedreload
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 6d0181cbcafdc4289bce150cdf508e0e, type: 3}
+  - {fileID: 8300000, guid: 8df363bf6e2f4414eace4ee223946a75, type: 3}
   pitch: 1
-  volume: 0.705
-  spatialBlend: 1
+  volume: 0.574
+  spatialBlend: 0
   loop: 0
   music: 0

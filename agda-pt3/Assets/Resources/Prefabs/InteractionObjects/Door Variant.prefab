@@ -32,6 +32,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionArea: {fileID: 5392326483732161009}
+  roomToShow: 
+  lockedDoor: 0
+  keyToUnlock: 
+  linesToShowOnLockedDoorInteract: []
+  doorOpenAudio: {fileID: 11400000, guid: 0aa803a96c12d490e88ec0454ac99a9a, type: 2}
+  doorCloseAudio: {fileID: 11400000, guid: 51380b4a2c4334f248fb35676590f72e, type: 2}
 --- !u!1001 &5801351660006341697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43,6 +49,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.41960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.06666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1898248297582038554, guid: 405d806958d4d2c47ac5feb9614a722f,
         type: 3}
@@ -108,26 +134,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.7169812
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.41960785
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.06666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898248297582038553, guid: 405d806958d4d2c47ac5feb9614a722f,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1898248297567854000, guid: 405d806958d4d2c47ac5feb9614a722f,
         type: 3}

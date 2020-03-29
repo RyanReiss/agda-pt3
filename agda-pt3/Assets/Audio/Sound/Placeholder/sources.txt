@@ -1,0 +1,12 @@
+snd_reload_pistol: Counter-Strike: Global Offensive
+snd_reload_rifle: RPG Maker VX
+snd_playerdeath: Jungle Jungle - 1989 to 1999 Samplepack
+mus_bossa: https://soundcloud.com/killua-8/bossa-preciosa
+mus_robocop: robocop.mp3 by Cboyardee
+snd_porcupine_hurt:
+snd_rabbit_hurt:
+snd_porcupine_shoot:
+https://freesound.org/people/mrmunk/sounds/344972/
+https://freesound.org/people/enochrooted/sounds/49460/
+https://freesound.org/people/vckhaze/sounds/332602/
+https://freesound.org/people/dobroide/sounds/29610/ (CC-BY)

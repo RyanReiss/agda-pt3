@@ -40,6 +40,18 @@ public class PlayerController : MonoBehaviour
     public GameObject loadoutController;
     private bool lockPlayerInPlace; // true = yes, false = no
 
+
+    // Sounds
+    public AudioObject pickupItemAudio;
+    public AudioObject pickupWeaponAudio;
+    public AudioObject weaponSwapAudio;
+    public AudioObject footstepAudio;
+    public AudioObject sprintingActivationAudio;
+    public float walkingDelay;
+    public float sprintingDelay;
+    private float timeSinceStep = 0;
+
+
     // Singleton setup
     private static PlayerController _instance;
     public static PlayerController Instance { get { return _instance; } }
@@ -73,6 +85,7 @@ public class PlayerController : MonoBehaviour
         // }
         secondaryWeaponHolder.SetActive(false);
         //gun = primaryWeaponHolder.transform.GetChild(0).gameObject;
+        sprintingDelay = walkingDelay / sprintingMultiplier;
     }
 
     // FixedUpdate is called at fixed intervals, usually every other frame
@@ -81,6 +94,17 @@ public class PlayerController : MonoBehaviour
         if(!lockPlayerInPlace){
             Movement();
             PlayerRotate();
+            if (isPlayerMoving) {
+                float delay = anim.speed != sprintingMultiplier ? walkingDelay : sprintingDelay;
+                if (timeSinceStep >= delay) {
+                    if (footstepAudio != null) {
+                        footstepAudio.Play(1);
+                    }
+                    timeSinceStep = 0;
+                } else {
+                    timeSinceStep += Time.deltaTime;
+                }
+            }
         }
     }
 
@@ -125,6 +149,11 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.LeftShift) && energy > 0 && currentMovement != Vector3.zero && sprintingLock){
             // If the playetr is sprinting
+            if (anim.speed != sprintingMultiplier) {
+                if (sprintingActivationAudio != null) {
+                    sprintingActivationAudio.Play();
+                }
+            }
             velocity = Vector3.ClampMagnitude(velocity, (maxSpeed * sprintingMultiplier) + currentVelocityIncrease); // Don't go faster than max speed * sprintingMultiplier
             anim.speed = sprintingMultiplier;
             energy -= 1f;
@@ -194,6 +223,9 @@ public class PlayerController : MonoBehaviour
     // Will eventually be replaced by inventory / loadout system
     void SwapCurrentGun()
     {
+        if (weaponSwapAudio != null) {
+            weaponSwapAudio.Play();
+        }
         if(Input.GetKeyDown(KeyCode.Tab)){
             if(!primaryOrSecondary){
                 if(GetCurrentWeapon().GetComponent<ReloadableGun>() && !GetCurrentWeapon().GetComponent<ReloadableGun>().IsGunReloading()){
@@ -339,6 +371,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PickupItem(string str, Sprite spr){
+        if (pickupItemAudio != null) {
+            pickupItemAudio.Play();
+        }
         inventoryUIController.GetComponent<InventoryUIController>().AddItemToInventory(str, spr);
     }
     public bool InventoryContains(string item){
@@ -346,6 +381,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PickupGun(GameObject gun, string gunName){
+        if (pickupWeaponAudio != null) {
+            pickupWeaponAudio.Play();
+        }
+
         GameObject temp;
         // GameObject gun should be the prefab instance of the gun to pickup
         if(primaryWeaponHolder.transform.childCount == 0){

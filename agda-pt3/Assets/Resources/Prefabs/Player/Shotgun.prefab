@@ -100,6 +100,9 @@ MonoBehaviour:
   currentAmmoStored: 0
   maxClipSize: 0
   msReloadTime: 0
+  fireAudio: {fileID: 11400000, guid: e07d5629c88974ed390449345bfa231d, type: 2}
+  reloadAudio: {fileID: 11400000, guid: ca6455af91c754f96b06e4887a7c3b27, type: 2}
+  reloadFailAudio: {fileID: 11400000, guid: 1738d3ee0cde24e1abfe0e602fb37b7d, type: 2}
   currentEffect: 
   shotgunKnockback: 40
 --- !u!1 &9104247438836328702

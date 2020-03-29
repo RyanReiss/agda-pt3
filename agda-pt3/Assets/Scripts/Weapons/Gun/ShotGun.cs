@@ -37,6 +37,9 @@ public class ShotGun : ReloadableGun
             if(currentClip <= 0){
                 ReloadGun();
             }
+            if (fireAudio != null) {
+                fireAudio.Play();
+            }
             GameObject muzzleFlash = PlayerEffectsController.Instance.GetEffect("yellowFlash");
             muzzleFlash.transform.position = spawnPos.position;
             muzzleFlash.transform.rotation = spawnPos.rotation;

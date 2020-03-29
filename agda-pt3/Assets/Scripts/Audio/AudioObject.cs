@@ -36,6 +36,25 @@ public class AudioObject : ScriptableObject
         src = AudioController.Instance.GetSource();
         src.SetProperties((clip == -1) ? RandomClip() : clips[clip], pitch, volume, spatialBlend, loop, music);
         if (position != null) {
+            src.SetPosition(position.GetValueOrDefault());
+        }
+        src.Play();
+        return src;
+    }
+
+    public AudioPoolSource PlayWithVolume(float vol=-1, int clip=-1, Transform parent=null, Vector3? position=null)
+    {
+        AudioPoolSource src;
+
+        if (parent != null) {
+            src = Play(position: parent.position);
+            src.SetParent(parent);
+            return src;
+        }
+
+        src = AudioController.Instance.GetSource();
+        src.SetProperties((clip == -1) ? RandomClip() : clips[clip], pitch, (vol == -1) ? volume : vol, spatialBlend, loop, music);
+        if (position != null) {
             Debug.Log("Setting position to " + position.GetValueOrDefault());
             src.SetPosition(position.GetValueOrDefault());
         }

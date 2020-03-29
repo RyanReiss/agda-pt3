@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06634b7dd3d244bada4fdf93808a6c41, type: 3}
-  m_Name: snd_gunshot1
+  m_Name: mus_playerdeath
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: eb227e5a8770c4682a30c5c661ae8ccc, type: 3}
+  - {fileID: 8300000, guid: f5304385ec74a4421a1a44e6f8d6c0d4, type: 3}
   pitch: 1
-  volume: 0.254
+  volume: 0.41
   spatialBlend: 0
   loop: 0
-  music: 0
+  music: 1

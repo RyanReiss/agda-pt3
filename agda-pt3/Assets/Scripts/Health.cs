@@ -16,6 +16,11 @@ public class Health : MonoBehaviour
     private float invulnEndTime;
     ScreenStaticController screenStaticController;
     public UnityEvent m_OnDeath; // Event called on death of the current gameObject
+    public AudioObject hurtAudio;
+    private float hurtVolume = 0f;
+    private int hits = 0;
+    private float maxHitsTime = 1f;
+    private float hitsTime = 0;
 
     public void Start()
     {
@@ -23,7 +28,29 @@ public class Health : MonoBehaviour
         screenStaticController = GameObject.FindGameObjectWithTag("ScreenStaticController").GetComponent<ScreenStaticController>();
     }
 
+    public void Update()
+    {
+        hitsTime += Time.deltaTime;
+        if (hurtVolume != 0f && hurtAudio != null) {
+            if (hits > 0) {
+                hurtVolume = hurtAudio.volume * 0.3f;
+            } else {
+                hurtVolume = hurtAudio.volume;
+            }
+        }
+        if (hitsTime >= maxHitsTime) {
+            hits = 0;
+        }
+    }
+
     public void TakeDamage(float damage){
+        hits++;
+        if (hurtAudio != null) {
+            if (hurtVolume == 0f) {
+                hurtVolume = hurtAudio.volume;
+            }
+            hurtAudio.PlayWithVolume(hurtVolume);
+        }
         if(invulnEndTime <= Time.time){
             invulnEndTime = Time.time + msInvulnerability/1000f;
             currentHealth -= damage;

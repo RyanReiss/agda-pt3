@@ -15,7 +15,7 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: bddc81c0eb5ce4c4caee2915f964fb4f, type: 3}
   pitch: 1
-  volume: 0.549
-  spatialBlend: 1
+  volume: 0.155
+  spatialBlend: 0.852
   loop: 0
   music: 0

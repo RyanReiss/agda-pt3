@@ -16,6 +16,7 @@ public abstract class ReloadableGun : Gun {
 
     public AudioObject fireAudio;
     public AudioObject reloadAudio;
+    public AudioObject reloadFailAudio;
 
     public string currentEffect;
     
@@ -39,6 +40,12 @@ public abstract class ReloadableGun : Gun {
         // Check to make sure the gun isnt currently reloading...
         //Debug.Log("Current ammo left: "+ currentAmmoStored);
         if(!isReloading){
+            if (currentAmmoStored == 0) {
+                if (reloadFailAudio != null) {
+                    reloadFailAudio.Play();
+                    return;
+                }
+            }
             // Check to make sure the current clip isnt already fully reloaded
             if(currentClip != maxClipSize){
                 //Debug.Log("Reloading...");

@@ -6,6 +6,7 @@ public class BulletImpact : MonoBehaviour
 {
     Animator animator;
     public Transform transformToReturnTo;
+    public AudioObject impactAudio;
     private void Awake() {
         animator = this.GetComponent<Animator>();
     }
@@ -15,6 +16,9 @@ public class BulletImpact : MonoBehaviour
         }  
     }
     public void EndBulletImpact(){
+        if (impactAudio != null) {
+            impactAudio.Play(-1, this.transform);
+        }
         if(transformToReturnTo != null)
             this.transform.parent = transformToReturnTo;
         this.gameObject.SetActive(false);

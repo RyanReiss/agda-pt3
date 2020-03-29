@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c4443efedb3874df094c8ca363c650b7, type: 3}
   - {fileID: 8300000, guid: 370f1c69576a748e6ae1168722749b37, type: 3}
   pitch: 1
-  volume: 0.746
-  spatialBlend: 1
+  volume: 0.156
+  spatialBlend: 0
   loop: 0
   music: 0

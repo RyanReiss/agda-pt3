@@ -115,3 +115,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformToReturnTo: {fileID: 0}
+  impactAudio: {fileID: 11400000, guid: 65af75ad860c748c9833022ec3dffc47, type: 2}
