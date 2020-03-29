@@ -15,6 +15,7 @@ public class GiantRacoon : BaseEnemyAI
     public GameObject scream;
     public GameObject smash;
     public GameObject rabbit;
+    public GameObject deadBodyToDisplayOnDeath;
     private Health health;
     private bool attackLock = true;
     private string currentAttackName;
@@ -34,6 +35,7 @@ public class GiantRacoon : BaseEnemyAI
         base.Start();
         anim = this.GetComponent<Animator>();
         EnemyAIController.Instance.AddEnemiesToController();
+        this.GetComponent<Health>().m_OnDeath.AddListener(OnBossDeath);
     }
     public override void UpdateEnemy()
     {
@@ -227,7 +229,7 @@ public class GiantRacoon : BaseEnemyAI
             }
         }
         else if (currentState == EnemyState.WaitingForAttackToFinish){
-            if(currentAttackTime + currentAttackTimeTimer < Time.time && (currentAttackName != "charge")){
+            if(currentAttackTime + currentAttackTimeTimer < Time.time && (currentAttackName == "charge")){
                 // End the attack, and put it on cooldown
                 Debug.Log("Setting idle");
                 currentState = EnemyState.Idle;
@@ -281,7 +283,7 @@ public class GiantRacoon : BaseEnemyAI
         }
         anim.SetTrigger("ScreamAttack");
         currentState = EnemyState.WaitingForAttackToFinish;
-        currentAttackTimeTimer = 0.5f;
+        currentAttackTimeTimer = 2f;
     }
 
     public void InstantiateScreamAttack(){
@@ -332,5 +334,14 @@ public class GiantRacoon : BaseEnemyAI
         }
         attackLock = true;
         currentAttackName = "";
+    }
+
+
+    public void OnBossDeath(){
+        foreach(BaseEnemyAI b in EnemyAIController.Instance.currentEnemies){
+            Destroy(b.gameObject);
+        }
+        deadBodyToDisplayOnDeath.transform.position = this.transform.position;
+        deadBodyToDisplayOnDeath.SetActive(true);
     }
 }

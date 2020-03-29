@@ -27,7 +27,8 @@ public class CutsceneObject : MonoBehaviour
             PlaySound,
             MoveCamera,
             WaitForTime,
-            AnimateObject
+            AnimateObject,
+            MovePlayerToObject
         }
         [SerializeField]
         public Action actionToPerform;
@@ -117,6 +118,9 @@ public class CutsceneObject : MonoBehaviour
                         break;
                     case CutSceneAction.Action.PlaySound:
                         StartCoroutine(PlaySound(cutsceneSequence[index].soundToPlay, index));
+                        break;
+                    case CutSceneAction.Action.MovePlayerToObject:
+                        StartCoroutine(MovePlayerToObject(cutsceneSequence[index].focusObject, index));
                         break;
                 }
             } 
@@ -227,6 +231,21 @@ public class CutsceneObject : MonoBehaviour
         if(cutsceneSequence[tempIndex].waitUntilActionFinishes){
             moveToNextAction = true;
         }
+    }
+
+    private IEnumerator MovePlayerToObject(GameObject focusObject, int tempIndex){
+        Debug.Log("moving player to: " + focusObject.transform.position);
+        PlayerController.Instance.SetPlayerLockInPlace(true);
+        while(PlayerController.Instance.transform.position != focusObject.transform.position){
+            PlayerController.Instance.MoveTowardsLocation(focusObject.transform.position);
+            yield return null;
+            Debug.Log("EndOfWhileLoop PlayerPos: " + PlayerController.Instance.transform.position + " : loc = " + focusObject.transform.position);
+        }
+        PlayerController.Instance.SetPlayerLockInPlace(false);
+        if(cutsceneSequence[tempIndex].waitUntilActionFinishes){
+            moveToNextAction = true;
+        }
+        Debug.Log("Leaving Enumerator");
     }
 
     private void OnTriggerStay2D(Collider2D other) {

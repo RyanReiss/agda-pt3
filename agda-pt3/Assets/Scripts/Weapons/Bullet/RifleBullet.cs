@@ -6,7 +6,7 @@ public class RifleBullet : Bullet {
     // Start is called before the first frame update
     void Start () {
         bulletSpeed = 60f;
-        damageToGive = 1.5f;
+        damageToGive = 5f;
         //effect = this.gameObject.AddComponent<NoEffect> ();
         SetEffect(effectName);
         timeToDie = 1.0f;

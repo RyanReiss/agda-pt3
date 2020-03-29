@@ -12,24 +12,29 @@ public class SceneChanger : MonoBehaviour
     GameObject player;
     private float msUntilUnlocked;
     private float waitTime = 0.02f;
+    private bool sceneChangerStarted;
     void Start() {
         player = GameObject.Find("Player");  
         msUntilUnlocked = 0;
+        sceneChangerStarted = false;
     }
     void Update(){
         msUntilUnlocked++;
     }
-    public void OnTriggerEnter2D(Collider2D col){
-        //Debug.Log(msUntilUnlocked);
-        if(col.GetComponent<PlayerController>() != null && msUntilUnlocked/1000f > waitTime){
-            Debug.Log("Player Entered new scene!");
-            StartCoroutine(ScreenFadeController.Instance.FadeToNewLevel(sceneName, location));
-            //player.transform.position = location;
-            //SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-            Debug.Log("Loaded Scene: " + sceneName);
-            if(GlobalGameSettings.Instance.allRoomsInGame.ContainsKey(startingRoom)){
-                GlobalGameSettings.Instance.allRoomsInGame.Remove(startingRoom);
-                GlobalGameSettings.Instance.allRoomsInGame.Add(startingRoom,false);
+    public void OnTriggerStay2D(Collider2D col){
+        if(!sceneChangerStarted){
+            //Debug.Log(msUntilUnlocked);
+            if(col.GetComponent<PlayerController>() != null && msUntilUnlocked/1000f > waitTime){
+                sceneChangerStarted = true;
+                Debug.Log("Player Entered new scene!");
+                StartCoroutine(ScreenFadeController.Instance.FadeToNewLevel(sceneName, location));
+                //player.transform.position = location;
+                //SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+                Debug.Log("Loaded Scene: " + sceneName);
+                if(GlobalGameSettings.Instance.allRoomsInGame.ContainsKey(startingRoom)){
+                    GlobalGameSettings.Instance.allRoomsInGame.Remove(startingRoom);
+                    GlobalGameSettings.Instance.allRoomsInGame.Add(startingRoom,false);
+                }
             }
         }
     }

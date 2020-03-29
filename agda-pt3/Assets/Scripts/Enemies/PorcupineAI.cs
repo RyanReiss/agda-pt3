@@ -17,7 +17,7 @@ public class PorcupineAI : BaseEnemyAI
         base.Start();
         anim = this.GetComponent<Animator>();
         startPreAttackTime = -timeBetweenAttacks;
-        this.GetComponent<Health>().m_OnDeath.AddListener(ShootOutSpikes);
+        //this.GetComponent<Health>().m_OnDeath.AddListener(ShootOutSpikes);
     }
     public override void UpdateEnemy()
     {

@@ -11,6 +11,7 @@ public class RabbitAI : BaseEnemyAI
     protected float attackCooldown;
     protected Animator anim;
     Vector3 direction = Vector3.right; // Set the default direction of the enemy (for animation)
+    private bool isAttackSpotSet = false;
 
     protected override void Start() {
         base.Start();
@@ -38,6 +39,10 @@ public class RabbitAI : BaseEnemyAI
         // - While jumping in animation, move character quickly, almost as if they are dashing at the player.
         // - Hopefull this will look good in game
         anim.SetBool("EnemyAttacking", true);
+        if(!isAttackSpotSet){
+            isAttackSpotSet = true;
+            locationToAttack = this.transform.position + ((targetToAttack.transform.position + (Vector3)targetToAttack.GetComponent<Collider2D>().offset) - this.transform.position)*2f;
+        }
         transform.position = Vector2.MoveTowards(transform.position, locationToAttack, attackSpeed * Time.deltaTime);
         if(transform.position == locationToAttack){
             FinishJumpAnimation();
@@ -47,6 +52,7 @@ public class RabbitAI : BaseEnemyAI
             attackCooldown = Time.time;
             //Debug.Log("Ending Attack...");
             anim.SetBool("EnemyAttacking", false);
+            isAttackSpotSet = false;
         }
     }
 
@@ -63,7 +69,7 @@ public class RabbitAI : BaseEnemyAI
             // Start Attacking
             //Debug.Log("Starting Attack...");
             currentState = EnemyState.Attacking;
-            locationToAttack = targetToAttack.position;
+            //locationToAttack = targetToAttack.position;
             currentAttackTime = Time.time;
             
         }
@@ -114,6 +120,7 @@ public class RabbitAI : BaseEnemyAI
             currentState = EnemyState.Idle;
             attackCooldown = Time.time;
         }
+        isAttackSpotSet = false;
         anim.SetBool("EnemyAttacking", false);
     }
 }

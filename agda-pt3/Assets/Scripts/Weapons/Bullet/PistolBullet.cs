@@ -10,7 +10,7 @@ public class PistolBullet : Bullet {
     // Start is called before the first frame update
     void Start () {
         bulletSpeed = 40f;
-        damageToGive = 1f;
+        damageToGive = 5f;
         SetEffect (effectName);
         //Debug.Log("Current Starting Effect: " + effectName);
         // effect = this.gameObject.AddComponent<NoEffect> ();

@@ -53,6 +53,8 @@ public class DropTableController : MonoBehaviour
         Drop shotgunAmmoDrop_10 = CreateDrop("shotgunAmmoDrop_10", shotgunAmmoDropPrefab, 10f);
         Drop pistolAmmoDrop_10 = CreateDrop("pistolAmmoDrop_10", pistolAmmoDropPrefab, 10f);
         Drop pistolAmmoDrop_20 = CreateDrop("pistolAmmoDrop_20", pistolAmmoDropPrefab, 20f);
+        Drop rifleAmmoDrop_10 = CreateDrop("rifleAmmoDrop_10", rifleAmmoDropPrefab, 10f);
+        Drop rifleAmmoDrop_20 = CreateDrop("rifleAmmoDrop_20", rifleAmmoDropPrefab, 20f);
         Drop explosiveDrop = CreateDrop("explosiveDrop", explosiveBulletEffectDropPrefab, 1f);
 
         // Drop Tables:
@@ -60,10 +62,12 @@ public class DropTableController : MonoBehaviour
 
         //Test Drop Table
         DropTable test = CreateDropTable("TestDropTable");
-        test.dropTable.Add(shotgunAmmoDrop_5,20f);
+        test.dropTable.Add(shotgunAmmoDrop_5,10f);
         test.dropTable.Add(shotgunAmmoDrop_10,10f);
-        test.dropTable.Add(pistolAmmoDrop_10,20f);
+        test.dropTable.Add(pistolAmmoDrop_10,10f);
         test.dropTable.Add(pistolAmmoDrop_20,10f);
+        test.dropTable.Add(rifleAmmoDrop_10,10f);
+        test.dropTable.Add(rifleAmmoDrop_20,10f);
         dropTables.Add(test);
 
         // Porcupine with explosives (Cutscene)

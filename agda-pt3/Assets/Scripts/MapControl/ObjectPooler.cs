@@ -27,6 +27,18 @@ public class ObjectPooler : MonoBehaviour
                 return pooledObjects[i];
             }
         }
+        CheckSizeOfPool();
         return null;
-}
+    }
+
+    public void CheckSizeOfPool(){
+        if(pooledObjects.Count < amountToPool){
+            while(pooledObjects.Count < amountToPool){
+                GameObject obj = (GameObject)Instantiate(objectToPool);
+                obj.SetActive(false);
+                pooledObjects.Add(obj);
+                obj.transform.parent = this.transform;
+            }
+        }
+    }
 }

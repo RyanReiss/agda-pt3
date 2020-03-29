@@ -7,7 +7,7 @@ public class ShotGunBullet : Bullet {
 
     void Start () {
         bulletSpeed = 70f;
-        damageToGive = 1.667f;
+        damageToGive = 4.16666667f;
         SetEffect(effectName);
         timeToDie = 1.0f;
     }

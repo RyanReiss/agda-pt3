@@ -8,7 +8,7 @@ public class Flame : Bullet {
 
     void Start () {
         bulletSpeed = 0f;
-        damageToGive = 1.5f;
+        damageToGive = 3f;
         SetEffect(effectName);
         timeToDie = 0.3f;
     }

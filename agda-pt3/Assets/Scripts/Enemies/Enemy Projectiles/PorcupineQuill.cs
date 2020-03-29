@@ -6,7 +6,7 @@ public class PorcupineQuill : Bullet
 {
 
     void Start () {
-        bulletSpeed = 5f;
+        bulletSpeed = 4f;
         damageToGive = 1f;
         //effect = this.gameObject.AddComponent<NoEffect> ();
         SetEffect(effectName);

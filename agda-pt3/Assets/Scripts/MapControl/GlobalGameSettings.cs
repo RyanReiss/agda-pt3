@@ -108,7 +108,16 @@ public class GlobalGameSettings : MonoBehaviour
             case "House-f2":
                 PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
                 break;
+            case "House-f2-pre":
+                PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
+                break;
             case "Barn":
+                PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
+                break;
+            case "Barn2":
+                PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
+                break;
+            case "Barn3":
                 PlayerController.Instance.transform.localScale = new Vector3(3f,3f,1f);
                 break;
             default:
