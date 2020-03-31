@@ -1,4 +1,4 @@
-# agda-pt3
+# Contaminated
 Project Team Three's repository for developing our top down shooter titled Contaminated.
 
 Link to project documentation:
